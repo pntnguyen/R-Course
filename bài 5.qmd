@@ -1,0 +1,60 @@
+---
+title: "Bài 5"
+subtitle: "Control structure"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+---
+
+## if-else
+- Nếu kiểm tra điều kiện là TRUE thì sẽ thực hiện hành động trong dấu {},
+- Nếu tất cả điều kiện đều không thỏa thì sẽ thực hiện hành động trong cụm else {}
+````
+if(điều kiện) {
+ <hành động 1>
+} else{
+ <hành động 2>
+}
+````
+## if-else
+
+- Nếu có nhiều điều kiện thì dùng else if, R sẽ tiếp tục kiểm ra điều kiện
+````
+if(điều kiện) {
+ <hành động 1>
+} else if(điều kiện 2) {
+ <hành động 2>
+} else {
+ <hành động 3>
+}
+````
+## if-else
+```{r}
+#| echo: true
+x <- 5
+x >= 7
+if(x >= 7){
+  print("x>=7")
+} else {
+  print("x< 7")
+}
+```
+
+## if-else
+```{r error: true}
+#| echo: true
+#| warning: true 
+x <- c(5,10)
+x >= 7 
+if(x >= 7){
+  print("x>=7")
+} else {
+  print("x< 7")
+}
+```
+
+
+
+
+
+
+

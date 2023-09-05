@@ -1,0 +1,653 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R programming course",
+    "section": "",
+    "text": "Mục tiêu khóa học:"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Thông tin về nhóm thực hiện"
+  },
+  {
+    "objectID": "bài 1.html",
+    "href": "bài 1.html",
+    "title": "Bài 1",
+    "section": "",
+    "text": "R là một ngôn ngữ lập trình có nguồn gốc từ ngôn ngữ S\nMã nguồn mở: không mất phí sử dụng\nLà ngôn ngữ truyền thống cho phân tích thống kê trong nghiên cứu y sinh (biostatistics ), tin sinh (bioinformatics), dịch tễ…\nNổi tiếng với khả năng tạo các biểu đồ chất lượng cao (publication quality)\nCó nhiều gói mở rộng (packages) đầy đủ chức năng phân tích thống kê, machine learning, thiết kế web…"
+  },
+  {
+    "objectID": "bài 1.html#r-là-gì",
+    "href": "bài 1.html#r-là-gì",
+    "title": "Bài 1",
+    "section": "R là gì?",
+    "text": "R là gì?\n\nR là một ngôn ngữ lập trình có nguồn gốc từ ngôn ngữ S\nMã nguồn mở: không mất phí sử dụng\nLà ngôn ngữ truyền thống cho phân tích thống kê trong nghiên cứu y sinh (biostatistics ), tin sinh (bioinformatics), dịch tễ…\nNổi tiếng với khả năng tạo các biểu đồ chất lượng cao (publication quality)\nCó nhiều gói mở rộng (packages) đầy đủ chức năng phân tích thống kê, machine learning, thiết kế web…"
+  },
+  {
+    "objectID": "bài 1.html#lịch-sử-r",
+    "href": "bài 1.html#lịch-sử-r",
+    "title": "Bài 1",
+    "section": "Lịch sử R",
+    "text": "Lịch sử R\n\n1991: R được phát triển bởi Ross Ihaka và Robert Gentleman ở Khoa Thống kê, Đại học Auckland\n1993: Phát hành R cho công chúng\n1996: Phát hành bài báo về kinh nghiệm và quá trình phát triển R trên tập san Journal of Computational and Graphical Statistics"
+  },
+  {
+    "objectID": "bài 1.html#ưu-nhược-điểm",
+    "href": "bài 1.html#ưu-nhược-điểm",
+    "title": "Bài 1",
+    "section": "Ưu, nhược điểm",
+    "text": "Ưu, nhược điểm\nƯu điểm\n\nR “base” đã có sẵn các công cụ để phân tích thống kê, giả lập, vẽ biểu đồ\nRất nhiều packages (17,000 packages trên CRAN, 2000 packages trên Bioconductor) giải quyết hầu hết mọi vấn đề"
+  },
+  {
+    "objectID": "bài 1.html#ưu-nhược-điểm-1",
+    "href": "bài 1.html#ưu-nhược-điểm-1",
+    "title": "Bài 1",
+    "section": "Ưu, nhược điểm",
+    "text": "Ưu, nhược điểm\nNhược điểm\n\nR được phát triển từ ngôn ngữ S (50 năm tuổi)\nR chiếm nhiều bộ nhớ máy tính (memory) hơn các ngôn ngữ khác, tuy nhiên với bộ nhớ máy tính hiện nay so với các dữ liệu nghiên cứu y sinh thông thường thì đây không phải vấn đề lớn\nPhải biết 1 ít về lập trình và tư duy lập trình để sử dụng (vừa là ưu điểm vừa là nhược điểm)"
+  },
+  {
+    "objectID": "bài 1.html#cài-đặt-r",
+    "href": "bài 1.html#cài-đặt-r",
+    "title": "Bài 1",
+    "section": "Cài đặt R",
+    "text": "Cài đặt R\n\n\nWindows: https://cran.r-project.org/bin/windows/base/\n\n\n\n\nMacOS: https://cran.r-project.org/bin/macosx/"
+  },
+  {
+    "objectID": "bài 1.html#cài-đặt-r-1",
+    "href": "bài 1.html#cài-đặt-r-1",
+    "title": "Bài 1",
+    "section": "Cài đặt R",
+    "text": "Cài đặt R"
+  },
+  {
+    "objectID": "bài 1.html#cài-đặt-r-2",
+    "href": "bài 1.html#cài-đặt-r-2",
+    "title": "Bài 1",
+    "section": "Cài đặt R",
+    "text": "Cài đặt R"
+  },
+  {
+    "objectID": "bài 1.html#cài-đặt-r-3",
+    "href": "bài 1.html#cài-đặt-r-3",
+    "title": "Bài 1",
+    "section": "Cài đặt R",
+    "text": "Cài đặt R"
+  },
+  {
+    "objectID": "bài 1.html#cài-đặt-r-4",
+    "href": "bài 1.html#cài-đặt-r-4",
+    "title": "Bài 1",
+    "section": "Cài đặt R",
+    "text": "Cài đặt R"
+  },
+  {
+    "objectID": "bài 1.html#cài-đặt-r-5",
+    "href": "bài 1.html#cài-đặt-r-5",
+    "title": "Bài 1",
+    "section": "Cài đặt R",
+    "text": "Cài đặt R"
+  },
+  {
+    "objectID": "bài 1.html#rstudio",
+    "href": "bài 1.html#rstudio",
+    "title": "Bài 1",
+    "section": "RStudio",
+    "text": "RStudio\n\nGiao diện người dùng tiện lợi cho R\nViết code và chạy thử code, nhận kết quả, biểu đồ ngay trên các cửa sổ, không phải chuyển đổi qua lại\nTính năng tự động hoàn thành, gợi ý câu lệnh, gợi ý các arguments (autocomplete)\nTích hợp hoàn thiện các tính năng phụ trợ cho R: shiny, R Markdown"
+  },
+  {
+    "objectID": "bài 1.html#rstudio-1",
+    "href": "bài 1.html#rstudio-1",
+    "title": "Bài 1",
+    "section": "RStudio",
+    "text": "RStudio\n\nhttps://posit.co/"
+  },
+  {
+    "objectID": "bài 1.html#rstudio-2",
+    "href": "bài 1.html#rstudio-2",
+    "title": "Bài 1",
+    "section": "RStudio",
+    "text": "RStudio"
+  },
+  {
+    "objectID": "bài 1.html#rstudio-3",
+    "href": "bài 1.html#rstudio-3",
+    "title": "Bài 1",
+    "section": "RStudio",
+    "text": "RStudio"
+  },
+  {
+    "objectID": "bài 1.html#rstudio-4",
+    "href": "bài 1.html#rstudio-4",
+    "title": "Bài 1",
+    "section": "RStudio",
+    "text": "RStudio"
+  },
+  {
+    "objectID": "bài 1.html#rstudio-5",
+    "href": "bài 1.html#rstudio-5",
+    "title": "Bài 1",
+    "section": "RStudio",
+    "text": "RStudio"
+  },
+  {
+    "objectID": "bài 1.html#rstudio-6",
+    "href": "bài 1.html#rstudio-6",
+    "title": "Bài 1",
+    "section": "RStudio",
+    "text": "RStudio"
+  },
+  {
+    "objectID": "bài 1.html#mục-tiêu-phần-lập-trình-r",
+    "href": "bài 1.html#mục-tiêu-phần-lập-trình-r",
+    "title": "Bài 1",
+    "section": "Mục tiêu phần lập trình R",
+    "text": "Mục tiêu phần lập trình R\n\nHiểu được các loại dữ liệu của R – nguyên nhân của nhiều loại lỗi xảy ra khi sử dụng R, để xử lý và tránh các lỗi thường gặp\nHiểu cách đọc dữ liệu để làm việc với nhiều loại file khác nhau, hiểu cách ghi dữ liệu để ghi file kết quả, không phải copy từng kết quả một từ cửa sổ RStudio"
+  },
+  {
+    "objectID": "bài 1.html#mục-tiêu-phần-lập-trình-r-1",
+    "href": "bài 1.html#mục-tiêu-phần-lập-trình-r-1",
+    "title": "Bài 1",
+    "section": "Mục tiêu phần lập trình R",
+    "text": "Mục tiêu phần lập trình R\n\nHiểu cách làm việc với data frame – loại container quan trọng nhất của R khi xử lý số liệu (data analysis) và học khoa học dữ liệu (data science)\nHiểu và vận dụng được các cấu trúc điều khiển (if-else, for loop, next, break), cách viết lệnh của R, sử dụng các hàm apply để tự động hóa công việc và tự lập trình được tiến trình (pipeline) tự động, tiết kiệm thời gian và tránh sai sót"
+  },
+  {
+    "objectID": "bài 2.html#các-dạng-dữ-liệu-trong-r",
+    "href": "bài 2.html#các-dạng-dữ-liệu-trong-r",
+    "title": "Bài 2",
+    "section": "Các dạng dữ liệu trong R",
+    "text": "Các dạng dữ liệu trong R\n\nMỗi giá trị trong R sẽ được quy định là loại giá trị gì (type) để sử dụng trong việc xử lý, có 5 loại giá trị chính:\n\nCharacter: dạng chuỗi, ký tự, đặt trong dấu ” ”\nNumeric: số thực\nLogical: TRUE/FALSE (có thể viết tắt là T/F)\nInteger: số nguyên\nComplex: số phức\n\nThường sử dụng: character, numeric và logical"
+  },
+  {
+    "objectID": "bài 2.html#các-dạng-dữ-liệu-trong-r-1",
+    "href": "bài 2.html#các-dạng-dữ-liệu-trong-r-1",
+    "title": "Bài 2",
+    "section": "Các dạng dữ liệu trong R",
+    "text": "Các dạng dữ liệu trong R\n\nCó 3 lệnh để xem loại giá trị của 1 biến: str(), class() và mode()\n\n\nx <- 1\nstr(x)\n\n num 1\n\nclass(x)\n\n[1] \"numeric\"\n\nmode(x)\n\n[1] \"numeric\""
+  },
+  {
+    "objectID": "bài 2.html#các-dạng-dữ-liệu-trong-r-2",
+    "href": "bài 2.html#các-dạng-dữ-liệu-trong-r-2",
+    "title": "Bài 2",
+    "section": "Các dạng dữ liệu trong R",
+    "text": "Các dạng dữ liệu trong R\n\nCó 3 lệnh để xem loại giá trị của 1 biến: str(), class() và mode()\n\n\n\nx <- \"a\"\nstr(x)\n\n chr \"a\"\n\nclass(x)\n\n[1] \"character\"\n\nmode(x)\n\n[1] \"character\""
+  },
+  {
+    "objectID": "bài 2.html#các-dạng-dữ-liệu-trong-r-3",
+    "href": "bài 2.html#các-dạng-dữ-liệu-trong-r-3",
+    "title": "Bài 2",
+    "section": "Các dạng dữ liệu trong R",
+    "text": "Các dạng dữ liệu trong R\n\nCó 3 lệnh để xem loại giá trị của 1 biến: str(), class() và mode()\n\n\n\nx <- T\nstr(x)\n\n logi TRUE\n\nclass(x)\n\n[1] \"logical\"\n\nmode(x)\n\n[1] \"logical\""
+  },
+  {
+    "objectID": "bài 2.html#r-containers",
+    "href": "bài 2.html#r-containers",
+    "title": "Bài 2",
+    "section": "R containers",
+    "text": "R containers\n\nCác biến chứa các phần tử cũng được chia thành nhiều loại:\n\nVector\nFactor\nMatrix\nDataframe\nList\n\nLệnh class() có thể cho biết container này là loại gì, nhưng chủ yếu phân biệt các loại container bằng dạng hiển thị của chúng sẽ nhanh hơn"
+  },
+  {
+    "objectID": "bài 2.html#r-containers-1",
+    "href": "bài 2.html#r-containers-1",
+    "title": "Bài 2",
+    "section": "R containers",
+    "text": "R containers\n\n\nVector, factor, matrix: chứa data phải cùng thuộc 1 type\nList, dataframe: chứa data thuộc nhiều types khác nhau"
+  },
+  {
+    "objectID": "bài 2.html#vector",
+    "href": "bài 2.html#vector",
+    "title": "Bài 2",
+    "section": "Vector",
+    "text": "Vector\n\nTạo vector bằng lệnh c(các giá trị thuộc vector,…)\n\n\nv <- c(1,2,3)\nstr(v)\n\n num [1:3] 1 2 3\n\n\n\nCác giá trị thuộc vector này đều là numeric nên khi xem structure của vector này thì cho là numeric\n\n\nv <- c(1, 2, 3, \"a\")\nstr(v)\n\n chr [1:4] \"1\" \"2\" \"3\" \"a\"\n\n\n\nChú ý: R quy định các giá trị trong vector phải cùng thuộc 1 loại, vậy nếu có vừa ký tự vừa số thì R sẽ tự quy định là vector thuộc dạng character và chuyển các số thành character"
+  },
+  {
+    "objectID": "bài 2.html#vector-1",
+    "href": "bài 2.html#vector-1",
+    "title": "Bài 2",
+    "section": "Vector",
+    "text": "Vector\n\nQuy tắc chuyển đổi (coercion):\n\nMọi loại data đều có thể chuyển thành character, nhưng ngược lại thì có thể sẽ không được\nLogical có thể chuyển thành numeric theo quy ước TRUE=1, FALSE=0"
+  },
+  {
+    "objectID": "bài 2.html#factor",
+    "href": "bài 2.html#factor",
+    "title": "Bài 2",
+    "section": "Factor",
+    "text": "Factor\n\nFactor là 1 vector chứa các ký tự (character), nhưng mỗi ký tự được mã hóa thành 1 số nguyên\nRất giống với quy định khi nhập liệu bộ câu hỏi"
+  },
+  {
+    "objectID": "bài 2.html#factor-1",
+    "href": "bài 2.html#factor-1",
+    "title": "Bài 2",
+    "section": "Factor",
+    "text": "Factor\n\nChuyển từ vector bình thường thành factor bằng lệnh factor(vector) hoặc as.factor(vector)\nCác mô hình hồi quy sẽ yêu cầu dữ liệu đầu vào là dạng factor thì mới thực thi được\n\n\nv <- c(\"nam\", \"nu\", \"nam\", \"nu\", \"nu\")\nf <- factor(v)\nclass(f)\n\n[1] \"factor\"\n\nf\n\n[1] nam nu  nam nu  nu \nLevels: nam nu"
+  },
+  {
+    "objectID": "bài 2.html#matrix",
+    "href": "bài 2.html#matrix",
+    "title": "Bài 2",
+    "section": "Matrix",
+    "text": "Matrix\n\nMatrix là container có 2 chiều: hàng và cột\nTạo matrix bằng lệnh matrix(giá trị, nrow = số hàng, ncol = số cột)\nLệnh này sẽ tạo ra 1 bảng có 2 hàng, 3 cột và điền lần lượt các giá trị từ trên xuống dưới, trái sang phải (điền theo cột)\n\n\nm <- matrix(1:6, nrow = 2, ncol = 3)\nm\n\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6"
+  },
+  {
+    "objectID": "bài 2.html#matrix-1",
+    "href": "bài 2.html#matrix-1",
+    "title": "Bài 2",
+    "section": "Matrix",
+    "text": "Matrix\n\nGiống như vector, data trong matrix phải cùng 1 loại\nCó thể tạo matrix bằng cách ghép nhiều vectors lại, lưu ý: các vector phải cùng 1 data type mới có thể ghép thành matrix"
+  },
+  {
+    "objectID": "bài 2.html#matrix-2",
+    "href": "bài 2.html#matrix-2",
+    "title": "Bài 2",
+    "section": "Matrix",
+    "text": "Matrix\nGhép theo cột bằng cbind\n\nx <- 1:3\ny <- 10:12\nm <- cbind(x, y)\nm\n\n     x  y\n[1,] 1 10\n[2,] 2 11\n[3,] 3 12\n\nclass(m)\n\n[1] \"matrix\" \"array\""
+  },
+  {
+    "objectID": "bài 2.html#matrix-3",
+    "href": "bài 2.html#matrix-3",
+    "title": "Bài 2",
+    "section": "Matrix",
+    "text": "Matrix\nGhép theo cột bằng rbind\n\nx <- 1:3\ny <- 10:12\nm <- rbind(x, y)\nm\n\n  [,1] [,2] [,3]\nx    1    2    3\ny   10   11   12\n\nclass(m)\n\n[1] \"matrix\" \"array\""
+  },
+  {
+    "objectID": "bài 2.html#data-frame",
+    "href": "bài 2.html#data-frame",
+    "title": "Bài 2",
+    "section": "Data frame",
+    "text": "Data frame\n\nDạng bảng biểu giống như bảng Excel\nLoại container quan trọng trong xử lý dữ liệu với R\nMỗi cột là 1 vector (cùng 1 loại data type), vì vậy có thể ghép các vectors thành data frame như matrix, nhưng các vectors khác data type vẫn có thể ghép chứ không như matrix"
+  },
+  {
+    "objectID": "bài 2.html#data-frame-1",
+    "href": "bài 2.html#data-frame-1",
+    "title": "Bài 2",
+    "section": "Data frame",
+    "text": "Data frame\n\nTạo data frame bằng lệnh data.frame\n\n\nx <- 1:3 \ny <- c(\"r\", \"s\", \"t\")\nz <- c(T, F, T)\ndf <- data.frame(x, y, z)\nclass(df)\n\n[1] \"data.frame\"\n\ndf\n\n  x y     z\n1 1 r  TRUE\n2 2 s FALSE\n3 3 t  TRUE"
+  },
+  {
+    "objectID": "bài 2.html#data-frame-2",
+    "href": "bài 2.html#data-frame-2",
+    "title": "Bài 2",
+    "section": "Data frame",
+    "text": "Data frame\n\nLấy các cột ra bằng dấu $, mỗi cột sẽ là 1 vector (sẽ hướng dẫn cụ thể ở Bài 4: thao tác với data frame)\n\n\nx <- 1:3 \ny <- c(\"r\", \"s\", \"t\")\nz <- c(T, F, T)\ndf$x\n\n[1] 1 2 3\n\ndf$y\n\n[1] \"r\" \"s\" \"t\"\n\nclass(df$x)\n\n[1] \"integer\""
+  },
+  {
+    "objectID": "bài 2.html#data-frame-3",
+    "href": "bài 2.html#data-frame-3",
+    "title": "Bài 2",
+    "section": "Data frame",
+    "text": "Data frame\n\nĐặt tên cho các cột bằng lệnh colnames()\n\n\ncolnames(df) <- c(\"a\",\"b\",\"c\")\ndf\n\n  a b     c\n1 1 r  TRUE\n2 2 s FALSE\n3 3 t  TRUE\n\n\n\nĐặt tên cho các hàng bằng lệnh rownames()\n\n\nrownames(df) <- c(\"one\",\"two\",\"three\")\ndf\n\n      a b     c\none   1 r  TRUE\ntwo   2 s FALSE\nthree 3 t  TRUE"
+  },
+  {
+    "objectID": "bài 2.html#data-frame-4",
+    "href": "bài 2.html#data-frame-4",
+    "title": "Bài 2",
+    "section": "Data frame",
+    "text": "Data frame\n\nĐặt tên cho các hàng bằng lệnh rownames()\n\n\nrownames(df) <- c(\"one\",\"two\",\"three\")\ndf\n\n      a b     c\none   1 r  TRUE\ntwo   2 s FALSE\nthree 3 t  TRUE"
+  },
+  {
+    "objectID": "bài 2.html#list",
+    "href": "bài 2.html#list",
+    "title": "Bài 2",
+    "section": "List",
+    "text": "List\n\nList là 1 container đặc biệt, có thể chứa tất cả các loại containers khác trong 1 list\nTạo list bằng lệnh list() Thường sử dụng list để kết hợp với các lệnh trong họ apply() để thực hiện lệnh cho từng phần tử trong list => tự động hóa công việc"
+  },
+  {
+    "objectID": "bài 2.html#list-1",
+    "href": "bài 2.html#list-1",
+    "title": "Bài 2",
+    "section": "List",
+    "text": "List\n\nl <- list(x, m,df)\nl\n\n[[1]]\n[1] 1 2 3\n\n[[2]]\n  [,1] [,2] [,3]\nx    1    2    3\ny   10   11   12\n\n[[3]]\n      a b     c\none   1 r  TRUE\ntwo   2 s FALSE\nthree 3 t  TRUE"
+  },
+  {
+    "objectID": "bài 2.html#r-data-types",
+    "href": "bài 2.html#r-data-types",
+    "title": "Bài 2",
+    "section": "R data types",
+    "text": "R data types\n\nMỗi giá trị trong R sẽ được quy định là loại giá trị gì (type) để sử dụng trong việc xử lý, có 5 loại giá trị chính:\n\nCharacter: dạng chuỗi, ký tự, đặt trong dấu ” ”\nNumeric: số thực\nLogical: TRUE/FALSE (có thể viết tắt là T/F)\nInteger: số nguyên\nComplex: số phức\n\nThường sử dụng: character, numeric và logical"
+  },
+  {
+    "objectID": "bài 2.html#r-data-types-1",
+    "href": "bài 2.html#r-data-types-1",
+    "title": "Bài 2",
+    "section": "R data types",
+    "text": "R data types\n\nCó 3 lệnh để xem loại giá trị của 1 biến: str(), class() và mode()\n\n\nx <- 1\nstr(x)\n\n num 1\n\nclass(x)\n\n[1] \"numeric\"\n\nmode(x)\n\n[1] \"numeric\""
+  },
+  {
+    "objectID": "bài 2.html#r-data-types-2",
+    "href": "bài 2.html#r-data-types-2",
+    "title": "Bài 2",
+    "section": "R data types",
+    "text": "R data types\n\nCó 3 lệnh để xem loại giá trị của 1 biến: str(), class() và mode()\n\n\n\nx <- \"a\"\nstr(x)\n\n chr \"a\"\n\nclass(x)\n\n[1] \"character\"\n\nmode(x)\n\n[1] \"character\""
+  },
+  {
+    "objectID": "bài 2.html#r-data-types-3",
+    "href": "bài 2.html#r-data-types-3",
+    "title": "Bài 2",
+    "section": "R data types",
+    "text": "R data types\n\nCó 3 lệnh để xem loại giá trị của 1 biến: str(), class() và mode()\n\n\n\nx <- T\nstr(x)\n\n logi TRUE\n\nclass(x)\n\n[1] \"logical\"\n\nmode(x)\n\n[1] \"logical\""
+  },
+  {
+    "objectID": "bài 2.html#r-data-types-and-error",
+    "href": "bài 2.html#r-data-types-and-error",
+    "title": "Bài 2",
+    "section": "R data types and error",
+    "text": "R data types and error\n\nNguyên nhân của đa số các lỗi thường gặp ở người mới sử dụng R là do không nắm rõ loại dữ liệu\nCần phải biết dữ liệu thuộc loại gì để thực hiện tính toán hay xử lý phù hợp, ví dụ:\n\nCharacter: tách chữ đầu, chữ cuối, tìm ký tự trong chuỗi\nNumeric: tính toán các phép tính, so sánh lớn hơn, nhỏ hơn theo số học\nLogical: các hàm thực thi khi tất cả đều đúng (all), ít nhất một giá trị là đúng (any)"
+  },
+  {
+    "objectID": "bài 2.html#r-data-types-and-error-1",
+    "href": "bài 2.html#r-data-types-and-error-1",
+    "title": "Bài 2",
+    "section": "R data types and error",
+    "text": "R data types and error\n\nCác lệnh thường yêu cầu dữ liệu đầu vào (input data) phải thuộc đúng 1 loại nào đó thì mới thực thi được\nNgoài các loại dữ liệu cơ bản được trình bày trong bài này, 1 số packages khác tự quy định các loại dữ liệu đặc thù riêng, ví dụ:\n\nData table (package data.table)\nGRanges (package GenomicRanges)\n\nDo đó khi lập trình hay phân tích dữ liệu, luôn phải chú ý đến loại dữ liệu để tránh gặp lỗi"
+  },
+  {
+    "objectID": "bài 3.html#đọc-dữ-liệu",
+    "href": "bài 3.html#đọc-dữ-liệu",
+    "title": "Bài 3",
+    "section": "Đọc dữ liệu",
+    "text": "Đọc dữ liệu\n\nCác lệnh thường dùng:\nread.table(), read.csv(): data dạng bảng\nfread() (trong package data.table): giống như read.table() nhưng tốc độ đọc nhanh hơn\nreadLines(): dạng văn bản (text)\nsource(): data R code (file.R)\nload(): data R workspace (file.RData, file.rda)\nreadRDS(): data R object (file.rds)"
+  },
+  {
+    "objectID": "bài 3.html#read.table",
+    "href": "bài 3.html#read.table",
+    "title": "Bài 3",
+    "section": "read.table()",
+    "text": "read.table()\n\nread.table(file, header = FALSE, sep = ““, na.strings =”NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)\n\nĐọc file dạng bảng vào thành 1 data frame\nLưu ý: lệnh chỉ đọc file dạng text như .csv, .tsv, .txt, không đọc được file excel vì excel như (.xls, .xlsx) là binary format\nfile: đường dẫn tới file, để tránh lỗi nên đặt tên file, tất cả folder dẫn tới file này dưới dạng không dấu, không khoảng trắng"
+  },
+  {
+    "objectID": "bài 3.html#read.table-1",
+    "href": "bài 3.html#read.table-1",
+    "title": "Bài 3",
+    "section": "read.table()",
+    "text": "read.table()\n\nread.table(file, header = FALSE, sep = ““, na.strings =”NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)\n\nheader = TRUE: lấy hàng đầu tiên làm tên cột, nếu chọn header = FALSE thì tên cột sẽ tự động tạo dạng V1, V2, V3…\nsep: giữa các cột ngăn cách nhau bằng gì, có thể là sep = “,“ (dấu , của dạng .csv), sep = “ (phím tab của dạng tsv)…"
+  },
+  {
+    "objectID": "bài 3.html#read.table-2",
+    "href": "bài 3.html#read.table-2",
+    "title": "Bài 3",
+    "section": "read.table()",
+    "text": "read.table()\n\nread.table(file, header = FALSE, sep = ““, na.strings =”NA”, check.names = TRUE, stringsAsFactors = TRUE)\n\nna.strings: missing value trong file được ký hiệu là gì\ncheck.names: nếu hàng đầu tiên được dùng làm tên cột (header = TRUE) và chọn check.names = TRUE, R sẽ kiểm tra xem tên cột này có đúng với quy định của R không, ví dụ tên cột không được là số, nếu là số thì sẽ tự động thêm chữ X vào; nếu chọn check.names = FALSE thì sẽ giữ nguyên\nstringsAsFactors: mặc định = TRUE, cột data loại ký tự sẽ được chuyển thành factor"
+  },
+  {
+    "objectID": "bài 3.html#read.table-3",
+    "href": "bài 3.html#read.table-3",
+    "title": "Bài 3",
+    "section": "read.table()",
+    "text": "read.table()\n\nread.table(file, header = FALSE, sep = ““, na.strings =”NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)\n\nheader = TRUE: lấy hàng đầu tiên làm tên cột, nếu chọn header = FALSE thì tên cột sẽ tự động tạo dạng V1, V2, V3…\nsep: giữa các cột ngăn cách nhau bằng gì, có thể là sep = “,“ (dấu , của dạng .csv), sep = “ (phím tab của dạng tsv)…"
+  },
+  {
+    "objectID": "bài 3.html#đọc-dữ-liệu-1",
+    "href": "bài 3.html#đọc-dữ-liệu-1",
+    "title": "Bài 3",
+    "section": "Đọc dữ liệu",
+    "text": "Đọc dữ liệu\n\nKhả năng quản lý bộ nhớ của R kém hơn các ngôn ngữ lập trình khác, khi đọc cùng 1 data thì R tốn nhiều dung lượng RAM hơn các ngôn ngữ khác nhiều\nVới các dữ liệu nhỏ vài trăm MB thì bộ nhớ RAM không thành vấn đề, tuy nhiên với các dữ liệu lớn thì nên tính toán trước xem có đủ RAM để đọc dữ liệu này không để tránh treo máy\nCông thức ước lượng: memory = số cột x số hàng x 8 bytes x trọng số của loại data\n\nNumeric: 1\nCharacter: 1.1"
+  },
+  {
+    "objectID": "bài 3.html#lưu-ý-khi-đọc-dữ-liệu",
+    "href": "bài 3.html#lưu-ý-khi-đọc-dữ-liệu",
+    "title": "Bài 3",
+    "section": "Lưu ý khi đọc dữ liệu",
+    "text": "Lưu ý khi đọc dữ liệu\nVí dụ có file sau đây  Đọc thử vào R, dùng lệnh object_size() trong package pryr để xem object chiếm dung lượng bao nhiêu và so sánh với công thức ước lượng"
+  },
+  {
+    "objectID": "bài 3.html#lưu-ý-khi-đọc-dữ-liệu-1",
+    "href": "bài 3.html#lưu-ý-khi-đọc-dữ-liệu-1",
+    "title": "Bài 3",
+    "section": "Lưu ý khi đọc dữ liệu",
+    "text": "Lưu ý khi đọc dữ liệu\n\nVí dụ 2:\nFile có 1 số dữ liệu missing data nên ước lượng công thức cao hơn thực tế, nhưng ước lượng dư vẫn đỡ hơn là thiếu"
+  },
+  {
+    "objectID": "bài 3.html#lưu-ý-khi-đọc-dữ-liệu-2",
+    "href": "bài 3.html#lưu-ý-khi-đọc-dữ-liệu-2",
+    "title": "Bài 3",
+    "section": "Lưu ý khi đọc dữ liệu",
+    "text": "Lưu ý khi đọc dữ liệu\n\nCác ví dụ cho thấy dung lượng bộ nhớ cần để đọc file luôn lớn hơn dung lượng thực thấy được trên phần mềm quản lý file\nDung lượng bộ nhớ cần để đọc file phụ thuộc vào số hàng, số cột và loại data"
+  },
+  {
+    "objectID": "bài 3.html#read.csv",
+    "href": "bài 3.html#read.csv",
+    "title": "Bài 3",
+    "section": "read.csv()",
+    "text": "read.csv()\n\nread.csv(file, header = TRUE, sep = “,”, na.strings = “NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)\nTương tự như read.table(), trong đó header = TRUE và sep = “,“ đã được quy định làm default cho nhanh gọn, do đó thường chỉ cần gõ read.csv(file)"
+  },
+  {
+    "objectID": "bài 3.html#fread",
+    "href": "bài 3.html#fread",
+    "title": "Bài 3",
+    "section": "fread()",
+    "text": "fread()\n\nlibrary(data.table)\nfread(file)\nThường chỉ cần dùng fread(file), nếu cần yêu cầu cụ thể hơn tham khảo hướng dẫn bằng cách gõ ?fread trong Rstudio\nTốc độ đọc file nhanh hơn read.table(), ví dụ 1 file khoảng 1GB dùng read.table() mất khoảng 10 phút nhưng fread() chỉ mất khoảng 15 giây"
+  },
+  {
+    "objectID": "bài 3.html#ghi-dữ-liệu",
+    "href": "bài 3.html#ghi-dữ-liệu",
+    "title": "Bài 3",
+    "section": "Ghi dữ liệu",
+    "text": "Ghi dữ liệu\n\nGhi dữ liệu thành file để lưu trữ kết quả, tạo bảng báo cáo…\nCác lệnh thường dùng (gần như tương ứng với các lệnh để đọc dữ liệu chỉ thay read bằng write):\n\nwrite.table(): ghi thành dạng bảng\nwriteLines(): ghi thành file văn bản\nsaveRDS(): ghi thành file.rds\nsave(), save.image(): ghi thành file.RData\npdf(): ghi file biểu đồ thành pdf (hướng dẫn cụ thể trong bài Visualization)"
+  },
+  {
+    "objectID": "bài 3.html#write.table",
+    "href": "bài 3.html#write.table",
+    "title": "Bài 3",
+    "section": "write.table()",
+    "text": "write.table()\n\nwrite.table(x, file = ““, sep =” “, row.names = TRUE, col.names = TRUE, quote = TRUE)\n\nx: data frame cần để ghi thành file\nfile: đường dẫn tới nơi muốn ghi file và có luôn tên file, ví dụ: file = “D:/Dropbox/file.csv”\nsep: giống như trong lệnh read.table(), các cột ngăn cách nhau bằng gì"
+  },
+  {
+    "objectID": "bài 3.html#write.table-1",
+    "href": "bài 3.html#write.table-1",
+    "title": "Bài 3",
+    "section": "write.table()",
+    "text": "write.table()\n\nwrite.table(x, file = ““, sep =” “, row.names = TRUE, col.names = TRUE, quote = TRUE)\n\nrow.names = TRUE: có ghi tên hàng vào file không\ncolnames = TRUE: có ghi tên cột vào file không\nquote = TRUE: các cột dạng ký tự sẽ được ghi trong dấu ” “, thường nên cho quote = FALSE để file được đẹp"
+  },
+  {
+    "objectID": "bài 3.html#saverds",
+    "href": "bài 3.html#saverds",
+    "title": "Bài 3",
+    "section": "saveRDS()",
+    "text": "saveRDS()\n\nsaveRDS(mtcars, “mtcars.rds”)\nSave 1 object duy nhất vào file\nKhi đọc vào nên cho vào biến\nmy_data <- readRDS(“mtcars.rds”)"
+  },
+  {
+    "objectID": "bài 3.html#save-save.image",
+    "href": "bài 3.html#save-save.image",
+    "title": "Bài 3",
+    "section": "save(), save.image()",
+    "text": "save(), save.image()\n\nsave(data1, data2, file = “data.RData”)\nCó thể ghi nhiều objects vào 1 file\nNếu muốn ghi toàn bộ các objects trong phiên làm việc hiện tại vào 1 file, dùng\nsave.image(file = “my_work_space.RData”)\nDo trong cùng 1 file chứa nhiều objects nên không thể đọc vào 1 biến như readRDS(), mà dùng lệnh load()\nload(“data.RData”)\nload(“my_work_space.RData”)"
+  },
+  {
+    "objectID": "bài 3.html#save-save.image-1",
+    "href": "bài 3.html#save-save.image-1",
+    "title": "Bài 3",
+    "section": "save(), save.image()",
+    "text": "save(), save.image()\n\nDo trong cùng 1 file chứa nhiều objects nên không thể đọc vào 1 biến như readRDS(), mà dùng lệnh load()\nload(“data.RData”)\nload(“my_work_space.RData”)"
+  },
+  {
+    "objectID": "bài 3.html#excel",
+    "href": "bài 3.html#excel",
+    "title": "Bài 3",
+    "section": "Excel",
+    "text": "Excel\n\nĐọc excel\n\nlibrary(readxl)\nread_excel(“file_path”)\n\nGhi excel\n\nlibrary(writexl)\nwrite_xlsx(dataframe, “file_path”, col_names=TRUE)"
+  },
+  {
+    "objectID": "bài 3.html#spss-và-stata",
+    "href": "bài 3.html#spss-và-stata",
+    "title": "Bài 3",
+    "section": "SPSS và Stata",
+    "text": "SPSS và Stata\n\nlibrary(haven)\nĐọc file\n\nSPSS: read_sav(“file_path”)\nStata: read_dta (“file_path”)\n\nGhi file\n\nSPSS: read_sav(dataframe, “file_path”)\nStata: read_dta(dataframe, “file_path”)"
+  },
+  {
+    "objectID": "Bài 4.html#data-frame",
+    "href": "Bài 4.html#data-frame",
+    "title": "Bài 4",
+    "section": "Data frame",
+    "text": "Data frame\n\nDạng bảng biểu giống như bảng Excel\nLoại container quan trọng trong xử lý dữ liệu với R\nMỗi cột là 1 vector (cùng 1 loại data type), vì vậy có thể ghép các vectors thành data frame như matrix, nhưng các vectors khác data type vẫn có thể ghép chứ không như matrix. Độ dài của các vectors cần phải bằng nhau."
+  },
+  {
+    "objectID": "Bài 4.html#data-frame-1",
+    "href": "Bài 4.html#data-frame-1",
+    "title": "Bài 4",
+    "section": "Data frame",
+    "text": "Data frame\n\n\n\n\nhead(df)\n\n           id year sex depart  Hb   MCV  MCH MCHC\n1 10429-52501 1960   0    TNT  93 100.4 31.5  313\n2 41215-59318 1983   0    TNT  90  95.7 31.7  331\n3 10269-56336 1954   0    TNT 111  91.6 29.0  317\n4 16208-59926 1989   1    TNT  93  90.5 30.1  332\n5 16762-52364 1980   0    TNT 100  92.6 29.8  322\n6 10245-56328 1987   1    TNT 121  92.4 31.3  338\n\ndim(df)\n\n[1] 65  8\n\n\n\nTheo quy ước chung, trình bày data theo kiểu mỗi cột là biến số thu thập trong nghiên cứu, mỗi hàng là 1 bệnh nhân"
+  },
+  {
+    "objectID": "Bài 4.html#data-frame-2",
+    "href": "Bài 4.html#data-frame-2",
+    "title": "Bài 4",
+    "section": "Data frame",
+    "text": "Data frame\n\n\n\n\nhead(df)\n\n           id year sex depart  Hb   MCV  MCH MCHC\n1 10429-52501 1960   0    TNT  93 100.4 31.5  313\n2 41215-59318 1983   0    TNT  90  95.7 31.7  331\n3 10269-56336 1954   0    TNT 111  91.6 29.0  317\n4 16208-59926 1989   1    TNT  93  90.5 30.1  332\n5 16762-52364 1980   0    TNT 100  92.6 29.8  322\n6 10245-56328 1987   1    TNT 121  92.4 31.3  338\n\ndim(df)\n\n[1] 65  8\n\n\n\nCác lệnh để khảo sát data frame:\n\ndim(): đếm số hàng và số cột của data frame\nnrow(): đếm số hàng của data frame\nncol(): đếm số cột của data frame"
+  },
+  {
+    "objectID": "Bài 4.html#subsetting-data-frame",
+    "href": "Bài 4.html#subsetting-data-frame",
+    "title": "Bài 4",
+    "section": "Subsetting data frame",
+    "text": "Subsetting data frame\n\nDataframe[hàng, cột]\n\nBên trái dấu “,” là các điều kiện cho hàng\nBên phải dấu “,” là các điều kiện cho cột\n\nNgoài ra có thể dùng ký hiệu $tên_cột để chọn 1 cột\nNếu muốn lấy theo điều kiện của cột và tất cả các hàng trong cột đó: dataframe[,cột]\nNếu muốn lấy theo điều kiện của hàng và tất cả các cột của hàng đó: dataframe[hàng,]"
+  },
+  {
+    "objectID": "Bài 4.html#subsetting-data-frame-1",
+    "href": "Bài 4.html#subsetting-data-frame-1",
+    "title": "Bài 4",
+    "section": "Subsetting data frame",
+    "text": "Subsetting data frame\n\nVí dụ có data frame sau gồm 65 hàng và 8 cột\n\n\nhead(df)\n\n           id year sex depart  Hb   MCV  MCH MCHC\n1 10429-52501 1960   0    TNT  93 100.4 31.5  313\n2 41215-59318 1983   0    TNT  90  95.7 31.7  331\n3 10269-56336 1954   0    TNT 111  91.6 29.0  317\n4 16208-59926 1989   1    TNT  93  90.5 30.1  332\n5 16762-52364 1980   0    TNT 100  92.6 29.8  322\n6 10245-56328 1987   1    TNT 121  92.4 31.3  338\n\ndim(df)\n\n[1] 65  8"
+  },
+  {
+    "objectID": "Bài 4.html#subsetting-data-frame-2",
+    "href": "Bài 4.html#subsetting-data-frame-2",
+    "title": "Bài 4",
+    "section": "Subsetting data frame",
+    "text": "Subsetting data frame\n\nLấy cột đầu tiên của data frame (mỗi cột sau khi lấy sẽ thành 1 vector)\n\n\ndt <- df[,1]\nhead(dt)\n\n[1] \"10429-52501\" \"41215-59318\" \"10269-56336\" \"16208-59926\" \"16762-52364\"\n[6] \"10245-56328\"\n\n\n\nLấy cột đầu tiên của data frame (mỗi hàng sau khi lấy sẽ thành 1 data frame nhỏ hơn data frame ban đầu)\n\n\ndt <- df[1,]\nhead(dt)\n\n           id year sex depart Hb   MCV  MCH MCHC\n1 10429-52501 1960   0    TNT 93 100.4 31.5  313"
+  },
+  {
+    "objectID": "Bài 4.html#subsetting-data-frame-3",
+    "href": "Bài 4.html#subsetting-data-frame-3",
+    "title": "Bài 4",
+    "section": "Subsetting data frame",
+    "text": "Subsetting data frame\n\nLấy nhiều hàng hay nhiều cột liên tục\n\n\ndt <- df[1:3,]\nhead(dt)\n\n           id year sex depart  Hb   MCV  MCH MCHC\n1 10429-52501 1960   0    TNT  93 100.4 31.5  313\n2 41215-59318 1983   0    TNT  90  95.7 31.7  331\n3 10269-56336 1954   0    TNT 111  91.6 29.0  317\n\ndt <- df[,3:5]\nhead(dt)\n\n  sex depart  Hb\n1   0    TNT  93\n2   0    TNT  90\n3   0    TNT 111\n4   1    TNT  93\n5   0    TNT 100\n6   1    TNT 121"
+  },
+  {
+    "objectID": "Bài 4.html#subsetting-data-frame-4",
+    "href": "Bài 4.html#subsetting-data-frame-4",
+    "title": "Bài 4",
+    "section": "Subsetting data frame",
+    "text": "Subsetting data frame\n\nLấy cột dựa vào tên cột\n\n\ndt <- df[,c(\"MCH\",\"MCV\",\"MCHC\")]\nhead(dt)\n\n   MCH   MCV MCHC\n1 31.5 100.4  313\n2 31.7  95.7  331\n3 29.0  91.6  317\n4 30.1  90.5  332\n5 29.8  92.6  322\n6 31.3  92.4  338"
+  },
+  {
+    "objectID": "Bài 4.html#subsetting-data-frame-5",
+    "href": "Bài 4.html#subsetting-data-frame-5",
+    "title": "Bài 4",
+    "section": "Subsetting data frame",
+    "text": "Subsetting data frame\n\nLấy các cột mà trong tên cột chứa ký tự “MC”\n\n\ndt <- df[,grep(\"MC\",colnames(df))]\nhead(dt)\n\n    MCV  MCH MCHC\n1 100.4 31.5  313\n2  95.7 31.7  331\n3  91.6 29.0  317\n4  90.5 30.1  332\n5  92.6 29.8  322\n6  92.4 31.3  338"
+  },
+  {
+    "objectID": "Bài 4.html#subsetting-data-frame-6",
+    "href": "Bài 4.html#subsetting-data-frame-6",
+    "title": "Bài 4",
+    "section": "Subsetting data frame",
+    "text": "Subsetting data frame\n\nLấy các cột mà trong tên cột không chứa ký tự “MC”\n\n\ndt <- df[,grep(\"MC\",colnames(df), invert= T)]\nhead(dt)\n\n           id year sex depart  Hb\n1 10429-52501 1960   0    TNT  93\n2 41215-59318 1983   0    TNT  90\n3 10269-56336 1954   0    TNT 111\n4 16208-59926 1989   1    TNT  93\n5 16762-52364 1980   0    TNT 100\n6 10245-56328 1987   1    TNT 121"
+  },
+  {
+    "objectID": "Bài 4.html#subsetting-data-frame-7",
+    "href": "Bài 4.html#subsetting-data-frame-7",
+    "title": "Bài 4",
+    "section": "Subsetting data frame",
+    "text": "Subsetting data frame\n\nLấy tất cả các cột trừ cột thứ 1\n\n\ndt <- df[, -1]\nhead(dt)\n\n  year sex depart  Hb   MCV  MCH MCHC\n1 1960   0    TNT  93 100.4 31.5  313\n2 1983   0    TNT  90  95.7 31.7  331\n3 1954   0    TNT 111  91.6 29.0  317\n4 1989   1    TNT  93  90.5 30.1  332\n5 1980   0    TNT 100  92.6 29.8  322\n6 1987   1    TNT 121  92.4 31.3  338"
+  },
+  {
+    "objectID": "bài 2.html",
+    "href": "bài 2.html",
+    "title": "Bài 2",
+    "section": "",
+    "text": "Mỗi giá trị trong R sẽ được quy định là loại giá trị gì (type) để sử dụng trong việc xử lý, có 5 loại giá trị chính:\n\nCharacter: dạng chuỗi, ký tự, đặt trong dấu ” ”\nNumeric: số thực\nLogical: TRUE/FALSE (có thể viết tắt là T/F)\nInteger: số nguyên\nComplex: số phức\n\nThường sử dụng: character, numeric và logical"
+  },
+  {
+    "objectID": "Bài 4.html#subsetting-data-frame-8",
+    "href": "Bài 4.html#subsetting-data-frame-8",
+    "title": "Bài 4",
+    "section": "Subsetting data frame",
+    "text": "Subsetting data frame\n\nSubset dựa theo điều kiện: ví dụ muốn lấy các hàng (bệnh nhân) có MCV>95, và chỉ lấy 3 cột MCH, MCV, MCHC\n\n\nstr(df$MCV)\n\n num [1:65] 100.4 95.7 91.6 90.5 92.6 ...\n\ndt <- df[df$MCV > 95, c(\"MCH\",\"MCV\",\"MCHC\")]\nhead(dt)\n\n    MCH    MCV MCHC\n1  31.5 100.40  313\n2  31.7  95.70  331\n8  29.8  95.30  312\n11 30.8  95.50  322\n12 31.4  97.50  322\n14 34.6 109.03  317\n\n\n\nLưu ý: nên kiểm tra loại data trước khi áp dụng điều kiện"
+  },
+  {
+    "objectID": "Bài 4.html#transpose-data-frame",
+    "href": "Bài 4.html#transpose-data-frame",
+    "title": "Bài 4",
+    "section": "Transpose data frame",
+    "text": "Transpose data frame\n\nLệnh t(dataframe)\nChuyển hàng thành cột và cột thành hàng\nVí dụ: từ data ban đầu có 8 cột và 65 hàng chuyển thành data có 8 hàng và 65 cột\n\n\ndt <- t(df)\nhead(dt[,1:5])\n\n       [,1]          [,2]          [,3]          [,4]          [,5]         \nid     \"10429-52501\" \"41215-59318\" \"10269-56336\" \"16208-59926\" \"16762-52364\"\nyear   \" 1960\"       \" 1983\"       \" 1954\"       \" 1989\"       \" 1980\"      \nsex    \"0\"           \"0\"           \"0\"           \"1\"           \"0\"          \ndepart \"TNT\"         \"TNT\"         \"TNT\"         \"TNT\"         \"TNT\"        \nHb     \" 93\"         \" 90\"         \"111\"         \" 93\"         \"100\"        \nMCV    \"100.40\"      \" 95.70\"      \" 91.60\"      \" 90.50\"      \" 92.60\"     \n\ndim(dt)\n\n[1]  8 65"
+  },
+  {
+    "objectID": "Bài 4.html#wide-and-long-format",
+    "href": "Bài 4.html#wide-and-long-format",
+    "title": "Bài 4",
+    "section": "Wide and long format",
+    "text": "Wide and long format\n\nData frame còn được phân thành dạng rộng và dạng dài\nVí dụ có 3 nhóm bệnh nhân là cond1, cond2 và control\n\nDạng rộng (wide): các giá trị đo lường của mỗi nhóm bệnh nhân là 1 cột\n\n\n\n\ndf_wide\n\n  subject sex control cond1 cond2\n1       1   M     7.9  12.3  10.7\n2       2   F     6.3  10.6  11.1\n3       3   F     9.5  13.1  13.8\n4       4   M    11.5  13.4  12.9"
+  },
+  {
+    "objectID": "Bài 4.html#wide-and-long-format-1",
+    "href": "Bài 4.html#wide-and-long-format-1",
+    "title": "Bài 4",
+    "section": "Wide and long format",
+    "text": "Wide and long format\nDạng dài (long): có 2 cột, 1 cột là nhóm bệnh nhân và 1 cột là giá trị đo\n\n\n\n\ndf_long\n\n   subject sex condition measurement\n1        1   M   control         7.9\n2        2   F   control         6.3\n3        3   F   control         9.5\n4        4   M   control        11.5\n5        1   M     cond1        12.3\n6        2   F     cond1        10.6\n7        3   F     cond1        13.1\n8        4   M     cond1        13.4\n9        1   M     cond2        10.7\n10       2   F     cond2        11.1\n11       3   F     cond2        13.8\n12       4   M     cond2        12.9"
+  },
+  {
+    "objectID": "Bài 4.html#wide-and-long-format-2",
+    "href": "Bài 4.html#wide-and-long-format-2",
+    "title": "Bài 4",
+    "section": "Wide and long format",
+    "text": "Wide and long format\n\nMột số tác vụ bắt buộc sử dụng dạng rộng (ví dụ: t test bắt cặp), một số bắt buộc sử dụng dạng dài (ví dụ: visualize data với package ggplot2)\nCó thể chuyển từ dạng rộng sang dạng dài và ngược lại\nLưu ý: chuyển từ dạng rộng sang dạng dài khác với chuyển cột thành hàng và hàng thành cột (transpose data frame)"
+  },
+  {
+    "objectID": "Bài 4.html#wide-and-long-format-3",
+    "href": "Bài 4.html#wide-and-long-format-3",
+    "title": "Bài 4",
+    "section": "Wide and long format",
+    "text": "Wide and long format\n\nChuyển từ dạng rộng sang dạng dài\nlibrary(tidyr)\ngather(dataframe, key = cột nhóm, value = cột giá trị, c(các cột muốn chuyển từ rộng sang dài))\n\n\ndf_wide\n\n  subject sex control cond1 cond2\n1       1   M     7.9  12.3  10.7\n2       2   F     6.3  10.6  11.1\n3       3   F     9.5  13.1  13.8\n4       4   M    11.5  13.4  12.9"
+  },
+  {
+    "objectID": "Bài 4.html#wide-and-long-format-4",
+    "href": "Bài 4.html#wide-and-long-format-4",
+    "title": "Bài 4",
+    "section": "Wide and long format",
+    "text": "Wide and long format\n\ngather(dataframe, key = cột nhóm, value = cột giá trị, c(các cột muốn chuyển từ rộng sang dài))\n\n\nlibrary(tidyr)\ndf_long <- gather(df_wide, key = condition, value = measurement,\n                  c(control,cond1,cond2))\ndf_long\n\n   subject sex condition measurement\n1        1   M   control         7.9\n2        2   F   control         6.3\n3        3   F   control         9.5\n4        4   M   control        11.5\n5        1   M     cond1        12.3\n6        2   F     cond1        10.6\n7        3   F     cond1        13.1\n8        4   M     cond1        13.4\n9        1   M     cond2        10.7\n10       2   F     cond2        11.1\n11       3   F     cond2        13.8\n12       4   M     cond2        12.9"
+  },
+  {
+    "objectID": "Bài 4.html#wide-and-long-format-5",
+    "href": "Bài 4.html#wide-and-long-format-5",
+    "title": "Bài 4",
+    "section": "Wide and long format",
+    "text": "Wide and long format\n\nChuyển từ dạng dài sang dạng rộng\nlibrary(tidyr)\nspread(dataframe, key = cột nhóm, value = cột giá trị)\n\n\ndf_long\n\n   subject sex condition measurement\n1        1   M   control         7.9\n2        2   F   control         6.3\n3        3   F   control         9.5\n4        4   M   control        11.5\n5        1   M     cond1        12.3\n6        2   F     cond1        10.6\n7        3   F     cond1        13.1\n8        4   M     cond1        13.4\n9        1   M     cond2        10.7\n10       2   F     cond2        11.1\n11       3   F     cond2        13.8\n12       4   M     cond2        12.9"
+  },
+  {
+    "objectID": "Bài 4.html#wide-and-long-format-6",
+    "href": "Bài 4.html#wide-and-long-format-6",
+    "title": "Bài 4",
+    "section": "Wide and long format",
+    "text": "Wide and long format\n\nspread(dataframe, key = cột nhóm, value = cột giá trị)\n\n\ndf_wide <- spread(df_long, key = condition,value = measurement)\ndf_wide\n\n  subject sex cond1 cond2 control\n1       1   M  12.3  10.7     7.9\n2       2   F  10.6  11.1     6.3\n3       3   F  13.1  13.8     9.5\n4       4   M  13.4  12.9    11.5"
+  },
+  {
+    "objectID": "Bài 4.html#bài-tập",
+    "href": "Bài 4.html#bài-tập",
+    "title": "Bài 4",
+    "section": "Bài tập",
+    "text": "Bài tập\n\nĐọc file tnt.csv\nSubset các cột giá trị xét nghiệm\nLấy 1 giá trị cột 6 hàng 20 trong df ra\nChuyển các giá trị xét nghiệm từ dạng wide -> long"
+  },
+  {
+    "objectID": "bài 5.html#if-else",
+    "href": "bài 5.html#if-else",
+    "title": "Bài 5",
+    "section": "if-else",
+    "text": "if-else\n\nNếu kiểm tra điều kiện là TRUE thì sẽ thực hiện hành động trong dấu {},\nNếu tất cả điều kiện đều không thỏa thì sẽ thực hiện hành động trong cụm else {}\n\nif(điều kiện) {\n <hành động 1>\n} else{\n <hành động 2>\n}"
+  },
+  {
+    "objectID": "bài 5.html#if-else-1",
+    "href": "bài 5.html#if-else-1",
+    "title": "Bài 5",
+    "section": "if-else",
+    "text": "if-else\n\nNếu có nhiều điều kiện thì dùng else if, R sẽ tiếp tục kiểm ra điều kiện\n\nif(điều kiện) {\n <hành động 1>\n} else if(điều kiện 2) {\n <hành động 2>\n} else {\n <hành động 3>\n}"
+  },
+  {
+    "objectID": "bài 5.html#if-else-2",
+    "href": "bài 5.html#if-else-2",
+    "title": "Bài 5",
+    "section": "if-else",
+    "text": "if-else\n\nx <- 5\nx >= 7\n\n[1] FALSE\n\nif(x >= 7){\n  print(\"x>=7\")\n} else {\n  print(\"x< 7\")\n}\n\n[1] \"x< 7\""
+  }
+]

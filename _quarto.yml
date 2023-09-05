@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "R programming"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - bài 1.qmd
+      - bài 2.qmd
+      - bài 3.qmd
+      - Bài 4.qmd
+      - bài 5.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+

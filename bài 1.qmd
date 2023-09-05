@@ -1,0 +1,136 @@
+---
+title: "Bài 1"
+subtitle: "Giới thiệu R và RStudio"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+---
+
+## R là gì?
+
+-   R là một ngôn ngữ lập trình có nguồn gốc từ ngôn ngữ S
+-   Mã nguồn mở: không mất phí sử dụng
+-   Là ngôn ngữ truyền thống cho phân tích thống kê trong nghiên cứu y sinh (biostatistics ), tin sinh (bioinformatics), dịch tễ...
+-   Nổi tiếng với khả năng tạo các biểu đồ chất lượng cao (publication quality)
+-   Có nhiều gói mở rộng (packages) đầy đủ chức năng phân tích thống kê, machine learning, thiết kế web...
+
+## Lịch sử R
+
+-   1991: R được phát triển bởi Ross Ihaka và Robert Gentleman ở Khoa Thống kê, Đại học Auckland
+-   1993: Phát hành R cho công chúng
+-   1996: Phát hành bài báo về kinh nghiệm và quá trình phát triển R trên tập san Journal of Computational and Graphical Statistics ![](images/image1.png){.absolute bottom="50" left="100" width="800" height="200"}
+
+## Ưu, nhược điểm
+
+Ưu điểm
+
+-   R "base" đã có sẵn các công cụ để phân tích thống kê, giả lập, vẽ biểu đồ
+-   Rất nhiều packages (17,000 packages trên CRAN, 2000 packages trên Bioconductor) giải quyết hầu hết mọi vấn đề
+
+## Ưu, nhược điểm
+
+Nhược điểm
+
+-   R được phát triển từ ngôn ngữ S (50 năm tuổi)
+-   R chiếm nhiều bộ nhớ máy tính (memory) hơn các ngôn ngữ khác, tuy nhiên với bộ nhớ máy tính hiện nay so với các dữ liệu nghiên cứu y sinh thông thường thì đây không phải vấn đề lớn
+-   Phải biết 1 ít về lập trình và tư duy lập trình để sử dụng (vừa là ưu điểm vừa là nhược điểm)
+
+## Cài đặt R
+
+::: {style="text-align: left; margin-top: 0em"}
+-   Windows: [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/){preview-link="true" style="text-align: center"}
+:::
+
+::: {style="text-align: left; margin-top: 0em"}
+-   MacOS: [https://cran.r-project.org/bin/macosx/](https://cran.r-project.org/bin/macosx/){preview-link="true" style="text-align: center"}
+:::
+
+## Cài đặt R
+
+::: {layout-ncol="2"}
+![](images/image4.png)
+
+![](images/image3.png)
+:::
+
+## Cài đặt R
+
+::: {layout-ncol="2"}
+![](images/image7.png)
+
+![](images/image1a.png)
+:::
+
+## Cài đặt R
+
+::: {layout-ncol="2"}
+![](images/image5.png)
+
+![](images/image2.png)
+:::
+
+## Cài đặt R
+
+::: {layout-ncol="2"}
+![](images/image9.png)
+
+![](images/image6.png)
+:::
+
+## Cài đặt R
+
+::: {layout-ncol="2"}
+![](images/image7.png)
+
+![](images/image8.png)
+:::
+
+## RStudio
+
+-   Giao diện người dùng tiện lợi cho R
+-   Viết code và chạy thử code, nhận kết quả, biểu đồ ngay trên các cửa sổ, không phải chuyển đổi qua lại
+-   Tính năng tự động hoàn thành, gợi ý câu lệnh, gợi ý các arguments (autocomplete)
+-   Tích hợp hoàn thiện các tính năng phụ trợ cho R: shiny, R Markdown
+
+## RStudio
+
+-   [https://posit.co/](https://posit.co/){preview-link="true" style="text-align: left"}
+
+![](images/d.png){.absolute bottom="0" left="0" width="1400" height="500"}
+
+## RStudio
+
+![](images/2.png){.absolute bottom="100" left="0" width="1400" height="500"}
+
+## RStudio
+
+![](images/1.png){.absolute bottom="100" left="0" width="1400" height="500"}
+
+## RStudio
+
+::: {layout-ncol="2"}
+![](images/a.png)
+
+![](images/e.png)
+:::
+
+## RStudio
+
+::: {layout-ncol="2"}
+![](images/b.png)
+
+![](images/f.png)
+:::
+
+## RStudio
+
+![](images/c.png){.absolute bottom="100" left="100" width="800" height="500"}
+
+## Mục tiêu phần lập trình R
+
+-   Hiểu được các loại dữ liệu của R -- nguyên nhân của nhiều loại lỗi xảy ra khi sử dụng R, để xử lý và tránh các lỗi thường gặp
+-   Hiểu cách đọc dữ liệu để làm việc với nhiều loại file khác nhau, hiểu cách ghi dữ liệu để ghi file kết quả, không phải copy từng kết quả một từ cửa sổ RStudio
+
+## Mục tiêu phần lập trình R
+
+-   Hiểu cách làm việc với data frame -- loại container quan trọng nhất của R khi xử lý số liệu (data analysis) và học khoa học dữ liệu (data science)
+-   Hiểu và vận dụng được các cấu trúc điều khiển (if-else, for loop, next, break), cách viết lệnh của R, sử dụng các hàm apply để tự động hóa công việc và tự lập trình được tiến trình (pipeline) tự động, tiết kiệm thời gian và tránh sai sót

@@ -1,0 +1,254 @@
+---
+title: "Bài 2"
+subtitle: "Cấu trúc dữ liệu trong R"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+---
+
+## R data types
+
+-   Mỗi giá trị trong R sẽ được quy định là loại giá trị gì (type) để sử dụng trong việc xử lý, có 5 loại giá trị chính:
+    -   **Character:** dạng chuỗi, ký tự, đặt trong dấu " "
+    -   **Numeric**: số thực
+    -   **Logical**: TRUE/FALSE (có thể viết tắt là T/F)
+    -   **Integer**: số nguyên
+    -   **Complex**: số phức
+-   Thường sử dụng: character, numeric và logical
+
+## R data types
+
+-   Có 3 lệnh để xem loại giá trị của 1 biến: str(), class() và mode()
+
+```{r}
+#| echo: true
+x <- 1
+str(x)
+
+class(x)
+
+mode(x)
+```
+
+## R data types
+
+-   Có 3 lệnh để xem loại giá trị của 1 biến: str(), class() và mode()
+
+::: {.fragment .fade-left}
+```{r}
+#| echo: true
+x <- "a"
+str(x)
+
+class(x)
+mode(x)
+```
+:::
+
+## R data types
+
+-   Có 3 lệnh để xem loại giá trị của 1 biến: str(), class() và mode()
+
+::: {.fragment .fade-left}
+```{r}
+#| echo: true
+x <- T
+str(x)
+
+class(x)
+mode(x)
+```
+:::
+
+## R containers
+
+-   Các biến chứa các phần tử cũng được chia thành nhiều loại:
+    -   Vector
+    -   Factor
+    -   Matrix
+    -   Dataframe
+    -   List
+-   Lệnh class() có thể cho biết container này là loại gì, nhưng chủ yếu phân biệt các loại container bằng dạng hiển thị của chúng sẽ nhanh hơn
+
+## R containers
+
+![](images2/image1a.png){width="1000" height="400"}
+
+-   Vector, factor, matrix: chứa data phải cùng thuộc 1 type
+-   List, dataframe: chứa data thuộc nhiều types khác nhau
+
+## Vector
+
+-   Tạo vector bằng lệnh c(các giá trị thuộc vector,...)
+
+```{r}
+#| echo: true
+v <- c(1,2,3)
+str(v)
+```
+
+-   Các giá trị thuộc vector này đều là numeric nên khi xem structure của vector này thì cho là numeric
+
+```{r}
+#| echo: true
+v <- c(1, 2, 3, "a")
+str(v)
+```
+
+-   Chú ý: R quy định các giá trị trong vector phải cùng thuộc 1 loại, vậy nếu có vừa ký tự vừa số thì R sẽ tự quy định là vector thuộc dạng character và chuyển các số thành character
+
+## Vector
+
+-   Quy tắc chuyển đổi (coercion):
+    -   Mọi loại data đều có thể chuyển thành character, nhưng ngược lại thì có thể sẽ không được
+    -   Logical có thể chuyển thành numeric theo quy ước TRUE=1, FALSE=0
+
+![](images2/image3.png){.absolute bottom="0" left="250" width="500" height="300"}
+
+## Factor
+
+-   Factor là 1 vector chứa các ký tự (character), nhưng mỗi ký tự được mã hóa thành 1 số nguyên
+-   Rất giống với quy định khi nhập liệu bộ câu hỏi
+
+![](images2/image2.png){.absolute bottom="00" left="200" width="700" height="400"}
+
+## Factor
+
+-   Chuyển từ vector bình thường thành factor bằng lệnh factor(vector) hoặc as.factor(vector)
+-   Các mô hình hồi quy sẽ yêu cầu dữ liệu đầu vào là dạng factor thì mới thực thi được
+
+```{r}
+#| echo: true
+v <- c("nam", "nu", "nam", "nu", "nu")
+f <- factor(v)
+class(f)
+f
+```
+
+## Matrix
+
+-   Matrix là container có 2 chiều: hàng và cột
+-   Tạo matrix bằng lệnh matrix(giá trị, nrow = số hàng, ncol = số cột)
+-   Lệnh này sẽ tạo ra 1 bảng có 2 hàng, 3 cột và điền lần lượt các giá trị từ trên xuống dưới, trái sang phải (điền theo cột)
+
+```{r}
+#| echo: true
+m <- matrix(1:6, nrow = 2, ncol = 3)
+m
+```
+
+## Matrix
+
+-   Giống như vector, data trong matrix phải cùng 1 loại
+-   Có thể tạo matrix bằng cách ghép nhiều vectors lại, lưu ý: các vector phải cùng 1 data type mới có thể ghép thành matrix
+
+## Matrix
+
+Ghép theo cột bằng cbind
+
+```{r}
+#| echo: true
+x <- 1:3
+y <- 10:12
+m <- cbind(x, y)
+m
+class(m)
+
+```
+
+## Matrix
+
+Ghép theo cột bằng rbind
+
+```{r}
+#| echo: true
+x <- 1:3
+y <- 10:12
+m <- rbind(x, y)
+m
+class(m)
+
+```
+
+## Data frame
+
+-   Dạng bảng biểu giống như bảng Excel
+-   Loại container quan trọng trong xử lý dữ liệu với R
+-   Mỗi cột là 1 vector (cùng 1 loại data type), vì vậy có thể ghép các vectors thành data frame như matrix, nhưng các vectors khác data type vẫn có thể ghép chứ không như matrix
+
+![](images2/image4.png){.absolute bottom="00" left="225" width="600" height="250"}
+
+## Data frame
+
+-   Tạo data frame bằng lệnh data.frame
+
+```{r}
+#| echo: true
+x <- 1:3 
+y <- c("r", "s", "t")
+z <- c(T, F, T)
+df <- data.frame(x, y, z)
+class(df)
+df
+```
+
+## Data frame
+
+-   Lấy các cột ra bằng dấu \$, mỗi cột sẽ là 1 vector (sẽ hướng dẫn cụ thể ở Bài 4: thao tác với data frame)
+
+```{r}
+#| echo: true
+x <- 1:3 
+y <- c("r", "s", "t")
+z <- c(T, F, T)
+df$x
+df$y
+class(df$x)
+```
+
+## Data frame
+
+-   Đặt tên cho các cột bằng lệnh colnames()
+
+```{r}
+#| echo: true
+colnames(df) <- c("a","b","c")
+df
+
+```
+
+-   Đặt tên cho các hàng bằng lệnh rownames()
+
+```{r}
+#| echo: true
+rownames(df) <- c("one","two","three")
+df
+```
+
+## List
+
+-   List là 1 container đặc biệt, có thể chứa tất cả các loại containers khác trong 1 list
+-   Tạo list bằng lệnh list() Thường sử dụng list để kết hợp với các lệnh trong họ apply() để thực hiện lệnh cho từng phần tử trong list =\> tự động hóa công việc
+
+## List
+
+```{r}
+#| echo: true
+l <- list(x, m,df)
+l
+```
+
+## R data types and error
+
+-   Nguyên nhân của đa số các lỗi thường gặp ở người mới sử dụng R là do không nắm rõ loại dữ liệu
+-   Cần phải biết dữ liệu thuộc loại gì để thực hiện tính toán hay xử lý phù hợp, ví dụ:
+    -   ***Character***: tách chữ đầu, chữ cuối, tìm ký tự trong chuỗi
+    -   ***Numeric***: tính toán các phép tính, so sánh lớn hơn, nhỏ hơn theo số học
+    -   ***Logical***: các hàm thực thi khi tất cả đều đúng (all), ít nhất một giá trị là đúng (any)
+
+## R data types and error
+
+-   Các lệnh thường yêu cầu dữ liệu đầu vào (input data) phải thuộc đúng 1 loại nào đó thì mới thực thi được
+-   Ngoài các loại dữ liệu cơ bản được trình bày trong bài này, 1 số packages khác tự quy định các loại dữ liệu đặc thù riêng, ví dụ:
+    -   Data table (package data.table)
+    -   GRanges (package GenomicRanges)
+-   Do đó khi lập trình hay phân tích dữ liệu, luôn phải chú ý đến loại dữ liệu để tránh gặp lỗi

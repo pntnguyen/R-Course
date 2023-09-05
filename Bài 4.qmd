@@ -1,0 +1,256 @@
+---
+title: "Bài 4"
+subtitle: "Thao tác với data frame"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+---
+
+## Data frame
+
+-   Dạng bảng biểu giống như bảng Excel
+-   Loại container quan trọng trong xử lý dữ liệu với R
+-   Mỗi cột là 1 vector (cùng 1 loại data type), vì vậy có thể ghép các vectors thành data frame như matrix, nhưng các vectors khác data type vẫn có thể ghép chứ không như matrix. Độ dài của các vectors cần phải bằng nhau.
+
+![](images2/image4.png){.absolute bottom="00" left="225" width="600" height="230"}
+
+## Data frame
+
+```{r}
+library(readr)
+tnt <- read_csv("~/Documents/tnt.csv")
+df <- data.frame(tnt)
+```
+
+```{r}
+#| echo: true
+head(df)
+dim(df)
+```
+
+-   Theo quy ước chung, trình bày data theo kiểu mỗi cột là biến số thu thập trong nghiên cứu, mỗi hàng là 1 bệnh nhân
+
+## Data frame
+
+```{r}
+library(readr)
+tnt <- read_csv("~/Documents/tnt.csv")
+df <- data.frame(tnt)
+```
+
+```{r}
+#| echo: true
+head(df)
+dim(df)
+```
+
+-   Các lệnh để khảo sát data frame:
+    -   dim(): đếm số hàng và số cột của data frame
+    -   nrow(): đếm số hàng của data frame
+    -   ncol(): đếm số cột của data frame
+
+## Subsetting data frame
+
+-   Dataframe\[hàng, cột\]
+    -   Bên trái dấu "," là các điều kiện cho hàng
+    -   Bên phải dấu "," là các điều kiện cho cột
+-   Ngoài ra có thể dùng ký hiệu \$tên_cột để chọn 1 cột
+-   Nếu muốn lấy theo điều kiện của cột và tất cả các hàng trong cột đó: dataframe\[,cột\]
+-   Nếu muốn lấy theo điều kiện của hàng và tất cả các cột của hàng đó: dataframe\[hàng,\]
+
+## Subsetting data frame
+
+-   Ví dụ có data frame sau gồm 65 hàng và 8 cột
+
+```{r}
+#| echo: true
+head(df)
+dim(df)
+```
+
+## Subsetting data frame
+
+-   Lấy cột đầu tiên của data frame (mỗi cột sau khi lấy sẽ thành 1 vector)
+
+```{r}
+#| echo: true
+dt <- df[,1]
+head(dt)
+```
+
+-   Lấy cột đầu tiên của data frame (mỗi hàng sau khi lấy sẽ thành 1 data frame nhỏ hơn data frame ban đầu)
+
+```{r}
+#| echo: true
+dt <- df[1,]
+head(dt)
+```
+
+## Subsetting data frame
+
+-   Lấy nhiều hàng hay nhiều cột liên tục
+
+```{r}
+#| echo: true
+dt <- df[1:3,]
+head(dt)
+dt <- df[,3:5]
+head(dt)
+```
+
+## Subsetting data frame
+
+-   Lấy cột dựa vào tên cột
+
+```{r}
+#| echo: true
+dt <- df[,c("MCH","MCV","MCHC")]
+head(dt)
+```
+
+## Subsetting data frame
+
+-   Lấy các cột mà trong tên cột chứa ký tự "MC"
+
+```{r}
+#| echo: true
+dt <- df[,grep("MC",colnames(df))]
+head(dt)
+```
+
+## Subsetting data frame
+
+-   Lấy các cột mà trong tên cột không chứa ký tự "MC"
+
+```{r}
+#| echo: true
+dt <- df[,grep("MC",colnames(df), invert= T)]
+head(dt)
+```
+
+## Subsetting data frame
+
+-   Lấy tất cả các cột trừ cột thứ 1
+
+```{r}
+#| echo: true
+dt <- df[, -1]
+head(dt)
+```
+
+## Subsetting data frame
+
+-   Subset dựa theo điều kiện: ví dụ muốn lấy các hàng (bệnh nhân) có MCV\>95, và chỉ lấy 3 cột MCH, MCV, MCHC
+
+```{r}
+#| echo: true
+str(df$MCV)
+dt <- df[df$MCV > 95, c("MCH","MCV","MCHC")]
+head(dt)
+```
+
+-   Lưu ý: nên kiểm tra loại data trước khi áp dụng điều kiện
+
+## Transpose data frame
+
+-   Lệnh t(dataframe)
+-   Chuyển hàng thành cột và cột thành hàng
+-   Ví dụ: từ data ban đầu có 8 cột và 65 hàng chuyển thành data có 8 hàng và 65 cột
+
+```{r}
+#| echo: true
+dt <- t(df)
+head(dt[,1:5])
+dim(dt)
+```
+
+## Wide and long format
+
+-   Data frame còn được phân thành dạng rộng và dạng dài
+-   Ví dụ có 3 nhóm bệnh nhân là cond1, cond2 và control
+
+Dạng rộng (wide): các giá trị đo lường của mỗi nhóm bệnh nhân là 1 cột
+
+```{r}
+subject <- c(1:4)
+sex <- c("M","F","F","M")
+control <- c(7.9, 6.3, 9.5, 11.5)
+cond1 <- c(12.3, 10.6, 13.1, 13.4)
+cond2 <- c(10.7, 11.1, 13.8, 12.9)
+df_wide <- data.frame(subject, sex, control, cond1, cond2)
+```
+
+```{r}
+#| echo: true
+df_wide
+```
+
+## Wide and long format
+
+Dạng dài (long): có 2 cột, 1 cột là nhóm bệnh nhân và 1 cột là giá trị đo
+
+```{r}
+library(tidyr)
+df_long <- gather(df_wide, key = condition, value = measurement,c(control,cond1,cond2))
+```
+
+```{r}
+#| echo: true
+df_long
+```
+
+## Wide and long format
+
+-   Một số tác vụ bắt buộc sử dụng dạng rộng (ví dụ: t test bắt cặp), một số bắt buộc sử dụng dạng dài (ví dụ: visualize data với package ggplot2)
+-   Có thể chuyển từ dạng rộng sang dạng dài và ngược lại
+-   Lưu ý: chuyển từ dạng rộng sang dạng dài khác với chuyển cột thành hàng và hàng thành cột (transpose data frame)
+
+## Wide and long format
+
+-   Chuyển từ dạng rộng sang dạng dài
+-   library(tidyr)
+-   gather(dataframe, key = cột nhóm, value = cột giá trị, c(các cột muốn chuyển từ rộng sang dài))
+
+```{r}
+#| echo: true
+df_wide
+```
+
+## Wide and long format
+
+-   gather(dataframe, key = cột nhóm, value = cột giá trị, c(các cột muốn chuyển từ rộng sang dài))
+
+```{r}
+#| echo: true
+library(tidyr)
+df_long <- gather(df_wide, key = condition, value = measurement,
+                  c(control,cond1,cond2))
+df_long
+```
+
+## Wide and long format
+
+-   Chuyển từ dạng dài sang dạng rộng
+-   library(tidyr)
+-   spread(dataframe, key = cột nhóm, value = cột giá trị)
+
+```{r}
+#| echo: true
+df_long
+```
+
+## Wide and long format
+
+-   spread(dataframe, key = cột nhóm, value = cột giá trị)
+
+```{r}
+#| echo: true
+df_wide <- spread(df_long, key = condition,value = measurement)
+df_wide
+```
+
+## Bài tập
+
+-   Đọc file tnt.csv
+-   Subset các cột giá trị xét nghiệm
+-   Lấy 1 giá trị cột 6 hàng 20 trong df ra
+-   Chuyển các giá trị xét nghiệm từ dạng wide -\> long

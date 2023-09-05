@@ -40,17 +40,7 @@ if(x >= 7){
 ```
 
 ## if-else
-```{r error: true}
-#| echo: true
-#| warning: true 
-x <- c(5,10)
-x >= 7 
-if(x >= 7){
-  print("x>=7")
-} else {
-  print("x< 7")
-}
-```
+
 
 
 

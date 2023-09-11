@@ -1,0 +1,145 @@
+---
+title: "Bài 7"
+subtitle: "Apply family"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+echo: true 
+---
+
+## Các lệnh trong apply family
+
+- **lapply()**: thực thi lệnh cho từng phần tử của 1 vector hoặc 1 list và trả kết quả dưới dạng 1 list (l = list)
+- **sapply()**: giống lapply nhưng kết quả có thể là list hoặc vector
+- **apply()**: thực thi lệnh cho từng chiều của 1 ma trận
+
+## lapply()
+
+- lapply(list, function)
+- Chức năng:
+   - Đọc vào 1 vector hoặc 1 list
+   - Thực thi lệnh cho từng phần tử
+   - Trả kết quả dưới dạng 1 list
+
+## lapply()
+
+- Ví dụ 1
+
+```{r}
+set.seed(123)
+x <- list(a = 1:5, b = rnorm(10))
+x
+lapply(x,mean)
+```
+
+## lapply()
+
+- Ví dụ 1
+```{r}
+x
+lapply(x, function(x) x+1)
+```
+
+## lapply()
+
+- Ví dụ 2:
+  - Nghiên cứu thu thập mẫu ở 4 khoa (khoa hô hấp – KHH, nội tổng quát – NTQ, thận nhân tạo – TNT, trung tâm khám sức khỏe theo yêu cầu – TTSKYC)
+  - Mỗi khoa gửi về 1 file dữ liệu các bệnh nhân ở khoa mình
+  - Đọc các files vào R và gộp 4 files này
+  
+## lapply()
+
+- Ví dụ 2
+
+```{r}
+inp <- "/home/thinh/Documents/R-Course/data"
+fn <- list.files(inp, full.names = T)
+fn
+l <-lapply(fn, function(x) read.csv(x, header = T))
+l
+```
+
+## lapply()
+
+```{r}
+# view structure of this list
+str(l)
+```
+
+## lapply()
+
+- Ví dụ 2
+
+```{r}
+# Bind the rows of all df in this list 
+df <- do.call(rbind, l )
+str(df)
+```
+
+## sapply()
+- S = simplify
+- Cách hoạt động giống như lapply(), nhưng sẽ đơn giản hóa kết quả. Thay vì trả về 1 list, sapply() trả về 1 table, hoặc vector
+
+## sapply()
+- Ví dụ 1
+```{r}
+set.seed(123)
+x <- list(a = 1:5, b = rnorm(10))
+x
+```
+
+## sapply()
+- Ví dụ 1
+```{r}
+lapply(x,mean)
+sapply(x,mean)
+str(sapply(x,mean))
+```
+
+## sapply()
+- Ví dụ 2:
+  - Một số bệnh nhân trong file của khoa thận nhân tạo có id nhập dạng 16611-50039
+  - Tách phần phía sau dấu - thành 1 cột mới có tên là id2
+
+## sapply()
+- Ví dụ 2:
+  - Một số bệnh nhân trong file của khoa thận nhân tạo có id nhập dạng 16611-50039
+  - Tách phần phía sau dấu - thành 1 cột mới có tên là id2
+```{r}
+df <- read.csv(file.path(inp, "tnt.csv"), header = T)
+df$id2 <- sapply(df$id, function(x) strsplit(x, "-")[[1]][[2]])
+head(df)
+```
+
+## apply()
+- Thực thi lệnh cho từng chiều của 1 ma trận (hoặc df)
+- Kết quả trả về là 1 vector 
+
+
+## apply()
+- Hàng = 1, cột = 2
+  - rowSums = apply(x, 1, sum)
+  - rowMeans = apply(x, 1, mean)
+  - colSums = apply(x, 2, sum)
+  - colMeans = apply(x, 2, mean)
+
+```{r}
+ma <- matrix(seq(1:9), nrow = 3, byrow = T)
+ma
+```
+## apply()
+
+```{r}
+ma <- matrix(seq(1:9), nrow = 3, byrow = T)
+ma
+```
+
+```{r}
+apply(ma, 1, sum)
+apply(ma, 2, sum)
+```
+
+
+
+
+
+

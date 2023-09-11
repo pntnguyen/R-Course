@@ -1,0 +1,1057 @@
+---
+title: "Bài 11"
+subtitle: "Data visualization với ggplot2"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+echo: true 
+---
+
+## ggplot2
+
+-   ggplot2 là package đồ họa của R
+-   Viết bởi Hadley Wickham (bắt đầu năm 2005)
+-   Dựa vào nguyên lý "Grammar of Graphics" của Leland Wilkinson
+-   Nằm trong hệ thống "Tidyverse" (có thể cài đặt trực tiếp từ **install.packages("ggplot2")**, hoặc **install.packages("tidyverse"))**
+-   Website: [https://ggplot2.tidyverse.org](https://ggplot2.tidyverse.org){preview-link="true" style="text-align: center"}
+
+## Grammar of ggplot2
+
+-   Cấu trúc ggplot2 bao gồm tất cả các thành phần của biểu đồ (tương tự "subject", "verb", "noun", "adj"... Cho đồ họa).
+-   Hoạt động theo lớp (layers) (tương tự cơ chế của photoshop) =\> linh hoạt, có thể kết hợp nhiều loại biểu đồ (trên cùng một hay nhiều bộ data) cùng lúc
+
+## 
+
+![](images4/image4.png){fig-align="center"}
+
+## Grammar of ggplot2
+
+-   "In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system"
+
+    ```         
+                            -- Ggplot2 - Elegant Graphics for Data Analysis -- 
+    ```
+
+## Lưu ý
+
+Trước khi thực hành viết R cho bài này, mình cần khai báo dữ liệu `midwest` bằng 2 dòng lệnh sau:
+
+```{r}
+library(ggplot2)
+data(midwest)
+```
+
+## 
+
+```{r}
+ggplot(midwest, aes(x = area, y = poptotal)) + 
+  geom_point(aes(col = state, size = popdensity), alpha = 0.7) + 
+  geom_smooth(method = "loess", size = 1.2, fill = "yellow", col = "red") + 
+  xlim(c(0, 0.1)) + 
+  ylim(c(0, 500000)) + 
+  labs(title = "Area Vs Population", y = "Population", x = "Area", 
+         caption = "Source: midwest")+
+  theme_bw(15)
+```
+
+## 
+
+```{r}
+gg <- ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+	geom_point(aes(col=state, size=popdensity))
+gg
+```
+
+## 
+
+```{r}
+gg + geom_smooth(method="loess", se=F)
+```
+
+## 
+
+```{r}
+gg + 
+    geom_smooth(method="loess", se=F) + 
+    theme_bw()
+```
+
+## Components
+
+-   Data: bao gồm dataset và aesthetic mappings (bao gồm các trục x, y, color, shape, size...).
+-   Geometric objects: loại biểu đồ muốn vẽ (point, bar, lines...)
+-   Statistical transformations, stats (hàm thống kê)
+-   Scale
+-   Coordinate system
+-   Faceting
+-   Annotation
+
+## Ví dụ với scatter plot
+
+## Mục tiêu ví dụ
+
+1.  Hiểu câu lệnh làm việc với ggplot2
+2.  Tạo biểu đồ scatter plot đơn giản
+3.  Thay đổi giới hạn trục x, y
+4.  Thay đổi title và axis labels
+
+## Data -- "midwest"
+
+-   Data khảo sát dân số miền trung tây nước Mỹ
+-   Bao gồm 28 vars và 437 obs
+
+```         
+#library
+library(tidyverse)
+#----------------------------------
+# load data
+data(midwest)
+options(scipen=999)
+```
+
+## Data -- "midwest"
+
+```{r}
+library(tidyverse)
+glimpse(midwest)
+```
+
+## 1. Data & aesthetic mappings
+
+-   ggplot2 chỉ nhận cấu trúc dữ liệu "data frame", không nhận vector hay matrix
+-   Trong thực hành, có thể cần nhiều bước chuẩn bị để từ data gốc =\> data input cho ggplot2. Một số package hữu ích trong biên tập số liệu như "dplyr", "tidyverse", toán tử pipe %\>%
+-   aesthetic mappings bao gồm trục x, y, z muốn vẽ (tùy loại biểu đồ 1D, 2D, 3D...) shape, size, color
+-   Data và aesthetic mappings có thể khai báo chung cho tất cả các layer hoặc từng layer
+
+## 1. Data & aesthetic mappings
+
+```{r}
+ggplot(data = midwest, aes(x = area, y = poptotal))
+```
+
+-   Biểu đồ trống vì chỉ mới khai báo Data (midwest) và aesthetic mappings (trục x là area, trục y là total population) =\> chưa biết vẽ loại biểu đồ gì
+-   Cần thêm thành phần "Geometric"
+
+## 2. Geometric objects
+
+-   Loại biểu đồ muốn vẽ
+-   Sử dụng thông tin trong aesthetic mappings (ví dụ scatter phải cần 2 trục (x,y), bar chỉ cần trục x ...)
+-   Câu lệnh:
+    -   geom_point: điểm
+    -   geom_line: đường
+    -   geom_histogram: histogram
+    -   .... : tham khảo [cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf){preview-link="false" style="text-align: center" target="_blank"}
+-   [Data]{style="color: red;"} + [aesthetic]{style="color: red;"} + [geometric object]{style="color: red;"} là 3 thành phần tối thiểu của một biểu đồ
+
+## 
+
+```{r}
+ggplot(data = midwest, aes(x = area, y = poptotal)) +
+    geom_point()
+```
+
+Thêm geom_point() để vẽ dạng biểu đồ điểm
+
+geom_point sử dụng thông tin trục x, y từ aes()
+
+## 
+
+```{r}
+ggplot(data = midwest, aes(x = area, y = poptotal)) +
+    geom_line()
+```
+
+Hoặc geom_line() để vẽ dạng biểu đồ đường
+
+## 
+
+```{r}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point() +
+    geom_smooth(method = "lm")
+```
+
+Từ biểu đồ điểm, thêm 1 layer smooth (linear model)
+
+## Chú ý
+
+-   Data và aes() được khai báo ở "**ggplot()**" =\> toàn bộ các layer sau (geom_point(), geom_smooth()) đều sử dụng thông tin khai báo này
+-   Nếu data và aes() được khai báo riêng lẻ ở từng layer =\>thông tin này chỉ được áp dụng cho riêng từng layer đó (trường hợp này được sử dụng khi muốn vẽ nhiều layer từ nhiều data khác nhau)
+-   Ví dụ
+
+## 
+
+```{r}
+# Data và aes() được dùng chung cho các layers
+ggplot(data = midwest, aes(x = area, y = poptotal)) +
+    geom_point() +
+    geom_smooth(method = "lm")
+```
+
+## 
+
+```{r}
+# Data và aes() chỉ áp dụng cho layer geom_point()
+ggplot() +
+    geom_point(data = midwest, aes(x = area, y = poptotal)) +
+    geom_smooth(method = "lm")
+
+```
+
+```         
+layer geom_smooth() chưa có data & aes()
+```
+
+## 3. Thay đổi giới hạn trục x, y
+
+-   Có 2 cách giới hạn trục x và y
+
+-   Cách 1:
+
+    -   Giới hạn trục x và y đồng thời loại bỏ các giá trị nằm ngoài khoảng giới hạn
+    -   Sử dụng câu lệnh **xlim()** & **ylim()**
+
+-   Cách 2:
+
+    -   "zoom in" vào khoảng giới hạn 🡺 không loại bỏ các giá trị nằm ngoài giới hạn
+    -   Sử dụng câu lệnh **coord_cartesian()**
+
+## 
+
+```{r}
+p <- ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point() +
+    geom_smooth(method = "lm")
+```
+
+::: {layout-ncol="2"}
+```{r}
+p1 <- p + 
+    xlim(c(0, 0.1)) + 
+    ylim(c(0, 1000000))
+
+p1
+```
+
+```{r}
+p2 <- p + 
+    coord_cartesian(xlim=
+    c(0,0.1), 
+    ylim=c(0, 1000000))
+p2
+```
+:::
+
+::: {layout-ncol="2"}
+```         
+Thay đổi xu hướng do loại bỏ các giá trị ngoài phạm vi 0 - 1000000
+```
+
+```         
+Giữ nguyên xu hướng do chỉ “zoom in” vào phạm vi 0 - 1000000
+```
+:::
+
+## 4. Thay đổi title và axis labels
+
+-   Có nhiều cách
+
+-   Cách 1: dùng tất cả trong 1 câu lệnh
+
+    **labs**(title = "", subtitle="...", y="...", x="...", caption="...")
+
+-   Cách 2: từng thành phần riêng lẻ
+
+    **ggtitle**("...", subtitle= "...") + **xlab**("...") + **ylab**("...")
+
+-   Cách 3 : kết hợp một số "scale" (ít dùng hơn)
+
+## 
+
+```{r}
+p2 + labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics")
+```
+
+## full syntax
+
+Syntax cơ bản cho scatter plot
+
+```{r}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point() +
+    geom_smooth(method = "lm") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics")
+```
+
+## Tùy chỉnh color, shape, size, theme
+
+## Nội dung
+
+-   Tùy chỉnh color, shape, size
+-   Theme
+
+## Color
+
+```{r}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(col = "orange") +    #Chỉ áp dụng cho layer này, 
+                                    #tất cả các point thành màu “orange”
+    geom_smooth(method = "lm") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics")
+```
+
+## Color
+
+```{r}
+#| echo: false
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(col = "orange") +    #Chỉ áp dụng cho layer này, 
+                                    #tất cả các point thành màu “orange”
+    geom_smooth(method = "lm") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics")
+```
+
+## Color
+
+-   Có thể gọi tên trực tiếp: "red", "blue"... [www.stat.columbia.edu/\~tzheng/files/Rcolor.pdf](www.stat.columbia.edu/~tzheng/files/Rcolor.pdf){preview-link="false" style="text-align: center" target="_blank"}
+-   Hệ thống màu Hexadecimal code (search từ khóa "hex color" bằng google)
+-   Hệ thống RGB
+
+![](images4/slide31.png){fig-align="center"}
+
+## Color
+
+-   Một số package cung cấp phổ màu riêng
+-   "viridis" cung cấp 4 phổ màu liên tục
+-   "RColorBrewer" cung cấp các phổ màu liên tục và rời rạc
+
+## Color
+
+[http://colorbrewer2.org/#type=sequential&scheme=RdPu&n=9](http://colorbrewer2.org/#type=sequential&scheme=RdPu&n=9){preview-link="false" style="text-align: center" target="_blank"}
+
+![](images4/slide33.png){fig-align="center"}
+
+## Package viridis
+
+![](images4/slide34.jpg){fig-align="center"}
+
+## Package RColorBrewer
+
+![](images4/slide35.png){fig-align="center"}
+
+## Color
+
+```{r, fig.align="center"}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state)) +     # Màu khác nhau cho từng “state”
+    geom_smooth(method = "lm") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics")
+
+```
+
+## Color
+
+```{r}
+#| echo: false
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state)) +     # Màu khác nhau cho từng “state”
+    geom_smooth(method = "lm") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics")
+```
+
+## Color
+
+```{r, fig.align="center"}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state)) +
+    geom_smooth(method = "lm",      # Thêm màu cho đường smooth
+                color = "red", 
+                fill = "orange") + 
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics")
+
+```
+
+## Color
+
+```{r}
+#| echo: false
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state)) +
+    geom_smooth(method = "lm",      # Thêm màu cho đường smooth
+                color = "red", 
+                fill = "orange") + 
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics")
+
+```
+
+## 
+
+```{r, fig.align="center"}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state)) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+     scale_colour_brewer(palette = "Set1")
+```
+
+## 
+
+```{r}
+#| echo: false
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state)) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+     scale_colour_brewer(palette = "Set1")
+```
+
+## Size & shape
+
+![](images4/slide39.png){fig-align="center"}
+
+## 
+
+```{r, fig.align="center"}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+     scale_colour_brewer(palette = "Set1")
+
+```
+
+```         
+shape = 21
+```
+
+## 
+
+```{r, fig.align="center"}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state, fill = state), size = 3, shape = 23, alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+     scale_colour_brewer(palette = "Set1")
+
+```
+
+```         
+shape = 23
+```
+
+## 
+
+![](images4/slide43.png){fig-align="center"}
+
+## 
+
+```{r, fig.align="center"}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    theme_bw(15)
+```
+
+```         
+Theme_bw()
+```
+
+## 
+
+```{r, fig.align="center"}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    theme_linedraw(15)
+```
+
+```         
+theme_linedraw()
+```
+
+## 
+
+```{r, fig.align="center"}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state, fill = state), shape = 21, alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    theme_bw(15)
+```
+
+## 
+
+```{r, fig.align="center"}
+ggplot(data = midwest, aes(x = area, y = poptotal, size = popdensity, col = state, fill = state)) + 
+    geom_point(shape = 21, alpha = 0.4) +
+    scale_size(range = c(1,30))+ 
+    geom_smooth(aes(group = 1), se = F, color = "red", fill = "orange") +
+    guides(size = F) +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    theme_bw(15)
+```
+
+## 
+
+```{r, fig.align="center"}
+#| echo: false
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state, fill = state), shape = 21, alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    theme_bw(15)
+```
+
+## 
+
+```{r, fig.align="center"}
+#| echo: false
+ggplot(data = midwest, aes(x = area, y = poptotal, size = popdensity, col = state, fill = state)) + 
+    geom_point(shape = 21, alpha = 0.4) +
+    scale_size(range = c(1,30))+ 
+    geom_smooth(aes(group = 1), se = F, color = "red", fill = "orange") +
+    guides(size = F) +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    theme_bw(15)
+```
+
+## Legend, text, labels & Annotation
+
+## 
+
+![](images4/slide52.png){fig-align="center"}
+
+## Thay đổi Legend
+
+-   Thay đổi title cho legend
+-   Thay đổi labels & color cho legend ứng với categories
+-   Remove hay thay đổi legend positions
+
+## Thay đổi title cho legend
+
+-   CÓ 3 cách
+
+-   Sử dụng labs()
+
+```         
+labs(color ="State", fill ="State", size = "Density")
+```
+
+-   Sử dụng guides()
+
+```         
+guides(color = guide_legend("State"), fill = guide_legend("State"), size = guide_legend("Density"))
+```
+
+## Thay đổi title cho legend
+
+-   CÓ 3 cách
+
+-   Sử dụng scale\_\[...\]
+
+Tùy vào việc sử dụng loại "scale\_", cho phép thay đổi legend cho màu "scale" tương ứng (ví dụ trong trường hợp này)
+
+```         
+scale_color_discrete(name="State") + 
+scale_fill_discrete(name="State") + 
+scale_size_continuous(name = "Density", guide = FALSE)
+```
+
+## 
+
+```{r, fig.align="center"}
+#| echo: false
+ggplot(data = midwest, aes(x = area, y = poptotal, size = popdensity, col = state, fill = state)) + 
+    geom_point(shape = 21, alpha = 0.4) +
+    scale_size(range = c(1,30))+ 
+    geom_smooth(aes(group = 1), se = F, color = "red", fill = "orange") +
+    guides(size = F) +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    theme_bw(15)
+```
+
+## Thay đổi labels & color cho legend
+
+-   Có thể sử dụng chức năng scale\_\[color/fill\]\_manual()
+
+```{r}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_color_manual(name = "State", 
+                       labels = c("Illinois", 
+                                  "Indiana", 
+                                  "Michigan", 
+                                  "Ohio", 
+                                  "Wisconsin"), 
+                       values = c("IL"="blue", 
+                                  "IN"="red", 
+                                  "MI"="green", 
+                                  "OH"="purple", 
+                                  "WI"="orange")) +
+    scale_size_continuous(name = "Density", guide = F)+
+    theme_bw(15)
+```
+
+## 
+
+```{r}
+#| echo: false
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_color_manual(name = "State", 
+                       labels = c("Illinois", 
+                                  "Indiana", 
+                                  "Michigan", 
+                                  "Ohio", 
+                                  "Wisconsin"), 
+                       values = c("IL"="blue", 
+                                  "IN"="red", 
+                                  "MI"="green", 
+                                  "OH"="purple", 
+                                  "WI"="orange")) +
+    scale_size_continuous(name = "Density", guide = F)+
+    theme_bw(15)
+```
+
+## Remove hay thay đổi legend positions
+
+-   Sử dụng theme(legend.position = "...")
+-   "left", "right", "top", "bottom"
+
+```         
+theme(legend.position = "top")
+```
+
+```         
+theme(legend.position = c(0.85,0.5))
+```
+
+## 
+
+```{r, echo=TRUE, results="hide", fig.show="hide"}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_color_manual(name = "State", 
+                       labels = c("Illinois", 
+                                  "Indiana", 
+                                  "Michigan", 
+                                  "Ohio", 
+                                  "Wisconsin"), 
+                       values = c("IL"="blue", 
+                                  "IN"="red", 
+                                  "MI"="green", 
+                                  "OH"="purple", 
+                                  "WI"="orange")) +
+    scale_size_continuous(name = "Density", guide = F)+
+    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) +
+    theme(legend.position = c(0.85, 0.6))+
+    theme_bw(15)
+```
+
+## 
+
+```{r , echo = FALSE}
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_color_manual(name = "State", 
+                       labels = c("Illinois", 
+                                  "Indiana", 
+                                  "Michigan", 
+                                  "Ohio", 
+                                  "Wisconsin"), 
+                       values = c("IL"="blue", 
+                                  "IN"="red", 
+                                  "MI"="green", 
+                                  "OH"="purple", 
+                                  "WI"="orange")) +
+    scale_size_continuous(name = "Density", guide = F)+
+    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) +
+    theme(legend.position = c(0.85, 0.6))+
+    theme_bw(15)
+```
+
+## Text & labels
+
+-   Mục tiêu: hiện tên "country" của các nước có dân số \>500,000
+
+    -   B1: Lọc những nước có poptotal \> 500,000 (đặt tên là large_country)
+
+    ```         
+    large_country <- midwest %>% filter(poptotal > 500000)
+    ```
+
+    -   B2: sử dụng geom_text()
+
+## 
+
+```{r, echo=TRUE, results="hide", fig.show="hide"}
+large_country <- midwest %>% filter(poptotal > 500000)
+
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+         subtitle="From midwest dataset", 
+         y="Population", x="Area", 
+         caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    scale_size_continuous(name = "Density", guide = F)+
+    theme_bw(15)+
+    geom_text(data = large_country, aes(label = county), size = 2) 
+
+```
+
+## 
+
+```{r, echo=FALSE}
+large_country <- midwest %>% filter(poptotal > 500000)
+
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+         subtitle="From midwest dataset", 
+         y="Population", x="Area", 
+         caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    scale_size_continuous(name = "Density", guide = F)+
+    theme_bw(15)+
+    geom_text(data = large_country, aes(label = county), size = 2) 
+
+```
+
+Text trùng với point =\> chỉnh vị trí text bằng package "ggrepel" =\> thay geom_text() = geom_text_repel()
+
+## 
+
+```{r, echo=TRUE, results="hide", fig.show="hide"}
+large_country <- midwest %>% filter(poptotal > 500000)
+library(ggrepel)
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+         subtitle="From midwest dataset", 
+         y="Population", x="Area", 
+         caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    scale_size_continuous(name = "Density", guide = F)+
+    theme_bw(15)+
+    geom_text_repel(data = large_country, aes(label = county), size = 2) 
+```
+
+## 
+
+```{r, echo=FALSE}
+large_country <- midwest %>% filter(poptotal > 500000)
+library(ggrepel)
+ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+         subtitle="From midwest dataset", 
+         y="Population", x="Area", 
+         caption="Midwest Demographics") +
+    scale_colour_brewer(palette = "Set1") +
+    scale_size_continuous(name = "Density", guide = F)+
+    theme_bw(15)+
+    geom_text_repel(data = large_country, aes(label = county), size = 2) 
+```
+
+## 
+
+```{r, echo=TRUE, results="hide", fig.show="hide"}
+large_country <- midwest %>% filter(poptotal > 500000)
+library(ggrepel)
+
+p <- ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_color_manual(name = "State", 
+                       labels = c("Illinois", 
+                                  "Indiana", 
+                                  "Michigan", 
+                                  "Ohio", 
+                                  "Wisconsin"), 
+                       values = c("IL"="blue", 
+                                  "IN"="red", 
+                                  "MI"="green", 
+                                  "OH"="purple", 
+                                  "WI"="orange")) +
+    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) + 
+    scale_size_continuous(name = "Density", guide = F)+
+    theme_bw(15) + 
+    geom_text_repel(data = large_country, aes(label = county), size = 2) 
+p
+
+```
+
+## 
+
+```{r, echo=FALSE}
+large_country <- midwest %>% filter(poptotal > 500000)
+library(ggrepel)
+
+p <- ggplot(data = midwest, aes(x = area, y = poptotal)) + 
+    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +
+    geom_smooth(method = "lm", color = "red", fill = "orange") +
+    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + 
+    labs(title="Area Vs Population", 
+          subtitle="From midwest dataset", 
+          y="Population", x="Area", 
+          caption="Midwest Demographics") +
+    scale_color_manual(name = "State", 
+                       labels = c("Illinois", 
+                                  "Indiana", 
+                                  "Michigan", 
+                                  "Ohio", 
+                                  "Wisconsin"), 
+                       values = c("IL"="blue", 
+                                  "IN"="red", 
+                                  "MI"="green", 
+                                  "OH"="purple", 
+                                  "WI"="orange")) +
+    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) + 
+    scale_size_continuous(name = "Density", guide = F)+
+    theme_bw(15) + 
+    geom_text_repel(data = large_country, aes(label = county), size = 2) 
+p
+```
+
+## Advanced theme & font
+
+## 
+
+-   ?theme()
+-   element_blank(): draws nothing, and assigns no space.
+-   element_rect(): borders and backgrounds.
+-   element_line(): lines.
+-   element_text(): text.
+-   Cài đặt thêm font
+
+```         
+install.packages("extrafont")
+library(extrafont)
+font_import()
+loadfonts(device = "win")
+```
+
+## 
+
+```{r, echo=TRUE, results="hide", fig.show="hide"}
+p <- p + theme(
+        # Chọn font chữ 
+        text = element_text(family = "Georgia"),
+        # Tùy chỉnh text cho title (cỡ chũ 18, bold)
+        plot.title = element_text(size = 18,color = "grey10",  face = "bold"),
+        # Tùy chỉnh cho subtitle
+        plot.subtitle = element_text(color = "gray40", size = 12),
+        # Tùy chỉnh cation
+        plot.caption = element_text(face = "italic", size = 12, color = "red"),
+        # Tùy chỉnh title cho trục x
+        axis.title.x = element_text(face = "bold", size = 11, color = "grey20"),
+        # Tùy chinh title cho trục y
+        axis.title.y = element_text(face = "bold", size = 11, color = "grey20"),
+        # Tùy chỉnh background, grid
+        panel.grid.major = element_line(color = "#4d5566"),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.background = element_rect(fill = "#444B5A"),
+        # Tùy chỉnh hiện thị đơn vị trục x, y
+        axis.text.x = element_text(size = 13, color = "grey10"),
+        axis.text.y = element_text(size = 13, color = "grey10"),
+        # Tùy chỉnh tick cho 2 trục
+        axis.ticks = element_line(size = 13)
+    ) 
+p
+```
+
+## 
+
+```{r, echo=FALSE}
+p <- p + theme(
+        # Chọn font chữ 
+        text = element_text(family = "Georgia"),
+        # Tùy chỉnh text cho title (cỡ chũ 18, bold)
+        plot.title = element_text(size = 18,color = "grey10",  face = "bold"),
+        # Tùy chỉnh cho subtitle
+        plot.subtitle = element_text(color = "gray40", size = 12),
+        # Tùy chỉnh cation
+        plot.caption = element_text(face = "italic", size = 12, color = "red"),
+        # Tùy chỉnh title cho trục x
+        axis.title.x = element_text(face = "bold", size = 11, color = "grey20"),
+        # Tùy chinh title cho trục y
+        axis.title.y = element_text(face = "bold", size = 11, color = "grey20"),
+        # Tùy chỉnh background, grid
+        panel.grid.major = element_line(color = "#4d5566"),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.background = element_rect(fill = "#444B5A"),
+        # Tùy chỉnh hiện thị đơn vị trục x, y
+        axis.text.x = element_text(size = 13, color = "grey10"),
+        axis.text.y = element_text(size = 13, color = "grey10"),
+        # Tùy chỉnh tick cho 2 trục
+        axis.ticks = element_line(size = 13)
+    ) 
+p
+```
+
+## Facet
+
+## Facet
+
+-   Phân chia theo 2 nhóm khu vực "inmetro": Yes/No
+
+```         
+p + facet_wrap(~inmetro, ncol = 2)
+```
+
+##
+```{r}
+p + facet_wrap(~inmetro, ncol = 2)
+```
+
+## 
+
+![](images4/slide75.png){fig-align="center"}
+
+## Tìm hiểu thêm
+
+-   coordinate
+-   Ghép các ảnh riêng lẻ vào 1 qua package "gridExtra"
+
+## Thực hành
+
+
+## 
+
+::: {layout-ncol=3}
+
+![](images4/772.png)
+
+![](images4/77.png)
+
+![](images4/773.png)
+:::
+
+## 
+
+![](images4/image7.png){fig-align="center"}
+
+

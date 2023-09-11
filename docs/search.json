@@ -361,7 +361,7 @@
     "href": "bài 3.html#read.table-1",
     "title": "Bài 3",
     "section": "read.table()",
-    "text": "read.table()\n\nread.table(file, header = FALSE, sep = ““, na.strings =”NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)\n\nheader = TRUE: lấy hàng đầu tiên làm tên cột, nếu chọn header = FALSE thì tên cột sẽ tự động tạo dạng V1, V2, V3…\nsep: giữa các cột ngăn cách nhau bằng gì, có thể là sep = “,“ (dấu , của dạng .csv), sep = “ (phím tab của dạng tsv)…"
+    "text": "read.table()\n\nread.table(file, header = FALSE, sep = ““, na.strings =”NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)\n\nheader = TRUE: lấy hàng đầu tiên làm tên cột, nếu chọn header = FALSE thì tên cột sẽ tự động tạo dạng V1, V2, V3…\nsep: giữa các cột ngăn cách nhau bằng gì, có thể là sep = “,” (dấu , của dạng .csv), sep = “ (phím tab của dạng tsv)…"
   },
   {
     "objectID": "bài 3.html#read.table-2",
@@ -389,7 +389,7 @@
     "href": "bài 3.html#lưu-ý-khi-đọc-dữ-liệu",
     "title": "Bài 3",
     "section": "Lưu ý khi đọc dữ liệu",
-    "text": "Lưu ý khi đọc dữ liệu\nVí dụ có file sau đây  Đọc thử vào R, dùng lệnh object_size() trong package pryr để xem object chiếm dung lượng bao nhiêu và so sánh với công thức ước lượng"
+    "text": "Lưu ý khi đọc dữ liệu\nVí dụ có file sau đây\n\nĐọc thử vào R, dùng lệnh object_size() trong package pryr để xem object chiếm dung lượng bao nhiêu và so sánh với công thức ước lượng"
   },
   {
     "objectID": "bài 3.html#lưu-ý-khi-đọc-dữ-liệu-1",
@@ -410,7 +410,7 @@
     "href": "bài 3.html#read.csv",
     "title": "Bài 3",
     "section": "read.csv()",
-    "text": "read.csv()\n\nread.csv(file, header = TRUE, sep = “,”, na.strings = “NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)\nTương tự như read.table(), trong đó header = TRUE và sep = “,“ đã được quy định làm default cho nhanh gọn, do đó thường chỉ cần gõ read.csv(file)"
+    "text": "read.csv()\n\nread.csv(file, header = TRUE, sep = “,”, na.strings = “NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)\nTương tự như read.table(), trong đó header = TRUE và sep = “,” đã được quy định làm default cho nhanh gọn, do đó thường chỉ cần gõ read.csv(file)"
   },
   {
     "objectID": "bài 3.html#fread",
@@ -648,6 +648,1735 @@
     "href": "bài 5.html#if-else-2",
     "title": "Bài 5",
     "section": "if-else",
-    "text": "if-else\n\nx <- 5\nx >= 7\n\n[1] FALSE\n\nif(x >= 7){\n  print(\"x>=7\")\n} else {\n  print(\"x< 7\")\n}\n\n[1] \"x< 7\""
+    "text": "if-else\n\nx <- 5\nx >= 7\n\n[1] FALSE\n\nif(x >= 7){\n  print(\"x >= 7\")\n} else {\n  print(\"x < 7\")\n}\n\n[1] \"x < 7\"\n\n\n\nVì kiểm tra x >= 7 cho kết quả là FALSE, if-else trả về hành động trong cụm else {} là in dòng “x < 7”"
+  },
+  {
+    "objectID": "bài 5.html#if-else-3",
+    "href": "bài 5.html#if-else-3",
+    "title": "Bài 5",
+    "section": "if-else",
+    "text": "if-else\n\nx <- c(1:5)\nx >= 7\nif(x >= 7){\n  print(\"x >=7\")\n} else {\n  print(\"x <7\")\n}\n\nError in `if (x >= 7) ...`:\n! the condition has length > 1\n\nMặc định if-else chỉ chấp nhận kết quả của điều kiện nằm trong ngoặc () có length = 1 (TRUE hoặc FALSE), if-else sẽ không kiểm tra điều kiện lần lượt cho từng phần tử, nếu muốn làm vậy thì cần kết hợp với vòng lặp for\nCó thể kết hợp so sánh nhiều điều kiện bằng dấu & (và) hay | (hoặc)"
+  },
+  {
+    "objectID": "bài 5.html#if-else-4",
+    "href": "bài 5.html#if-else-4",
+    "title": "Bài 5",
+    "section": "if-else",
+    "text": "if-else\n\nx <- c(5,10)\nif(x[1] >=7 & x[2] >=7) {\n  print(\"both items are >=7\")\n} else if(x[1] <7 & x[2] <7){\n  print(\"both items are <7\")\n} else {\n  print(\"one is <7 and one is >=7\")\n}\n\n[1] \"one is <7 and one is >=7\"\n\n\n\nVí dụ so sánh bằng điều kiện “và”\nLưu ý: kết quả của điều kiện nằm trong ngoặc () là 1 giá trị TRUE/FALSE, chứ không phải x chỉ kiểm tra được 1 giá trị, ví dụ này cho thấy x có thể kiểm tra nhiều giá trị nhưng cần kết hợp lại với nhau để kết quả của điều kiện sau khi kiểm tra là TRUE/FALSE"
+  },
+  {
+    "objectID": "bài 5.html#if-else-5",
+    "href": "bài 5.html#if-else-5",
+    "title": "Bài 5",
+    "section": "if-else",
+    "text": "if-else\n\nViết lại ví dụ trên hiệu quả hơn với any() và all()\n\nall() = TRUE khi tất cả các phần tử nằm trong () đều là TRUE\nany() = TRUE khi có ít nhất một phần tử trong dấu () là TRUE\n\n\n\nx <- c(5,10)\nx >=7\n\n[1] FALSE  TRUE\n\nall(x>=7)\n\n[1] FALSE\n\nany(x >=7)\n\n[1] TRUE"
+  },
+  {
+    "objectID": "bài 5.html#if-else-6",
+    "href": "bài 5.html#if-else-6",
+    "title": "Bài 5",
+    "section": "if-else",
+    "text": "if-else\n\nif(all(x >=7)) {\n  print(\"both items are >=7\")\n} else if(all(x<7)){\n  print(\"both items are <7\")\n} else {\n  print(\"one is <7 and one is >=7\")\n}\n\n[1] \"one is <7 and one is >=7\""
+  },
+  {
+    "objectID": "bài 5.html#for-loop",
+    "href": "bài 5.html#for-loop",
+    "title": "Bài 5",
+    "section": "for-loop",
+    "text": "for-loop\n\nVòng lặp quan trọng nhất trong R, hầu như tất cả các trường hợp cần dùng vòng lặp đều có thể dùng vòng lặp for\n\nfor(item in vector) {\n <hành động>\n}\n\nCó thể đặt tên item là gì cũng được, thường đặt là i\nfor loop sẽ lấy lần lượt từng phần tử nằm trong vector ra và thực hiện hành động mình mong muốn lên phần tử đó"
+  },
+  {
+    "objectID": "bài 5.html#for-loop-1",
+    "href": "bài 5.html#for-loop-1",
+    "title": "Bài 5",
+    "section": "for-loop",
+    "text": "for-loop\n\nfor(i in 1:1000) {\n  print(i)\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n[1] 6\n[1] 7\n[1] 8\n[1] 9\n[1] 10\n[1] 11\n[1] 12\n[1] 13\n[1] 14\n[1] 15\n[1] 16\n[1] 17\n[1] 18\n[1] 19\n[1] 20\n[1] 21\n[1] 22\n[1] 23\n[1] 24\n[1] 25\n[1] 26\n[1] 27\n[1] 28\n[1] 29\n[1] 30\n[1] 31\n[1] 32\n[1] 33\n[1] 34\n[1] 35\n[1] 36\n[1] 37\n[1] 38\n[1] 39\n[1] 40\n[1] 41\n[1] 42\n[1] 43\n[1] 44\n[1] 45\n[1] 46\n[1] 47\n[1] 48\n[1] 49\n[1] 50\n[1] 51\n[1] 52\n[1] 53\n[1] 54\n[1] 55\n[1] 56\n[1] 57\n[1] 58\n[1] 59\n[1] 60\n[1] 61\n[1] 62\n[1] 63\n[1] 64\n[1] 65\n[1] 66\n[1] 67\n[1] 68\n[1] 69\n[1] 70\n[1] 71\n[1] 72\n[1] 73\n[1] 74\n[1] 75\n[1] 76\n[1] 77\n[1] 78\n[1] 79\n[1] 80\n[1] 81\n[1] 82\n[1] 83\n[1] 84\n[1] 85\n[1] 86\n[1] 87\n[1] 88\n[1] 89\n[1] 90\n[1] 91\n[1] 92\n[1] 93\n[1] 94\n[1] 95\n[1] 96\n[1] 97\n[1] 98\n[1] 99\n[1] 100\n[1] 101\n[1] 102\n[1] 103\n[1] 104\n[1] 105\n[1] 106\n[1] 107\n[1] 108\n[1] 109\n[1] 110\n[1] 111\n[1] 112\n[1] 113\n[1] 114\n[1] 115\n[1] 116\n[1] 117\n[1] 118\n[1] 119\n[1] 120\n[1] 121\n[1] 122\n[1] 123\n[1] 124\n[1] 125\n[1] 126\n[1] 127\n[1] 128\n[1] 129\n[1] 130\n[1] 131\n[1] 132\n[1] 133\n[1] 134\n[1] 135\n[1] 136\n[1] 137\n[1] 138\n[1] 139\n[1] 140\n[1] 141\n[1] 142\n[1] 143\n[1] 144\n[1] 145\n[1] 146\n[1] 147\n[1] 148\n[1] 149\n[1] 150\n[1] 151\n[1] 152\n[1] 153\n[1] 154\n[1] 155\n[1] 156\n[1] 157\n[1] 158\n[1] 159\n[1] 160\n[1] 161\n[1] 162\n[1] 163\n[1] 164\n[1] 165\n[1] 166\n[1] 167\n[1] 168\n[1] 169\n[1] 170\n[1] 171\n[1] 172\n[1] 173\n[1] 174\n[1] 175\n[1] 176\n[1] 177\n[1] 178\n[1] 179\n[1] 180\n[1] 181\n[1] 182\n[1] 183\n[1] 184\n[1] 185\n[1] 186\n[1] 187\n[1] 188\n[1] 189\n[1] 190\n[1] 191\n[1] 192\n[1] 193\n[1] 194\n[1] 195\n[1] 196\n[1] 197\n[1] 198\n[1] 199\n[1] 200\n[1] 201\n[1] 202\n[1] 203\n[1] 204\n[1] 205\n[1] 206\n[1] 207\n[1] 208\n[1] 209\n[1] 210\n[1] 211\n[1] 212\n[1] 213\n[1] 214\n[1] 215\n[1] 216\n[1] 217\n[1] 218\n[1] 219\n[1] 220\n[1] 221\n[1] 222\n[1] 223\n[1] 224\n[1] 225\n[1] 226\n[1] 227\n[1] 228\n[1] 229\n[1] 230\n[1] 231\n[1] 232\n[1] 233\n[1] 234\n[1] 235\n[1] 236\n[1] 237\n[1] 238\n[1] 239\n[1] 240\n[1] 241\n[1] 242\n[1] 243\n[1] 244\n[1] 245\n[1] 246\n[1] 247\n[1] 248\n[1] 249\n[1] 250\n[1] 251\n[1] 252\n[1] 253\n[1] 254\n[1] 255\n[1] 256\n[1] 257\n[1] 258\n[1] 259\n[1] 260\n[1] 261\n[1] 262\n[1] 263\n[1] 264\n[1] 265\n[1] 266\n[1] 267\n[1] 268\n[1] 269\n[1] 270\n[1] 271\n[1] 272\n[1] 273\n[1] 274\n[1] 275\n[1] 276\n[1] 277\n[1] 278\n[1] 279\n[1] 280\n[1] 281\n[1] 282\n[1] 283\n[1] 284\n[1] 285\n[1] 286\n[1] 287\n[1] 288\n[1] 289\n[1] 290\n[1] 291\n[1] 292\n[1] 293\n[1] 294\n[1] 295\n[1] 296\n[1] 297\n[1] 298\n[1] 299\n[1] 300\n[1] 301\n[1] 302\n[1] 303\n[1] 304\n[1] 305\n[1] 306\n[1] 307\n[1] 308\n[1] 309\n[1] 310\n[1] 311\n[1] 312\n[1] 313\n[1] 314\n[1] 315\n[1] 316\n[1] 317\n[1] 318\n[1] 319\n[1] 320\n[1] 321\n[1] 322\n[1] 323\n[1] 324\n[1] 325\n[1] 326\n[1] 327\n[1] 328\n[1] 329\n[1] 330\n[1] 331\n[1] 332\n[1] 333\n[1] 334\n[1] 335\n[1] 336\n[1] 337\n[1] 338\n[1] 339\n[1] 340\n[1] 341\n[1] 342\n[1] 343\n[1] 344\n[1] 345\n[1] 346\n[1] 347\n[1] 348\n[1] 349\n[1] 350\n[1] 351\n[1] 352\n[1] 353\n[1] 354\n[1] 355\n[1] 356\n[1] 357\n[1] 358\n[1] 359\n[1] 360\n[1] 361\n[1] 362\n[1] 363\n[1] 364\n[1] 365\n[1] 366\n[1] 367\n[1] 368\n[1] 369\n[1] 370\n[1] 371\n[1] 372\n[1] 373\n[1] 374\n[1] 375\n[1] 376\n[1] 377\n[1] 378\n[1] 379\n[1] 380\n[1] 381\n[1] 382\n[1] 383\n[1] 384\n[1] 385\n[1] 386\n[1] 387\n[1] 388\n[1] 389\n[1] 390\n[1] 391\n[1] 392\n[1] 393\n[1] 394\n[1] 395\n[1] 396\n[1] 397\n[1] 398\n[1] 399\n[1] 400\n[1] 401\n[1] 402\n[1] 403\n[1] 404\n[1] 405\n[1] 406\n[1] 407\n[1] 408\n[1] 409\n[1] 410\n[1] 411\n[1] 412\n[1] 413\n[1] 414\n[1] 415\n[1] 416\n[1] 417\n[1] 418\n[1] 419\n[1] 420\n[1] 421\n[1] 422\n[1] 423\n[1] 424\n[1] 425\n[1] 426\n[1] 427\n[1] 428\n[1] 429\n[1] 430\n[1] 431\n[1] 432\n[1] 433\n[1] 434\n[1] 435\n[1] 436\n[1] 437\n[1] 438\n[1] 439\n[1] 440\n[1] 441\n[1] 442\n[1] 443\n[1] 444\n[1] 445\n[1] 446\n[1] 447\n[1] 448\n[1] 449\n[1] 450\n[1] 451\n[1] 452\n[1] 453\n[1] 454\n[1] 455\n[1] 456\n[1] 457\n[1] 458\n[1] 459\n[1] 460\n[1] 461\n[1] 462\n[1] 463\n[1] 464\n[1] 465\n[1] 466\n[1] 467\n[1] 468\n[1] 469\n[1] 470\n[1] 471\n[1] 472\n[1] 473\n[1] 474\n[1] 475\n[1] 476\n[1] 477\n[1] 478\n[1] 479\n[1] 480\n[1] 481\n[1] 482\n[1] 483\n[1] 484\n[1] 485\n[1] 486\n[1] 487\n[1] 488\n[1] 489\n[1] 490\n[1] 491\n[1] 492\n[1] 493\n[1] 494\n[1] 495\n[1] 496\n[1] 497\n[1] 498\n[1] 499\n[1] 500\n[1] 501\n[1] 502\n[1] 503\n[1] 504\n[1] 505\n[1] 506\n[1] 507\n[1] 508\n[1] 509\n[1] 510\n[1] 511\n[1] 512\n[1] 513\n[1] 514\n[1] 515\n[1] 516\n[1] 517\n[1] 518\n[1] 519\n[1] 520\n[1] 521\n[1] 522\n[1] 523\n[1] 524\n[1] 525\n[1] 526\n[1] 527\n[1] 528\n[1] 529\n[1] 530\n[1] 531\n[1] 532\n[1] 533\n[1] 534\n[1] 535\n[1] 536\n[1] 537\n[1] 538\n[1] 539\n[1] 540\n[1] 541\n[1] 542\n[1] 543\n[1] 544\n[1] 545\n[1] 546\n[1] 547\n[1] 548\n[1] 549\n[1] 550\n[1] 551\n[1] 552\n[1] 553\n[1] 554\n[1] 555\n[1] 556\n[1] 557\n[1] 558\n[1] 559\n[1] 560\n[1] 561\n[1] 562\n[1] 563\n[1] 564\n[1] 565\n[1] 566\n[1] 567\n[1] 568\n[1] 569\n[1] 570\n[1] 571\n[1] 572\n[1] 573\n[1] 574\n[1] 575\n[1] 576\n[1] 577\n[1] 578\n[1] 579\n[1] 580\n[1] 581\n[1] 582\n[1] 583\n[1] 584\n[1] 585\n[1] 586\n[1] 587\n[1] 588\n[1] 589\n[1] 590\n[1] 591\n[1] 592\n[1] 593\n[1] 594\n[1] 595\n[1] 596\n[1] 597\n[1] 598\n[1] 599\n[1] 600\n[1] 601\n[1] 602\n[1] 603\n[1] 604\n[1] 605\n[1] 606\n[1] 607\n[1] 608\n[1] 609\n[1] 610\n[1] 611\n[1] 612\n[1] 613\n[1] 614\n[1] 615\n[1] 616\n[1] 617\n[1] 618\n[1] 619\n[1] 620\n[1] 621\n[1] 622\n[1] 623\n[1] 624\n[1] 625\n[1] 626\n[1] 627\n[1] 628\n[1] 629\n[1] 630\n[1] 631\n[1] 632\n[1] 633\n[1] 634\n[1] 635\n[1] 636\n[1] 637\n[1] 638\n[1] 639\n[1] 640\n[1] 641\n[1] 642\n[1] 643\n[1] 644\n[1] 645\n[1] 646\n[1] 647\n[1] 648\n[1] 649\n[1] 650\n[1] 651\n[1] 652\n[1] 653\n[1] 654\n[1] 655\n[1] 656\n[1] 657\n[1] 658\n[1] 659\n[1] 660\n[1] 661\n[1] 662\n[1] 663\n[1] 664\n[1] 665\n[1] 666\n[1] 667\n[1] 668\n[1] 669\n[1] 670\n[1] 671\n[1] 672\n[1] 673\n[1] 674\n[1] 675\n[1] 676\n[1] 677\n[1] 678\n[1] 679\n[1] 680\n[1] 681\n[1] 682\n[1] 683\n[1] 684\n[1] 685\n[1] 686\n[1] 687\n[1] 688\n[1] 689\n[1] 690\n[1] 691\n[1] 692\n[1] 693\n[1] 694\n[1] 695\n[1] 696\n[1] 697\n[1] 698\n[1] 699\n[1] 700\n[1] 701\n[1] 702\n[1] 703\n[1] 704\n[1] 705\n[1] 706\n[1] 707\n[1] 708\n[1] 709\n[1] 710\n[1] 711\n[1] 712\n[1] 713\n[1] 714\n[1] 715\n[1] 716\n[1] 717\n[1] 718\n[1] 719\n[1] 720\n[1] 721\n[1] 722\n[1] 723\n[1] 724\n[1] 725\n[1] 726\n[1] 727\n[1] 728\n[1] 729\n[1] 730\n[1] 731\n[1] 732\n[1] 733\n[1] 734\n[1] 735\n[1] 736\n[1] 737\n[1] 738\n[1] 739\n[1] 740\n[1] 741\n[1] 742\n[1] 743\n[1] 744\n[1] 745\n[1] 746\n[1] 747\n[1] 748\n[1] 749\n[1] 750\n[1] 751\n[1] 752\n[1] 753\n[1] 754\n[1] 755\n[1] 756\n[1] 757\n[1] 758\n[1] 759\n[1] 760\n[1] 761\n[1] 762\n[1] 763\n[1] 764\n[1] 765\n[1] 766\n[1] 767\n[1] 768\n[1] 769\n[1] 770\n[1] 771\n[1] 772\n[1] 773\n[1] 774\n[1] 775\n[1] 776\n[1] 777\n[1] 778\n[1] 779\n[1] 780\n[1] 781\n[1] 782\n[1] 783\n[1] 784\n[1] 785\n[1] 786\n[1] 787\n[1] 788\n[1] 789\n[1] 790\n[1] 791\n[1] 792\n[1] 793\n[1] 794\n[1] 795\n[1] 796\n[1] 797\n[1] 798\n[1] 799\n[1] 800\n[1] 801\n[1] 802\n[1] 803\n[1] 804\n[1] 805\n[1] 806\n[1] 807\n[1] 808\n[1] 809\n[1] 810\n[1] 811\n[1] 812\n[1] 813\n[1] 814\n[1] 815\n[1] 816\n[1] 817\n[1] 818\n[1] 819\n[1] 820\n[1] 821\n[1] 822\n[1] 823\n[1] 824\n[1] 825\n[1] 826\n[1] 827\n[1] 828\n[1] 829\n[1] 830\n[1] 831\n[1] 832\n[1] 833\n[1] 834\n[1] 835\n[1] 836\n[1] 837\n[1] 838\n[1] 839\n[1] 840\n[1] 841\n[1] 842\n[1] 843\n[1] 844\n[1] 845\n[1] 846\n[1] 847\n[1] 848\n[1] 849\n[1] 850\n[1] 851\n[1] 852\n[1] 853\n[1] 854\n[1] 855\n[1] 856\n[1] 857\n[1] 858\n[1] 859\n[1] 860\n[1] 861\n[1] 862\n[1] 863\n[1] 864\n[1] 865\n[1] 866\n[1] 867\n[1] 868\n[1] 869\n[1] 870\n[1] 871\n[1] 872\n[1] 873\n[1] 874\n[1] 875\n[1] 876\n[1] 877\n[1] 878\n[1] 879\n[1] 880\n[1] 881\n[1] 882\n[1] 883\n[1] 884\n[1] 885\n[1] 886\n[1] 887\n[1] 888\n[1] 889\n[1] 890\n[1] 891\n[1] 892\n[1] 893\n[1] 894\n[1] 895\n[1] 896\n[1] 897\n[1] 898\n[1] 899\n[1] 900\n[1] 901\n[1] 902\n[1] 903\n[1] 904\n[1] 905\n[1] 906\n[1] 907\n[1] 908\n[1] 909\n[1] 910\n[1] 911\n[1] 912\n[1] 913\n[1] 914\n[1] 915\n[1] 916\n[1] 917\n[1] 918\n[1] 919\n[1] 920\n[1] 921\n[1] 922\n[1] 923\n[1] 924\n[1] 925\n[1] 926\n[1] 927\n[1] 928\n[1] 929\n[1] 930\n[1] 931\n[1] 932\n[1] 933\n[1] 934\n[1] 935\n[1] 936\n[1] 937\n[1] 938\n[1] 939\n[1] 940\n[1] 941\n[1] 942\n[1] 943\n[1] 944\n[1] 945\n[1] 946\n[1] 947\n[1] 948\n[1] 949\n[1] 950\n[1] 951\n[1] 952\n[1] 953\n[1] 954\n[1] 955\n[1] 956\n[1] 957\n[1] 958\n[1] 959\n[1] 960\n[1] 961\n[1] 962\n[1] 963\n[1] 964\n[1] 965\n[1] 966\n[1] 967\n[1] 968\n[1] 969\n[1] 970\n[1] 971\n[1] 972\n[1] 973\n[1] 974\n[1] 975\n[1] 976\n[1] 977\n[1] 978\n[1] 979\n[1] 980\n[1] 981\n[1] 982\n[1] 983\n[1] 984\n[1] 985\n[1] 986\n[1] 987\n[1] 988\n[1] 989\n[1] 990\n[1] 991\n[1] 992\n[1] 993\n[1] 994\n[1] 995\n[1] 996\n[1] 997\n[1] 998\n[1] 999\n[1] 1000"
+  },
+  {
+    "objectID": "bài 5.html#for-loop-2",
+    "href": "bài 5.html#for-loop-2",
+    "title": "Bài 5",
+    "section": "for-loop",
+    "text": "for-loop\n\n\n\n\nhead(df)\n\n           id year sex depart  Hb   MCV  MCH MCHC\n1 10429-52501 1960   0    TNT  93 100.4 31.5  313\n2 41215-59318 1983   0    TNT  90  95.7 31.7  331\n3 10269-56336 1954   0    TNT 111  91.6 29.0  317\n4 16208-59926 1989   1    TNT  93  90.5 30.1  332\n5 16762-52364 1980   0    TNT 100  92.6 29.8  322\n6 10245-56328 1987   1    TNT 121  92.4 31.3  338"
+  },
+  {
+    "objectID": "bài 5.html#for-loop-3",
+    "href": "bài 5.html#for-loop-3",
+    "title": "Bài 5",
+    "section": "for-loop",
+    "text": "for-loop\n\ncols <- c(\"MCV\",\"MCH\",\"MCHC\")\nfor( i in 1:length(cols)){\n  a <- cols[i]\n  t <- t.test(df[,a] ~ df$sex)\n  print(a)\n  print(t)\n}\n\n[1] \"MCV\"\n\n    Welch Two Sample t-test\n\ndata:  df[, a] by df$sex\nt = -0.82071, df = 52.847, p-value = 0.4155\nalternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0\n95 percent confidence interval:\n -4.829302  2.024902\nsample estimates:\nmean in group 0 mean in group 1 \n        92.3950         93.7972 \n\n[1] \"MCH\"\n\n    Welch Two Sample t-test\n\ndata:  df[, a] by df$sex\nt = -0.54849, df = 47.745, p-value = 0.5859\nalternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0\n95 percent confidence interval:\n -1.7195297  0.9825297\nsample estimates:\nmean in group 0 mean in group 1 \n        29.4475         29.8160 \n\n[1] \"MCHC\"\n\n    Welch Two Sample t-test\n\ndata:  df[, a] by df$sex\nt = 0.44652, df = 43.728, p-value = 0.6574\nalternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0\n95 percent confidence interval:\n -5.007877  7.857877\nsample estimates:\nmean in group 0 mean in group 1 \n        318.625         317.200"
+  },
+  {
+    "objectID": "bài 5.html#for-loop-lồng-vào-nhau",
+    "href": "bài 5.html#for-loop-lồng-vào-nhau",
+    "title": "Bài 5",
+    "section": "for-loop lồng vào nhau",
+    "text": "for-loop lồng vào nhau\n\n\n\n\nx\n\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6\n\nfor(i in 1:nrow(x)){\n  for(j in 1:ncol(x)){\n    print(paste0(\"i = \", i,\", j= \",j))\n    print(x[i, j])\n  }\n}\n\n[1] \"i = 1, j= 1\"\n[1] 1\n[1] \"i = 1, j= 2\"\n[1] 3\n[1] \"i = 1, j= 3\"\n[1] 5\n[1] \"i = 2, j= 1\"\n[1] 2\n[1] \"i = 2, j= 2\"\n[1] 4\n[1] \"i = 2, j= 3\"\n[1] 6"
+  },
+  {
+    "objectID": "bài 5.html#for-loop-lồng-vào-nhau-1",
+    "href": "bài 5.html#for-loop-lồng-vào-nhau-1",
+    "title": "Bài 5",
+    "section": "for-loop lồng vào nhau",
+    "text": "for-loop lồng vào nhau\n\nTrong ví dụ này:\n\ni có các giá trị là 1, 2\nj có giá trị là 1, 2, 3\nKhi i = 1, R lần lượt đi qua các giá trị j = 1, j = 2 và j = 3\nSau khi đi hết các giá trị của j, R đi tiếp với i = 2, và lại lần lượt đi qua các giá trị j = 1, j = 2 và j = 3"
+  },
+  {
+    "objectID": "bài 5.html#next",
+    "href": "bài 5.html#next",
+    "title": "Bài 5",
+    "section": "next",
+    "text": "next\n\nnext dùng để bỏ qua 1 vòng của for loop\nThường dùng khi kết hợp for loop với if-else\nXem ví dụ: khi i == 4 thì bỏ qua, tiếp tục đi đến i == 5 và tiếp theo\n\n\nfor(i in 1:17){\n  if(i <=3) {\n    print(i)\n  } else if(i==4) {\n    next\n  } else {\n    print(i)\n  }\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 5\n[1] 6\n[1] 7\n[1] 8\n[1] 9\n[1] 10\n[1] 11\n[1] 12\n[1] 13\n[1] 14\n[1] 15\n[1] 16\n[1] 17"
+  },
+  {
+    "objectID": "bài 5.html#break",
+    "href": "bài 5.html#break",
+    "title": "Bài 5",
+    "section": "break",
+    "text": "break\n\nKhi thấy break, for loop sẽ tự dừng hẳn, không cần biết tiếp theo có chuyện gì\n\n\nfor(i in 1:17){\n  if(i <=3) {\n    print(i)\n  } else if(i==4) {\n    break\n  } else {\n    print(i)\n  }\n}\n\n[1] 1\n[1] 2\n[1] 3"
+  },
+  {
+    "objectID": "bài 5.html#bài-tập",
+    "href": "bài 5.html#bài-tập",
+    "title": "Bài 5",
+    "section": "Bài tập",
+    "text": "Bài tập\n\nIf-else:\n\nBài tập kéo búa bao\nChia đường huyết, huyết áp\n\nFor-loop:\n\nIn một dãy số từ 1 đến 100\n\nIn từ 1 đến 100 trừ số 22"
+  },
+  {
+    "objectID": "bài 5.html#bài-tập-1",
+    "href": "bài 5.html#bài-tập-1",
+    "title": "Bài 5",
+    "section": "Bài tập",
+    "text": "Bài tập\n\nFizz buzz:\n\nIn một dãy số từ 1 đến 100\nNếu số chia hết cho 3 thì in “Fizz”,\nnếu số chia hết cho 5 thì in “Buzz”,\nnếu số chia hết cho cả 3 và 5 thì in “FizzBuzz”"
+  },
+  {
+    "objectID": "bài 6.html#functions",
+    "href": "bài 6.html#functions",
+    "title": "Bài 6",
+    "section": "Functions",
+    "text": "Functions\n\nCông dụng: rút ngắn các tác vụ thường sử dụng thành 1 câu lệnh duy nhất\nFunction trong R có dạng:\n\nfunction(các tùy chọn) {\n...\nreturn(kết quả)\n}\n\nCó thể không viết return(), R sẽ lấy hàng cuối cùng trong phần code để trả kết quả"
+  },
+  {
+    "objectID": "bài 6.html#ví-dụ",
+    "href": "bài 6.html#ví-dụ",
+    "title": "Bài 6",
+    "section": "ví dụ",
+    "text": "ví dụ\n\nViết 1 function không nhận vào gì cả, gọi function này thì nó hiện ra chữ “This is a function”\n\n\nf <- function(){\n  return(\"This is a function\")\n}\n\nf() \n\n[1] \"This is a function\""
+  },
+  {
+    "objectID": "bài 6.html#ví-dụ-1",
+    "href": "bài 6.html#ví-dụ-1",
+    "title": "Bài 6",
+    "section": "Ví dụ",
+    "text": "Ví dụ\n\nViết 1 function để tính giá trị trung bình giống như mean() trong R\nCách 1: Viết dựa trên function sum() có sẵn\n\n\nmean_new <- function(x){\n  m <- sum(x)/length(x)\n  return(m)\n}\na <- c(1,2,3)\nmean_new(a)\n\n[1] 2"
+  },
+  {
+    "objectID": "bài 6.html#ví-dụ-2",
+    "href": "bài 6.html#ví-dụ-2",
+    "title": "Bài 6",
+    "section": "Ví dụ",
+    "text": "Ví dụ\n\nViết 1 function để tính giá trị trung bình giống như mean() trong R\nCách 2: Viết “thủ công” hơn 1 chút\n\n\nmean_moreManual <- function(x){\n  s <-0\n  for(i in 1:length(x)){\n    s <- s + x[i]\n  }\n  m <-s/length(x)\n  return(m)\n}\na <- c(1,2,9)\nmean_moreManual(a)\n\n[1] 4"
+  },
+  {
+    "objectID": "bài 6.html#functions-1",
+    "href": "bài 6.html#functions-1",
+    "title": "Bài 6",
+    "section": "Functions",
+    "text": "Functions"
+  },
+  {
+    "objectID": "bài 6.html#functions-2",
+    "href": "bài 6.html#functions-2",
+    "title": "Bài 6",
+    "section": "Functions",
+    "text": "Functions\n\nTận dụng các functions người khác đã viết\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors\n\n\n── Attaching core tidyverse packages ──────────────────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     ── Conflicts ────────────────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package to force all conflicts to become errors\n\nTối ưu để phục vụ nhu cầu của mình"
+  },
+  {
+    "objectID": "bài 6.html#các-bước-để-viết-1-function",
+    "href": "bài 6.html#các-bước-để-viết-1-function",
+    "title": "Bài 6",
+    "section": "Các bước để viết 1 function",
+    "text": "Các bước để viết 1 function\n\nB1: Thử với 1 ví dụ nhỏ\nB2: Tổng quát hóa các giá trị đầu vào\nB3: Đưa vào function(x){} và sử dụng thử\nB4: Tối ưu hóa"
+  },
+  {
+    "objectID": "bài 6.html#ví-dụ-3",
+    "href": "bài 6.html#ví-dụ-3",
+    "title": "Bài 6",
+    "section": "Ví dụ",
+    "text": "Ví dụ\n\nViết 1 function để ghép tần số với tỉ lệ % thành dạng tần số (tỉ lệ %), với tỉ lệ % định dạng 1 chữ số thập phân\nB1: Thử với 1 ví dụ\n\n\n\nRows: 65 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): id, depart\ndbl (6): year, sex, Hb, MCV, MCH, MCHC\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nf <- table(df$age40)\nf\n\n\n <40 >=40 \n  11   54 \n\n\n\nf <- data.frame(f)\nf\n\n  Var1 Freq\n1  <40   11\n2 >=40   54"
+  },
+  {
+    "objectID": "Bài 4.html",
+    "href": "Bài 4.html",
+    "title": "Bài 4",
+    "section": "",
+    "text": "Dạng bảng biểu giống như bảng Excel\nLoại container quan trọng trong xử lý dữ liệu với R\nMỗi cột là 1 vector (cùng 1 loại data type), vì vậy có thể ghép các vectors thành data frame như matrix, nhưng các vectors khác data type vẫn có thể ghép chứ không như matrix. Độ dài của các vectors cần phải bằng nhau."
+  },
+  {
+    "objectID": "bài 6.html#ví-dụ-4",
+    "href": "bài 6.html#ví-dụ-4",
+    "title": "Bài 6",
+    "section": "Ví dụ",
+    "text": "Ví dụ\n\n\nRows: 65 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): id, depart\ndbl (6): year, sex, Hb, MCV, MCH, MCHC\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\nf$Pct <- 100*f$Freq/sum(f$Freq)\nf\n\n  Var1 Freq      Pct\n1  <40   11 16.92308\n2 >=40   54 83.07692\n\nf$Output <- paste0(f$Freq, \"(\", sprintf(\"%.1f\",f$Pct),\")\")\nf\n\n  Var1 Freq      Pct   Output\n1  <40   11 16.92308 11(16.9)\n2 >=40   54 83.07692 54(83.1)\n\nfp <- data.frame(f[,c(1, 4)])\nfp\n\n  Var1   Output\n1  <40 11(16.9)\n2 >=40 54(83.1)"
+  },
+  {
+    "objectID": "bài 6.html#ví-dụ-5",
+    "href": "bài 6.html#ví-dụ-5",
+    "title": "Bài 6",
+    "section": "Ví dụ",
+    "text": "Ví dụ\n\nB2: Tổng quát hóa giá trị đầu vào bằng cách thay 1 biến (ví dụ x) vào các lệnh trên\n\n\nx<- df$age40\nf <- table(x)\nf <- data.frame(f)\nf$Pct <- 100*f$Freq/sum(f$Freq)\nf$Output <- paste0(f$Freq, \"(\", sprintf(\"%.1f\",f$Pct),\")\")\nfp <- data.frame(f[,c(1, 4)])\nfp\n\n     x   Output\n1  <40 11(16.9)\n2 >=40 54(83.1)"
+  },
+  {
+    "objectID": "bài 6.html#ví-dụ-6",
+    "href": "bài 6.html#ví-dụ-6",
+    "title": "Bài 6",
+    "section": "Ví dụ",
+    "text": "Ví dụ\n\nB3: Đưa vào function(x){}\n\n\nfreq_pct <- function(x){\n  f <- table(x)\n  f <- data.frame(f)\n  f$Pct <- 100*f$Freq/sum(f$Freq)\n  f$Output <- paste0(f$Freq, \"(\", sprintf(\"%.1f\",f$Pct),\")\")\n  fp <- data.frame(f[,c(1, 4)])\n  fp\n}\nfreq_pct(df$age40)\n\n     x   Output\n1  <40 11(16.9)\n2 >=40 54(83.1)"
+  },
+  {
+    "objectID": "bài 6.html#ví-dụ-7",
+    "href": "bài 6.html#ví-dụ-7",
+    "title": "Bài 6",
+    "section": "Ví dụ",
+    "text": "Ví dụ\n\nB4: Tối ưu hóa, ví dụ thêm tùy chọn định dạng số thập phân, có thể chọn 2 số, 3 số…\n\n\nfreq_pct <- function(x, dec = 1 ){\n f <- table(x)\n f <- data.frame(f)\n f$Pct <- 100*f$Freq/sum(f$Freq)\n f$Output <- paste0(f$Freq, \"(\", sprintf(paste0(\"%.\", dec,\"f\"),f$Pct),\")\")\n fp <- data.frame(f[,c(1, 4)])\n fp\n}"
+  },
+  {
+    "objectID": "bài 6.html#ví-dụ-8",
+    "href": "bài 6.html#ví-dụ-8",
+    "title": "Bài 6",
+    "section": "Ví dụ",
+    "text": "Ví dụ\n\nB4: Tối ưu hóa, ví dụ thêm tùy chọn định dạng số thập phân, có thể chọn 2 số, 3 số…\n\n\nfreq_pct(df$age40)\n\n     x   Output\n1  <40 11(16.9)\n2 >=40 54(83.1)\n\nfreq_pct(df$age40, dec = 2)\n\n     x    Output\n1  <40 11(16.92)\n2 >=40 54(83.08)\n\nfreq_pct(df$age40, dec = 3)\n\n     x     Output\n1  <40 11(16.923)\n2 >=40 54(83.077)"
+  },
+  {
+    "objectID": "bài 6.html#bài-tập",
+    "href": "bài 6.html#bài-tập",
+    "title": "Bài 6",
+    "section": "Bài tập",
+    "text": "Bài tập\n\nFunction để tính min, tính max\nNhập đường huyết vô là xuất ra 1 câu “bình thường, rlđh đói, đtđ”…"
+  },
+  {
+    "objectID": "bài 6.html#bài-tập-1",
+    "href": "bài 6.html#bài-tập-1",
+    "title": "Bài 6",
+    "section": "Bài tập",
+    "text": "Bài tập\nĐể ước lượng cỡ mẫu, công thức ước lượng 1 tỉ lệ là:\n\\[\nn = \\dfrac{Z^2_{(1-\\dfrac{\\alpha}{2})}P(1-P)}{d^2}\n\\]\n\nTrong đó:\n\nn là cỡ mẫu tối thiểu\nZ là giá trị từ phân bố chuẩn được tính dựa trên mức ý nghĩa thống kê (Z= 1.96 nếu mức y nghĩa thống kê = 5%)"
+  },
+  {
+    "objectID": "bài 6.html#bài-tập-2",
+    "href": "bài 6.html#bài-tập-2",
+    "title": "Bài 6",
+    "section": "Bài tập",
+    "text": "Bài tập\nĐể ước lượng cỡ mẫu, công thức ước lượng 1 tỉ lệ là:\n\\[\nn = \\dfrac{Z^2_{(1-\\dfrac{\\alpha}{2})}P(1-P)}{d^2}\n\\]\n\nTrong đó:\n\nP là tỷ lệ ước đoán (Lấy từ nghiên cứu trước đây hoặc nghiên cứu thử )\nd là mức sai số tuyệt đối chấp nhận\n\n\nViết function để khi nhập vào các thông số trên sẽ thu được cỡ mẫu"
+  },
+  {
+    "objectID": "bài 7.html#các-lệnh-trong-apply-family",
+    "href": "bài 7.html#các-lệnh-trong-apply-family",
+    "title": "Bài 7",
+    "section": "Các lệnh trong apply family",
+    "text": "Các lệnh trong apply family\n\nlapply(): thực thi lệnh cho từng phần tử của 1 vector hoặc 1 list và trả kết quả dưới dạng 1 list (l = list)\nsapply(): giống lapply nhưng kết quả có thể là list hoặc vector\napply(): thực thi lệnh cho từng chiều của 1 ma trận"
+  },
+  {
+    "objectID": "bài 7.html#lapply",
+    "href": "bài 7.html#lapply",
+    "title": "Bài 7",
+    "section": "lapply()",
+    "text": "lapply()\n\nlapply(list, function)\nChức năng:\n\nĐọc vào 1 vector hoặc 1 list\nThực thi lệnh cho từng phần tử\nTrả kết quả dưới dạng 1 list"
+  },
+  {
+    "objectID": "bài 7.html#lapply-1",
+    "href": "bài 7.html#lapply-1",
+    "title": "Bài 7",
+    "section": "lapply()",
+    "text": "lapply()\n\nVí dụ 1\n\n\nset.seed(123)\nx <- list(a = 1:5, b = rnorm(10))\nx\n\n$a\n[1] 1 2 3 4 5\n\n$b\n [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499\n [7]  0.46091621 -1.26506123 -0.68685285 -0.44566197\n\nlapply(x,mean)\n\n$a\n[1] 3\n\n$b\n[1] 0.07462564"
+  },
+  {
+    "objectID": "bài 7.html#lapply-2",
+    "href": "bài 7.html#lapply-2",
+    "title": "Bài 7",
+    "section": "lapply()",
+    "text": "lapply()\n\nVí dụ 1\n\n\nx\n\n$a\n[1] 1 2 3 4 5\n\n$b\n [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499\n [7]  0.46091621 -1.26506123 -0.68685285 -0.44566197\n\nlapply(x, function(x) x+1)\n\n$a\n[1] 2 3 4 5 6\n\n$b\n [1]  0.4395244  0.7698225  2.5587083  1.0705084  1.1292877  2.7150650\n [7]  1.4609162 -0.2650612  0.3131471  0.5543380"
+  },
+  {
+    "objectID": "bài 7.html#lapply-3",
+    "href": "bài 7.html#lapply-3",
+    "title": "Bài 7",
+    "section": "lapply()",
+    "text": "lapply()\n\nVí dụ 2:\n\nNghiên cứu thu thập mẫu ở 4 khoa (khoa hô hấp – KHH, nội tổng quát – NTQ, thận nhân tạo – TNT, trung tâm khám sức khỏe theo yêu cầu – TTSKYC)\nMỗi khoa gửi về 1 file dữ liệu các bệnh nhân ở khoa mình\nĐọc các files vào R và gộp 4 files này"
+  },
+  {
+    "objectID": "bài 7.html#lapply-4",
+    "href": "bài 7.html#lapply-4",
+    "title": "Bài 7",
+    "section": "lapply()",
+    "text": "lapply()\n\nVí dụ 2\n\n\ninp <- \"/home/thinh/Documents/R-Course/data\"\nfn <- list.files(inp, full.names = T)\nfn\n\n[1] \"/home/thinh/Documents/R-Course/data/khh.csv\"   \n[2] \"/home/thinh/Documents/R-Course/data/ntq.csv\"   \n[3] \"/home/thinh/Documents/R-Course/data/tnt.csv\"   \n[4] \"/home/thinh/Documents/R-Course/data/ttskyc.csv\"\n\nl <-lapply(fn, function(x) read.csv(x, header = T))\nl\n\n[[1]]\n         id year sex depart    Hb  MCV  MCH MCHC\n1    105035 1971   0    KHH  71.0 70.9 19.2  271\n2    105011 1972   0    KHH  67.0 66.9 20.3  303\n3  16034803 1972   0    KHH  92.0 72.0 22.3  310\n4  16038023 1983   0    KHH  93.0 86.3 28.9  335\n5  16038680 1967   1    KHH  76.4 64.9 20.7  319\n6  16038501 1976   0    KHH 120.0 79.0 25.3  320\n7  16048943 1974   0    KHH  91.0 74.3 23.0  310\n8  16038489 1984   0    KHH  87.8 59.8 17.8  297\n9  16035900 1968   0    KHH  82.0 64.5 19.2  298\n10 16036857 1998   1    KHH  93.0 84.5 27.5  326\n11 17001634 1995   0    KHH  99.0 64.4 18.6  289\n12 17000493 1973   0    KHH 115.0 70.1 22.0  314\n13 16048200 1960   0    KHH  99.0 68.6 19.5  284\n14 17002702 1996   1    KHH 102.0 65.4 19.0  291\n15 17003375 1982   0    KHH 104.0 71.4 23.2  324\n16 17003298 1983   1    KHH 126.0 81.3 24.6  302\n17 16035355 1965   0    KHH 119.0 82.4 27.4  333\n18 16035820 1976   0    KHH 112.0 71.3 23.1  324\n19 17001536 1984   0    KHH  78.0 73.1 21.7  297\n20 17001560 1967   0    KHH 115.0 82.7 25.6  309\n21 16034466 1993   0    KHH 110.0 65.0 20.7  319\n22   102653 1990   0    KHH  99.0 79.8 24.7  310\n23 16037691 1970   0    KHH 108.0 77.9 25.3  325\n24 16040273 1976   0    KHH 107.0 73.5 24.1  328\n25 16048407 1995   0    KHH 111.0 73.5 23.1  314\n26 16035476 1990   0    KHH  94.0 52.6 16.6  316\n27 16048699 1983   1    KHH  95.0 67.2 18.7  279\n28 16048956 1992   0    KHH  53.0 82.5 23.9  290\n29 16048479 2001   0    KHH 115.0 81.9 25.9  316\n30 17000126 1970   0    KHH 109.0 72.4 22.6  312\n31 16050852 1972   0    KHH 113.0 72.9 23.5  322\n32 16025118 1979   0    KHH  93.0 69.3 21.7  313\n33 16032932 1968   0    KHH  71.5 61.2 18.7  307\n34 16033246 1965   0    KHH 102.0 69.7 21.7  311\n35 16031810 1967   0    KHH  53.0 50.3 13.1  261\n36 16031091 1975   0    KHH  82.2 71.9 21.8  304\n37 16030720 1992   1    KHH 107.0 76.4 24.3  318\n38 16030781 1968   1    KHH  51.0 80.5 22.4  278\n39 16033558 1988   0    KHH  98.0 63.6 19.2  302\n40 16033302 1967   0    KHH 110.0 78.6 24.8  316\n41 16029235 1980   0    KHH  61.0 59.5 16.2  272\n42 16028626 1978   0    KHH  84.0 62.6 17.8  285\n43 16025470 1987   0    KHH  68.0 56.5 15.9  281\n44 16030104 1968   0    KHH  98.0 73.1 22.4  306\n45 16030311 1977   0    KHH  73.6 64.7 18.7  289\n46 16033323 1954   1    KHH  57.3 65.4 18.6  284\n47 16039132 1968   0    KHH  83.0 64.0 19.0  397\n48 16036991 1972   0    KHH  81.0 64.4 18.9  293\n49 16027889 1995   0    KHH  86.0 60.3 17.5  290\n50 16037976 1978   1    KHH  86.0 81.9 26.2  320\n51 17003384 1989   0    KHH 104.0 72.5 22.0  304\n52 17001859 2000   0    KHH  81.0 76.8 22.5  293\n53 16032817 1994   1    KHH  64.9 55.3 15.0  272\n\n[[2]]\n         id year sex depart    Hb   MCV  MCH MCHC\n1    308817 1964   0    NTQ 138.0  93.9 31.6  337\n2    308814 1960   0    NTQ 146.0  99.7 33.0  319\n3    308801 1990   0    NTQ 124.0  93.6 29.4  315\n4    308801 1985   0    NTQ 139.0  84.3 27.3  324\n5    308828 1986   0    NTQ 133.0  91.9 29.1  317\n6    308917 1959   1    NTQ 166.0  92.8 31.2  336\n7    308918 1989   1    NTQ 153.0  93.1 31.3  336\n8    308908 1957   1    NTQ 139.0  99.6 33.1  332\n9    308872 1979   0    NTQ 132.0  92.3 30.6  331\n10   108781 1991   1    NTQ 171.0  95.5 32.3  338\n11   308935 1956   1    NTQ 157.0 102.8 34.8  338\n12   308892 1991   0    NTQ 135.0  91.9 30.2  328\n13   308894 1980   0    NTQ 137.0  95.6 32.2  337\n14   308832 1981   1    NTQ 151.0  91.3 31.2  342\n15   308833 1982   0    NTQ 131.0  90.2 30.5  338\n16   308831 1974   0    NTQ 139.0  85.3 29.5  346\n17   308813 1951   1    NTQ 142.0 104.1 34.3  329\n18   308844 1978   1    NTQ 151.0  98.2 32.0  326\n19   308881 1976   1    NTQ 142.0  91.2 29.3  321\n20   308888 1962   0    NTQ 140.0 100.2 32.5  325\n21   308856 1976   1    NTQ 157.0  92.7 31.1  335\n22   308906 1983   0    NTQ 137.0  99.9 32.3  323\n23   308907 1980   1    NTQ 151.0 100.0 33.0  330\n24   308875 1980   1    NTQ 140.0  95.0 32.3  340\n25   308874 1981   1    NTQ 138.0  88.0 29.0  330\n26   308909 1980   0    NTQ 134.0  91.1 30.9  339\n27   102043 1987   0    NTQ 132.0  91.8 30.0  326\n28   102036 1985   1    NTQ 150.0  89.2 30.4  341\n29   102037 1981   0    NTQ 135.0  88.6 29.6  334\n30   102045 1991   1    NTQ 154.0  89.9 30.2  336\n31   102005 1982   0    NTQ 125.0  92.6 30.3  327\n32   102028 1985   0    NTQ 126.0  90.4 29.1  322\n33   102001 1980   0    NTQ 128.0  93.3 30.8  329\n34   102003 1985   0    NTQ 132.0  90.3 29.3  324\n35   102058 1989   1    NTQ 151.0  93.5 29.9  320\n36   102050 1992   0    NTQ 135.0  89.2 28.7  322\n37   102040 1982   1    NTQ 156.0  89.7 30.5  340\n38   102011 1995   0    NTQ 131.0  96.3 31.8  331\n39   102012 1984   0    NTQ 148.0  95.6 32.4  339\n40   102032 1993   0    NTQ 154.0  86.5 28.6  329\n41   102009 1991   1    NTQ 149.0  87.0 29.8  342\n42   102079 1991   0    NTQ 131.0  85.3 27.1  318\n43   102066 1992   0    NTQ 140.0  88.3 29.6  335\n44   102068 1987   1    NTQ 148.0  88.9 29.4  331\n45   102057 1982   0    NTQ 134.0  95.6 31.1  326\n46   102065 1990   1    NTQ 159.0  91.2 31.1  341\n47   102080 1991   1    NTQ 151.0  92.5 30.7  332\n48   102017 1987   0    NTQ 142.0  91.8 29.8  325\n49   102020 1971   0    NTQ 130.0  96.5 31.7  329\n50   102029 1981   1    NTQ 161.0  90.6 30.2  333\n51   102004 1993   0    NTQ 125.0  92.9 29.8  321\n52   102082 1988   0    NTQ 134.0  88.7 28.6  323\n53   102008 1991   1    NTQ 154.0  90.6 29.5  325\n54   102042 1970   0    NTQ 141.0  83.1 27.4  330\n55   104313 1988   0    NTQ 141.0  88.6 29.8  337\n56   108748 1976   1    NTQ 146.0  88.9 29.3  330\n57   108745 1990   1    NTQ 141.0  87.8 29.5  335\n58   108736 1956   1    NTQ 166.0  95.7 31.7  332\n59   108747 1969   1    NTQ 149.0  89.9 30.1  335\n60   108757 1986   1    NTQ 156.0  93.1 31.8  341\n61   108774 1959   0    NTQ 134.0  87.0 29.5  339\n62   108743 1993   0    NTQ 131.0  87.2 29.1  334\n63   305921 1975   0    NTQ 115.0  89.3 29.0  325\n64   307235 1978   0    NTQ 122.0  76.6 26.3  343\n65   100256 1977   0    NTQ  91.0  69.4 20.4  294\n66 16038459 1981   1    NTQ  92.9  64.3 19.7  307\n\n[[3]]\n             id  year sex depart  Hb    MCV  MCH MCHC\n1   10429-52501  1960   0    TNT  93 100.40 31.5  313\n2   41215-59318  1983   0    TNT  90  95.70 31.7  331\n3   10269-56336  1954   0    TNT 111  91.60 29.0  317\n4   16208-59926  1989   1    TNT  93  90.50 30.1  332\n5   16762-52364  1980   0    TNT 100  92.60 29.8  322\n6   10245-56328  1987   1    TNT 121  92.40 31.3  338\n7   16211-59923  1955   0    TNT  92  85.10 27.2  320\n8   16657-50090  1961   1    TNT  53  95.30 29.8  312\n9   16656-50089  1966   0    TNT 112  94.40 30.7  325\n10  16611-50039  1980   0    TNT 108  93.90 30.2  321\n11  16764-50242  1954   0    TNT  89  95.50 30.8  322\n12  15991-55163  1953   1    TNT 128  97.50 31.4  322\n13  18810-56633  1954   1    TNT  62  91.70 30.2  330\n14  11047-58123  1928   1    TNT 140 109.03 34.6  317\n15  10433-56135  1933   0    TNT 106  93.60 30.2  323\n16 13891-581490  1979   0    TNT  82  97.30 31.3  322\n17  15992-55164  1959   0    TNT  71  84.70 27.1  320\n18  12755-54406  1970   1    TNT  94  98.70 32.4  328\n19  29555-51951  1992   1    TNT  68  96.30 32.8  341\n20  29554-51952  1985   0    TNT 113  97.20 32.2  331\n21  10423-52496  1949   0    TNT 113  97.10 29.6  305\n22  10426-52499  1984   1    TNT  93  80.90 24.4  301\n23  10443-52511  1984   0    TNT 114  98.40 31.7  322\n24  10442-52513  1963   0    TNT 105  91.30 28.6  313\n25  10432-52504  1972   1    TNT 114 100.20 31.7  308\n26  10430-52502  1958   0    TNT 104  97.90 31.3  320\n27  10440-52514  1996   0    TNT 106  84.80 25.8  304\n28  29553-51953  1948   0    TNT  98  94.70 31.6  334\n29  12759-54421  1930   1    TNT  92  79.10 23.2  294\n30  40342-58582  1976   1    TNT 123 100.10 31.1  311\n31  12756-54407 19550   0    TNT 105  97.20 33.2  342\n32  40433-58729  1954   1    TNT 120 104.20 34.7  333\n33  41216-59317  1979   0    TNT  80  90.60 30.4  335\n34  41212-59332  1985   0    TNT  78  92.20 29.5  319\n35  40341-58583  1985   1    TNT  83  96.90 30.4  314\n36  10425-52498  1954   1    TNT 123  94.40 29.5  313\n37  16763-50220  1956   0    TNT  91  96.30 30.1  313\n38  10427-52516  1979   1    TNT  83  94.80 27.9  294\n39  27722-57441  1943   1    TNT  85  88.10 26.1  296\n40  10424-52497  1957   0    TNT 115 106.80 33.0  309\n41  10177-57459  1966   1    TNT 109  91.80 29.9  326\n42  15973-59655  1982   0    TNT  86  84.40 26.6  315\n43  54422-12760  1930   0    TNT 103  93.20 31.1  333\n44  26910-56862  1999   0    TNT  90 100.40 31.4  313\n45  26911-56863  1970   1    TNT 107  85.40 27.0  316\n46  26913-56866  1980   0    TNT 118  97.30 30.4  313\n47  26914-56868  1971   1    TNT  80  92.90 28.2  303\n48  26916-56870  1956   0    TNT  96  89.50 28.5  319\n49  26908-56860  1946   0    TNT 101  93.10 27.6  297\n50  26912-56864  1964   0    TNT  79  95.70 28.7  300\n51  10436-52510  1983   1    TNT  88  97.30 30.7  316\n52  10428-52500  1947   0    TNT  96  93.00 28.1  303\n53  10439-52512  1980   0    TNT  93  79.50 24.0  302\n54  41213-59320  1978   0    TNT 110  99.30 32.3  325\n55  41130-59213  1980   1    TNT 110  94.20 30.1  319\n56  10434-52508  1979   0    TNT  97 100.50 31.5  314\n57  16212-59922  1961   0    TNT 114  84.60 27.3  322\n58  10248-56333  1973   0    TNT  97  85.80 28.5  332\n59  10249-56334  1938   1    TNT 128  93.90 29.2  311\n60  41209-59337  1929   1    TNT 113  91.60 30.3  331\n61  41210-59336  1939   0    TNT  76  71.90 21.2  295\n62  41208-59338  1928   0    TNT  98  93.00 29.9  321\n63  41214-59319  1971   0    TNT  99  78.90 25.9  329\n64  12184-59065  1957   0    TNT  72  86.40 28.4  329\n65 400556-56387  1955   1    TNT 106  87.70 28.4  324\n\n[[4]]\n       id year sex depart  Hb   MCV  MCH MCHC\n1  703572 1976   1 TTSKYC 165  93.4 31.3  335\n2  703703 1990   1 TTSKYC 150  90.5 28.0  315\n3  703593 1972   1 TTSKYC 164  83.7 28.7  343\n4  703591 1991   1 TTSKYC 153  86.8 28.5  328\n5  703582 1985   0 TTSKYC 145  90.3 29.9  331\n6  703151 1983   1 TTSKYC 155  95.8 30.6  320\n7  703188 1983   1 TTSKYC 172  95.3 31.7  332\n8  703150 1981   1 TTSKYC 157  95.6 30.9  323\n9  703192 1957   1 TTSKYC 154 102.1 32.8  322\n10 703195 1977   1 TTSKYC 136  90.9 29.4  324\n11 703154 1984   0 TTSKYC 134  92.6 29.6  319\n12 703191 1985   0 TTSKYC 140  91.6 29.3  320\n13 703189 1986   0 TTSKYC 122  85.5 27.7  324\n14 703167 1986   0 TTSKYC 136  95.3 30.7  322\n15 703185 1990   1 TTSKYC 172  93.3 30.3  324\n16 703148 1993   0 TTSKYC 155  90.6 29.3  324\n17 703157 1982   1 TTSKYC 148 100.3 32.2  321\n18 703186 1990   1 TTSKYC 163  93.5 30.7  329\n19 703182 1992   0 TTSKYC 141  94.0 30.3  322\n20 703169 1982   1 TTSKYC 155  93.9 30.5  325\n21 703162 1988   0 TTSKYC 138  91.5 29.2  319\n22 703181 1974   0 TTSKYC 131  89.9 28.6  318\n23 703168 1974   1 TTSKYC 148 104.8 33.5  320\n24 703696 1985   0 TTSKYC 132  90.1 29.1  323\n25 703589 1969   1 TTSKYC 158  92.3 30.6  332\n26 703584 1990   0 TTSKYC 155  94.0 31.5  335\n27 703587 1989   1 TTSKYC 160  90.3 29.7  329\n28 703577 1980   1 TTSKYC 166  89.4 29.4  329\n29 703704 1959   1 TTSKYC 147  91.1 29.0  318\n30 703592 1990   1 TTSKYC 164  92.3 30.7  332\n31 703687 1989   1 TTSKYC 148  93.1 31.0  333\n32 703688 1986   1 TTSKYC 151  85.2 28.2  331\n33 703695 1959   0 TTSKYC 158  89.4 30.9  346\n34 703697 1960   0 TTSKYC 142  94.9 31.2  329\n35 703709 1990   0 TTSKYC 134  93.7 31.3  334\n36 703579 1994   0 TTSKYC 135  87.0 29.4  328\n37 703583 1993   0 TTSKYC 131  88.3 28.7  325\n38 703708 1986   0 TTSKYC 137  95.7 31.8  333\n39 703700 1934   0 TTSKYC 131  92.2 30.1  327\n40 703706 1975   0 TTSKYC 138  89.5 30.1  336\n41 703581 1992   0 TTSKYC 131  92.4 28.5  308"
+  },
+  {
+    "objectID": "bài 7.html#lapply-5",
+    "href": "bài 7.html#lapply-5",
+    "title": "Bài 7",
+    "section": "lapply()",
+    "text": "lapply()\n\n# view structure of this list\nstr(l)\n\nList of 4\n $ :'data.frame':   53 obs. of  8 variables:\n  ..$ id    : int [1:53] 105035 105011 16034803 16038023 16038680 16038501 16048943 16038489 16035900 16036857 ...\n  ..$ year  : int [1:53] 1971 1972 1972 1983 1967 1976 1974 1984 1968 1998 ...\n  ..$ sex   : int [1:53] 0 0 0 0 1 0 0 0 0 1 ...\n  ..$ depart: chr [1:53] \"KHH\" \"KHH\" \"KHH\" \"KHH\" ...\n  ..$ Hb    : num [1:53] 71 67 92 93 76.4 120 91 87.8 82 93 ...\n  ..$ MCV   : num [1:53] 70.9 66.9 72 86.3 64.9 79 74.3 59.8 64.5 84.5 ...\n  ..$ MCH   : num [1:53] 19.2 20.3 22.3 28.9 20.7 25.3 23 17.8 19.2 27.5 ...\n  ..$ MCHC  : int [1:53] 271 303 310 335 319 320 310 297 298 326 ...\n $ :'data.frame':   66 obs. of  8 variables:\n  ..$ id    : int [1:66] 308817 308814 308801 308801 308828 308917 308918 308908 308872 108781 ...\n  ..$ year  : int [1:66] 1964 1960 1990 1985 1986 1959 1989 1957 1979 1991 ...\n  ..$ sex   : int [1:66] 0 0 0 0 0 1 1 1 0 1 ...\n  ..$ depart: chr [1:66] \"NTQ\" \"NTQ\" \"NTQ\" \"NTQ\" ...\n  ..$ Hb    : num [1:66] 138 146 124 139 133 166 153 139 132 171 ...\n  ..$ MCV   : num [1:66] 93.9 99.7 93.6 84.3 91.9 92.8 93.1 99.6 92.3 95.5 ...\n  ..$ MCH   : num [1:66] 31.6 33 29.4 27.3 29.1 31.2 31.3 33.1 30.6 32.3 ...\n  ..$ MCHC  : int [1:66] 337 319 315 324 317 336 336 332 331 338 ...\n $ :'data.frame':   65 obs. of  8 variables:\n  ..$ id    : chr [1:65] \"10429-52501\" \"41215-59318\" \"10269-56336\" \"16208-59926\" ...\n  ..$ year  : int [1:65] 1960 1983 1954 1989 1980 1987 1955 1961 1966 1980 ...\n  ..$ sex   : int [1:65] 0 0 0 1 0 1 0 1 0 0 ...\n  ..$ depart: chr [1:65] \"TNT\" \"TNT\" \"TNT\" \"TNT\" ...\n  ..$ Hb    : int [1:65] 93 90 111 93 100 121 92 53 112 108 ...\n  ..$ MCV   : num [1:65] 100.4 95.7 91.6 90.5 92.6 ...\n  ..$ MCH   : num [1:65] 31.5 31.7 29 30.1 29.8 31.3 27.2 29.8 30.7 30.2 ...\n  ..$ MCHC  : int [1:65] 313 331 317 332 322 338 320 312 325 321 ...\n $ :'data.frame':   41 obs. of  8 variables:\n  ..$ id    : int [1:41] 703572 703703 703593 703591 703582 703151 703188 703150 703192 703195 ...\n  ..$ year  : int [1:41] 1976 1990 1972 1991 1985 1983 1983 1981 1957 1977 ...\n  ..$ sex   : int [1:41] 1 1 1 1 0 1 1 1 1 1 ...\n  ..$ depart: chr [1:41] \"TTSKYC\" \"TTSKYC\" \"TTSKYC\" \"TTSKYC\" ...\n  ..$ Hb    : int [1:41] 165 150 164 153 145 155 172 157 154 136 ...\n  ..$ MCV   : num [1:41] 93.4 90.5 83.7 86.8 90.3 ...\n  ..$ MCH   : num [1:41] 31.3 28 28.7 28.5 29.9 30.6 31.7 30.9 32.8 29.4 ...\n  ..$ MCHC  : int [1:41] 335 315 343 328 331 320 332 323 322 324 ..."
+  },
+  {
+    "objectID": "bài 7.html#lapply-6",
+    "href": "bài 7.html#lapply-6",
+    "title": "Bài 7",
+    "section": "lapply()",
+    "text": "lapply()\n\nVí dụ 2\n\n\n# Bind the rows of all df in this list \ndf <- do.call(rbind, l )\nstr(df)\n\n'data.frame':   225 obs. of  8 variables:\n $ id    : chr  \"105035\" \"105011\" \"16034803\" \"16038023\" ...\n $ year  : int  1971 1972 1972 1983 1967 1976 1974 1984 1968 1998 ...\n $ sex   : int  0 0 0 0 1 0 0 0 0 1 ...\n $ depart: chr  \"KHH\" \"KHH\" \"KHH\" \"KHH\" ...\n $ Hb    : num  71 67 92 93 76.4 120 91 87.8 82 93 ...\n $ MCV   : num  70.9 66.9 72 86.3 64.9 79 74.3 59.8 64.5 84.5 ...\n $ MCH   : num  19.2 20.3 22.3 28.9 20.7 25.3 23 17.8 19.2 27.5 ...\n $ MCHC  : int  271 303 310 335 319 320 310 297 298 326 ..."
+  },
+  {
+    "objectID": "bài 7.html#sapply",
+    "href": "bài 7.html#sapply",
+    "title": "Bài 7",
+    "section": "sapply()",
+    "text": "sapply()\n\nS = simplify\nCách hoạt động giống như lapply(), nhưng sẽ đơn giản hóa kết quả. Thay vì trả về 1 list, sapply() trả về 1 table, hoặc vector"
+  },
+  {
+    "objectID": "bài 7.html#sapply-1",
+    "href": "bài 7.html#sapply-1",
+    "title": "Bài 7",
+    "section": "sapply()",
+    "text": "sapply()\n\nVí dụ 1\n\n\nset.seed(123)\nx <- list(a = 1:5, b = rnorm(10))\nx\n\n$a\n[1] 1 2 3 4 5\n\n$b\n [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499\n [7]  0.46091621 -1.26506123 -0.68685285 -0.44566197"
+  },
+  {
+    "objectID": "bài 7.html#sapply-2",
+    "href": "bài 7.html#sapply-2",
+    "title": "Bài 7",
+    "section": "sapply()",
+    "text": "sapply()\n\nVí dụ 1\n\n\nlapply(x,mean)\n\n$a\n[1] 3\n\n$b\n[1] 0.07462564\n\nsapply(x,mean)\n\n         a          b \n3.00000000 0.07462564 \n\nstr(sapply(x,mean))\n\n Named num [1:2] 3 0.0746\n - attr(*, \"names\")= chr [1:2] \"a\" \"b\""
+  },
+  {
+    "objectID": "bài 7.html#sapply-3",
+    "href": "bài 7.html#sapply-3",
+    "title": "Bài 7",
+    "section": "sapply()",
+    "text": "sapply()\n\nVí dụ 2:\n\nMột số bệnh nhân trong file của khoa thận nhân tạo có id nhập dạng 16611-50039\nTách phần phía sau dấu - thành 1 cột mới có tên là id2"
+  },
+  {
+    "objectID": "bài 7.html#sapply-4",
+    "href": "bài 7.html#sapply-4",
+    "title": "Bài 7",
+    "section": "sapply()",
+    "text": "sapply()\n\nVí dụ 2:\n\nMột số bệnh nhân trong file của khoa thận nhân tạo có id nhập dạng 16611-50039\nTách phần phía sau dấu - thành 1 cột mới có tên là id2\n\n\n\ndf <- read.csv(file.path(inp, \"tnt.csv\"), header = T)\ndf$id2 <- sapply(df$id, function(x) strsplit(x, \"-\")[[1]][[2]])\nhead(df)\n\n           id year sex depart  Hb   MCV  MCH MCHC   id2\n1 10429-52501 1960   0    TNT  93 100.4 31.5  313 52501\n2 41215-59318 1983   0    TNT  90  95.7 31.7  331 59318\n3 10269-56336 1954   0    TNT 111  91.6 29.0  317 56336\n4 16208-59926 1989   1    TNT  93  90.5 30.1  332 59926\n5 16762-52364 1980   0    TNT 100  92.6 29.8  322 52364\n6 10245-56328 1987   1    TNT 121  92.4 31.3  338 56328"
+  },
+  {
+    "objectID": "bài 7.html#apply",
+    "href": "bài 7.html#apply",
+    "title": "Bài 7",
+    "section": "apply()",
+    "text": "apply()\n\nThực thi lệnh cho từng chiều của 1 ma trận (hoặc df)\nKết quả trả về là 1 vector"
+  },
+  {
+    "objectID": "bài 7.html#apply-1",
+    "href": "bài 7.html#apply-1",
+    "title": "Bài 7",
+    "section": "apply()",
+    "text": "apply()\n\nHàng = 1, cột = 2\n\nrowSums = apply(x, 1, sum)\nrowMeans = apply(x, 1, mean)\ncolSums = apply(x, 2, sum)\ncolMeans = apply(x, 2, mean)\n\n\n\nma <- matrix(seq(1:9), nrow = 3, byrow = T)\nma\n\n     [,1] [,2] [,3]\n[1,]    1    2    3\n[2,]    4    5    6\n[3,]    7    8    9"
+  },
+  {
+    "objectID": "bài 7.html#apply-2",
+    "href": "bài 7.html#apply-2",
+    "title": "Bài 7",
+    "section": "apply()",
+    "text": "apply()\n\nma <- matrix(seq(1:9), nrow = 3, byrow = T)\nma\n\n     [,1] [,2] [,3]\n[1,]    1    2    3\n[2,]    4    5    6\n[3,]    7    8    9\n\n\n\napply(ma, 1, sum)\n\n[1]  6 15 24\n\napply(ma, 2, sum)\n\n[1] 12 15 18"
+  },
+  {
+    "objectID": "bài 7.html",
+    "href": "bài 7.html",
+    "title": "Bài 7",
+    "section": "",
+    "text": "lapply(): thực thi lệnh cho từng phần tử của 1 vector hoặc 1 list và trả kết quả dưới dạng 1 list (l = list)\nsapply(): giống lapply nhưng kết quả có thể là list hoặc vector\napply(): thực thi lệnh cho từng chiều của 1 ma trận"
+  },
+  {
+    "objectID": "bài 8.html#tạo-dãy-số-ngẫu-nhiên",
+    "href": "bài 8.html#tạo-dãy-số-ngẫu-nhiên",
+    "title": "Bài 8",
+    "section": "Tạo dãy số ngẫu nhiên",
+    "text": "Tạo dãy số ngẫu nhiên\n\nR cho phép tạo ra 1 dãy số (hay 1 số) ngẫu nhiên từ 1 phân phối quy định trước như phân phối chuẩn, Poisson hay binomial"
+  },
+  {
+    "objectID": "bài 8.html#tạo-dãy-số-ngẫu-nhiên-1",
+    "href": "bài 8.html#tạo-dãy-số-ngẫu-nhiên-1",
+    "title": "Bài 8",
+    "section": "Tạo dãy số ngẫu nhiên",
+    "text": "Tạo dãy số ngẫu nhiên\n\nMỗi phân phối thống kê trong R base luôn có 4 functions với chức năng như sau:\n\nd (density): là hàm mật độ xác suất tại 1 điểm q của phân phối\np (cumulative density): là tích phân từ -∞ đến q, hay diện tích dưới đường cong phân phối tính đến điểm q, ví dụ pnorm(q=1.96) là 0.975\nq (quantile): là Z-score hay hàm nghịch đảo của p, ví dụ khi tính cỡ mẫu, ta lấy qnorm của 1-α/2 hoặc 1-β\nr (random number): hàm tạo ra 1 vector các số ngẫu nhiên từ phân phối này"
+  },
+  {
+    "objectID": "bài 8.html#set.seed",
+    "href": "bài 8.html#set.seed",
+    "title": "Bài 8",
+    "section": "set.seed",
+    "text": "set.seed\n\nset.seed\nSử dụng cùng 1 seed để tái lập lại được dãy số ngẫu nhiên ở những lần tiếp theo\n\n\nset.seed(1)\nrnorm(5)\n\n[1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078\n\nrnorm(5)\n\n[1] -0.8204684  0.4874291  0.7383247  0.5757814 -0.3053884\n\nset.seed(1)\nrnorm(5)\n\n[1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078"
+  },
+  {
+    "objectID": "bài 8.html#giả-lập-mô-hình-hồi-quy-tuyến-tính",
+    "href": "bài 8.html#giả-lập-mô-hình-hồi-quy-tuyến-tính",
+    "title": "Bài 8",
+    "section": "Giả lập mô hình hồi quy tuyến tính",
+    "text": "Giả lập mô hình hồi quy tuyến tính\ny = β0 + β1x + ε\nε ~ N(0, 22), x ~ N(0, 12), β0 = 0.5 và β1 = 2\n\nset.seed(20)\nx <- rnorm(100)\ne <- rnorm(100, 0, 2)\ny <- 0.5 + 2 * x + e\nplot(x, y)"
+  },
+  {
+    "objectID": "bài 8.html#chọn-mẫu-ngẫu-nhiên",
+    "href": "bài 8.html#chọn-mẫu-ngẫu-nhiên",
+    "title": "Bài 8",
+    "section": "Chọn mẫu ngẫu nhiên",
+    "text": "Chọn mẫu ngẫu nhiên\n\nLệnh sample(vector mẫu, số mẫu muốn chọn)\n\n\nsample(1:10,4)\n\n[1]  5 10  3  6\n\n\n\nLưu ý: nhớ set.seed() nếu muốn tái lập lại kết quả"
+  },
+  {
+    "objectID": "bài 8.html#chọn-mẫu-ngẫu-nhiên-1",
+    "href": "bài 8.html#chọn-mẫu-ngẫu-nhiên-1",
+    "title": "Bài 8",
+    "section": "Chọn mẫu ngẫu nhiên",
+    "text": "Chọn mẫu ngẫu nhiên\n\nChọn mẫu từ data frame bằng cách rút ngẫu nhiên 1 số hàng (cũng bằng lệnh sample())\n\n\nlibrary(datasets)\ndata(airquality)\nhead(airquality)\n\n  Ozone Solar.R Wind Temp Month Day\n1    41     190  7.4   67     5   1\n2    36     118  8.0   72     5   2\n3    12     149 12.6   74     5   3\n4    18     313 11.5   62     5   4\n5    NA      NA 14.3   56     5   5\n6    28      NA 14.9   66     5   6\n\ndim(airquality)\n\n[1] 153   6"
+  },
+  {
+    "objectID": "bài 8.html#chọn-mẫu-ngẫu-nhiên-2",
+    "href": "bài 8.html#chọn-mẫu-ngẫu-nhiên-2",
+    "title": "Bài 8",
+    "section": "Chọn mẫu ngẫu nhiên",
+    "text": "Chọn mẫu ngẫu nhiên\n\nChọn mẫu từ data frame bằng cách rút ngẫu nhiên 1 số hàng (cũng bằng lệnh sample())\n\n\nidx <- 1:nrow(airquality)\nset.seed(20)\nsamp <- sample(idx, 3)\nairquality[samp,]\n\n    Ozone Solar.R Wind Temp Month Day\n107    NA      64 11.5   79     8  15\n120    76     203  9.7   97     8  28\n130    20     252 10.9   80     9   7"
+  },
+  {
+    "objectID": "bài 9.html#package-magrittr",
+    "href": "bài 9.html#package-magrittr",
+    "title": "Bài 9",
+    "section": "Package “magrittr”",
+    "text": "Package “magrittr”\n\nCác “pipe” trong package “magrittr” làm thay đổi cấu trúc lệnh R, giúp việc viết câu lệnh trở nên hiệu quả và mạch lạc hơn.\nGồm 4 loại\n\n%>% (được tích hợp trong hệ tidyverse)\n%T%\n%$%\n%<>%"
+  },
+  {
+    "objectID": "bài 9.html#forward-pipe",
+    "href": "bài 9.html#forward-pipe",
+    "title": "Bài 9",
+    "section": "Forward pipe %>%",
+    "text": "Forward pipe %>%\n\nĐây là dạng pipe thông dụng nhất. Công dụng của nó là chuyển toàn bộ kết quả của hàm đi trước thành đầu vào cho hàm đi sau\nCó thể kết hợp nhiều %>% để thành một “dòng chảy” dữ liệu, cứ dữ liệu phía trước dấu %>% sẽ là đầu vào cho phía sau, kết quả xuất ra cuối cùng sẽ là hàm cuối cùng phía sau %>% cuối cùng"
+  },
+  {
+    "objectID": "bài 9.html#forward-pipe-1",
+    "href": "bài 9.html#forward-pipe-1",
+    "title": "Bài 9",
+    "section": "Forward pipe %>%",
+    "text": "Forward pipe %>%\n\n# Ví dụ dữ liệu titanic\nlibrary(magrittr) \n# Xem 6 dòng đầu của dữ liệu\n# R base\nhead(Titanic)\n\n, , Age = Child, Survived = No\n\n      Sex\nClass  Male Female\n  1st     0      0\n  2nd     0      0\n  3rd    35     17\n  Crew    0      0\n\n, , Age = Adult, Survived = No\n\n      Sex\nClass  Male Female\n  1st   118      4\n  2nd   154     13\n  3rd   387     89\n  Crew  670      3\n\n, , Age = Child, Survived = Yes\n\n      Sex\nClass  Male Female\n  1st     5      1\n  2nd    11     13\n  3rd    13     14\n  Crew    0      0\n\n, , Age = Adult, Survived = Yes\n\n      Sex\nClass  Male Female\n  1st    57    140\n  2nd    14     80\n  3rd    75     76\n  Crew  192     20"
+  },
+  {
+    "objectID": "bài 9.html#forward-pipe-2",
+    "href": "bài 9.html#forward-pipe-2",
+    "title": "Bài 9",
+    "section": "Forward pipe %>%",
+    "text": "Forward pipe %>%\n\n# Forward Pipe\nTitanic %>% head()\n\n, , Age = Child, Survived = No\n\n      Sex\nClass  Male Female\n  1st     0      0\n  2nd     0      0\n  3rd    35     17\n  Crew    0      0\n\n, , Age = Adult, Survived = No\n\n      Sex\nClass  Male Female\n  1st   118      4\n  2nd   154     13\n  3rd   387     89\n  Crew  670      3\n\n, , Age = Child, Survived = Yes\n\n      Sex\nClass  Male Female\n  1st     5      1\n  2nd    11     13\n  3rd    13     14\n  Crew    0      0\n\n, , Age = Adult, Survived = Yes\n\n      Sex\nClass  Male Female\n  1st    57    140\n  2nd    14     80\n  3rd    75     76\n  Crew  192     20"
+  },
+  {
+    "objectID": "bài 9.html#ví-dụ-1",
+    "href": "bài 9.html#ví-dụ-1",
+    "title": "Bài 9",
+    "section": "Ví dụ 1",
+    "text": "Ví dụ 1\n\nTrong trường hợp phức tạp hơn, ví dụ nếu muốn sắp xếp lại data titanic theo chiều từ nhỏ tới lớn theo biến Age, sau đó coi 6 dòng đầu\n\nCách 1: Viết theo chiều từ Phải –> trái. Tức là cần nhiều () lồng vào nhau head(arrange(titanic, Age))\nCách 2: qua mỗi bước, lưu lại một data trung gian, rồi lấy data trung gian đển làm tiếp bước sau 🡪 tạo ra nhiều object trung gian\nCách 3: dùng pipe titanic %>% arrange(Age) %>% head()"
+  },
+  {
+    "objectID": "bài 9.html#ví-dụ-1-1",
+    "href": "bài 9.html#ví-dụ-1-1",
+    "title": "Bài 9",
+    "section": "Ví dụ 1",
+    "text": "Ví dụ 1\n\nhead(arrange(Titanic, Age)) ~ Titanic %>% arrange(Age) %>% head()\n\nhead(arrange(Titanic, Age)) ~ Titanic %>% arrange(Age) %>% head()"
+  },
+  {
+    "objectID": "bài 9.html#ví-dụ-2",
+    "href": "bài 9.html#ví-dụ-2",
+    "title": "Bài 9",
+    "section": "Ví dụ 2",
+    "text": "Ví dụ 2\n\nYêu cầu\n\nChuyển đổi biến Survived với 0 = “No”, 1 = “Yes”.\nChỉ chọn các biến Survived + Pclass + Sex + Age.\nSắp xếp số liệu theo tứ tự tăng dần của Age\nTạo biến Adult với 2 giá trị “Yes” nếu >= 18 và “No” nếu < 18.\nTóm tắt số lượng mẫu theo biến Survived + Pclass + Adult Cách làm?"
+  },
+  {
+    "objectID": "bài 9.html#ví-dụ-2-1",
+    "href": "bài 9.html#ví-dụ-2-1",
+    "title": "Bài 9",
+    "section": "Ví dụ 2",
+    "text": "Ví dụ 2\n\nVới pipe\n\n\n\n\nTitanic                                                   %>% \n  mutate(Survived = ifelse(Survived == 1, \" Yes\", \"No\"))  %>%\n  select(-c(PassengerId, Name))                           %>%\n  arrange(Age)                                            %>%\n  mutate(Adult = ifelse(Age >= 18, \"Yes\", \"No\"))          %>%\n  group_by(Survived, Pclass, Adult)                       %>%\n  summarise(Freq = n())"
+  },
+  {
+    "objectID": "bài 9.html#backward-pipe",
+    "href": "bài 9.html#backward-pipe",
+    "title": "Bài 9",
+    "section": "Backward pipe %<>%",
+    "text": "Backward pipe %<>%\n\nKhác với forward pipe, backward pipe sau khi lấy dữ liệu bên trái làm đầu vào, dữ liệu sẽ được xử lý bằng hàm bên phải và trả về kết quả là hàm bên trái.\nChú ý: kết quả trả về và thay thế đầu vào bên trái, do đó cần phải rất thận trọng khi sử dụng backward pipe"
+  },
+  {
+    "objectID": "bài 9.html#ví-dụ-1-2",
+    "href": "bài 9.html#ví-dụ-1-2",
+    "title": "Bài 9",
+    "section": "Ví dụ 1",
+    "text": "Ví dụ 1\n\nMuốn loại bỏ biến PassengerId ra khỏi data set và lưu lại kết quả này\nCách 1: Dùng forward pipe\n\ntitanic <- titanic %>% select(-PassengerId)\n\nCách 2: Dùng backward pipe\n\ntitanic %<>% select(-PassengerId)\n\nTuy nhiên dữ liệu titanic gốc đã bị thay thế bằng dữ liệu mới (mất biến PassengerId), do đó thận trọng khi sử dụng"
+  },
+  {
+    "objectID": "bài 10.html#tidyverse",
+    "href": "bài 10.html#tidyverse",
+    "title": "Bài 10",
+    "section": "tidyverse",
+    "text": "tidyverse"
+  },
+  {
+    "objectID": "bài 10.html#dplyr",
+    "href": "bài 10.html#dplyr",
+    "title": "Bài 10",
+    "section": "dplyr",
+    "text": "dplyr\n\nPackage dplyr được nằm trong hệ tidyverse, do đó có thể sử dụng package “dplyr” hoặc package “tidyverse”\n\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors\n\n\n# library(dplyr)"
+  },
+  {
+    "objectID": "bài 10.html#nội-dung",
+    "href": "bài 10.html#nội-dung",
+    "title": "Bài 10",
+    "section": "Nội dung",
+    "text": "Nội dung\n\nXem cấu trúc dữ liệu với glimpse()\nGán nhãn, chuyển biến factor với case_match()\nĐổi tên biến bằng rename()\nSort bằng arrange()\nChọn biến số trong data frame bằng select()\nFilter dữ liệu bằng filter()\nTạo biến với mutate()\nTóm tắt dữ liệu với group_by() kết hợp với summarise()\nChuyển đổi dạng dữ liệu với pivot_longer()"
+  },
+  {
+    "objectID": "bài 10.html#lưu-ý",
+    "href": "bài 10.html#lưu-ý",
+    "title": "Bài 10",
+    "section": "Lưu ý",
+    "text": "Lưu ý\n\nTrước khi thực hành viết R cho bài này, mình cần khai báo dữ liệu titanic bằng dòng lệnh sau:\n\n\nlibrary(tidyverse)\ntitanic <- as_tibble(Titanic)"
+  },
+  {
+    "objectID": "bài 10.html#xem-cấu-trúc-dữ-liệu-với-glimpse",
+    "href": "bài 10.html#xem-cấu-trúc-dữ-liệu-với-glimpse",
+    "title": "Bài 10",
+    "section": "1.Xem cấu trúc dữ liệu với glimpse()",
+    "text": "1.Xem cấu trúc dữ liệu với glimpse()\n\nLệnh glimpse() có chức năng tương tự chức năng str() của base R\n\n\n\n\n\nglimpse(titanic)\n\nRows: 32\nColumns: 5\n$ Class    <chr> \"1st\", \"2nd\", \"3rd\", \"Crew\", \"1st\", \"2nd\", \"3rd\", \"Crew\", \"1s…\n$ Sex      <chr> \"Male\", \"Male\", \"Male\", \"Male\", \"Female\", \"Female\", \"Female\",…\n$ Age      <chr> \"Child\", \"Child\", \"Child\", \"Child\", \"Child\", \"Child\", \"Child\"…\n$ Survived <chr> \"No\", \"No\", \"No\", \"No\", \"No\", \"No\", \"No\", \"No\", \"No\", \"No\", \"…\n$ n        <dbl> 0, 0, 35, 0, 0, 0, 17, 0, 118, 154, 387, 670, 4, 13, 89, 3, 5…"
+  },
+  {
+    "objectID": "bài 10.html#gán-nhãn-chuyển-biến-factor-với-case_match",
+    "href": "bài 10.html#gán-nhãn-chuyển-biến-factor-với-case_match",
+    "title": "Bài 10",
+    "section": "2.Gán nhãn, chuyển biến factor với case_match()",
+    "text": "2.Gán nhãn, chuyển biến factor với case_match()\n\nGán nhãn cho:\n\nBiến số “survived” với\n\n“No” = 0\n“Yes” = 1\n\n\n\n\ntitanic$Survived <- case_match(titanic$Survived, \"No\" ~ 0, \"Yes\" ~ 1)\n\nhoặc\ntitanic$Survived %<>% case_match(\"No\" ~ 0, \"Yes\" ~ 1 )"
+  },
+  {
+    "objectID": "bài 10.html#gán-nhãn-chuyển-biến-factor-với-case_match-1",
+    "href": "bài 10.html#gán-nhãn-chuyển-biến-factor-với-case_match-1",
+    "title": "Bài 10",
+    "section": "2.Gán nhãn, chuyển biến factor với case_match()",
+    "text": "2.Gán nhãn, chuyển biến factor với case_match()\n\nBiến số “Pclass” với\n\n“1st” = 1\n“2nd” = 2\n“3rd” = 3\n\n\n\ntitanic$Class <- case_match(titanic$Class, \"1st\" ~ 1, \"2nd\" ~ 2, \"3rd\" ~ 3, \"Crew\" ~ 4)\n\nhoặc\ntitanic$Pclass %<>% case_match(1 ~ \"1st\", 2 ~ \"2nd\", 3 ~ \"3rd\", \"Crew\" ~ \"crew\")"
+  },
+  {
+    "objectID": "bài 10.html#gán-nhãn-chuyển-biến-factor-với-case_match-2",
+    "href": "bài 10.html#gán-nhãn-chuyển-biến-factor-với-case_match-2",
+    "title": "Bài 10",
+    "section": "2.Gán nhãn, chuyển biến factor với case_match()",
+    "text": "2.Gán nhãn, chuyển biến factor với case_match()\n\nBiến số “Sex” đang có nhãn là “male” và “female” (chưa viết hoa) ==> đổi nhãn sang viết hoa chữ đầu\n\n“Female” = “female”\n“Male” = “male\n\n\n\ntitanic$Sex <- case_match(titanic$Sex, \"Male\" ~ \"male\", \"Female\" ~ \"female\") \n\nHoặc\ntitanic$Sex %<>% case_match(\"male\" ~ \"Male\", \"female\" ~ \"Female\")`"
+  },
+  {
+    "objectID": "bài 10.html#result",
+    "href": "bài 10.html#result",
+    "title": "Bài 10",
+    "section": "result",
+    "text": "result\n\nhead(as_tibble(Titanic))\n\n# A tibble: 6 × 5\n  Class Sex    Age   Survived     n\n  <chr> <chr>  <chr> <chr>    <dbl>\n1 1st   Male   Child No           0\n2 2nd   Male   Child No           0\n3 3rd   Male   Child No          35\n4 Crew  Male   Child No           0\n5 1st   Female Child No           0\n6 2nd   Female Child No           0\n\n\n\nhead(titanic)\n\n# A tibble: 6 × 5\n  Class Sex    Age   Survived     n\n  <dbl> <chr>  <chr>    <dbl> <dbl>\n1     1 male   Child        0     0\n2     2 male   Child        0     0\n3     3 male   Child        0    35\n4     4 male   Child        0     0\n5     1 female Child        0     0\n6     2 female Child        0     0"
+  },
+  {
+    "objectID": "bài 10.html#đổi-tên-biến-bằng-rename",
+    "href": "bài 10.html#đổi-tên-biến-bằng-rename",
+    "title": "Bài 10",
+    "section": "3. Đổi tên biến bằng rename()",
+    "text": "3. Đổi tên biến bằng rename()\n\nĐổi tên biến Sex thành “gioitinh”\n\n\ntitanic <- rename(titanic, gioitinh = Sex)\n\nHoặc\ntitanic %<>% rename(gioitinh = Sex)\n\nhead(titanic)\n\n# A tibble: 6 × 5\n  Class gioitinh Age   Survived     n\n  <dbl> <chr>    <chr>    <dbl> <dbl>\n1     1 male     Child        0     0\n2     2 male     Child        0     0\n3     3 male     Child        0    35\n4     4 male     Child        0     0\n5     1 female   Child        0     0\n6     2 female   Child        0     0"
+  },
+  {
+    "objectID": "bài 10.html#sort-bằng-arrange",
+    "href": "bài 10.html#sort-bằng-arrange",
+    "title": "Bài 10",
+    "section": "4. Sort bằng arrange()",
+    "text": "4. Sort bằng arrange()\n\nSắp xếp lại dữ liệu từ nhỏ tới lớn theo biến Age\n\n\ntitanic <- arrange(titanic, Age)\nhead(titanic)\n\n# A tibble: 6 × 5\n  Class gioitinh Age   Survived     n\n  <dbl> <chr>    <chr>    <dbl> <dbl>\n1     1 male     Adult        0   118\n2     2 male     Adult        0   154\n3     3 male     Adult        0   387\n4     4 male     Adult        0   670\n5     1 female   Adult        0     4\n6     2 female   Adult        0    13\n\n\nHoặc\ntitanic %<>% arrange(Age)"
+  },
+  {
+    "objectID": "bài 10.html#sort-bằng-arrange-1",
+    "href": "bài 10.html#sort-bằng-arrange-1",
+    "title": "Bài 10",
+    "section": "4. Sort bằng arrange()",
+    "text": "4. Sort bằng arrange()\n\nSắp xếp lại dữ liệu từ lớn tới nhỏ theo biến Age\n\n\ntitanic <- arrange(titanic, desc(Age))\nhead(titanic)\n\n# A tibble: 6 × 5\n  Class gioitinh Age   Survived     n\n  <dbl> <chr>    <chr>    <dbl> <dbl>\n1     1 male     Child        0     0\n2     2 male     Child        0     0\n3     3 male     Child        0    35\n4     4 male     Child        0     0\n5     1 female   Child        0     0\n6     2 female   Child        0     0\n\n\nHoặc\ntitanic %<>% arrange(desc(Age))"
+  },
+  {
+    "objectID": "bài 10.html#chọn-biến-số-trong-data-frame-bằng-select",
+    "href": "bài 10.html#chọn-biến-số-trong-data-frame-bằng-select",
+    "title": "Bài 10",
+    "section": "5. Chọn biến số trong data frame bằng select()",
+    "text": "5. Chọn biến số trong data frame bằng select()\n\nChọn 3 biến là Class, gioitinh và Age trong bộ dữ liệu\n\n\ntitanic2 <- select(titanic, Class, gioitinh, Age)\nhead(titanic2)\n\n# A tibble: 6 × 3\n  Class gioitinh Age  \n  <dbl> <chr>    <chr>\n1     1 male     Child\n2     2 male     Child\n3     3 male     Child\n4     4 male     Child\n5     1 female   Child\n6     2 female   Child\n\n\nHoặc\ntitanic2 <- select(titanic, Name:Age)"
+  },
+  {
+    "objectID": "bài 10.html#chọn-biến-số-trong-data-frame-bằng-select-1",
+    "href": "bài 10.html#chọn-biến-số-trong-data-frame-bằng-select-1",
+    "title": "Bài 10",
+    "section": "5. Chọn biến số trong data frame bằng select()",
+    "text": "5. Chọn biến số trong data frame bằng select()\n\nGiả sử muốn chọn toàn bộ biến trong data trừ biến gioitinh\n\n\ntitanic2 <- select(titanic, -gioitinh)\nhead(titanic2)\n\n# A tibble: 6 × 4\n  Class Age   Survived     n\n  <dbl> <chr>    <dbl> <dbl>\n1     1 Child        0     0\n2     2 Child        0     0\n3     3 Child        0    35\n4     4 Child        0     0\n5     1 Child        0     0\n6     2 Child        0     0"
+  },
+  {
+    "objectID": "bài 10.html#filter-dữ-liệu-bằng-filter",
+    "href": "bài 10.html#filter-dữ-liệu-bằng-filter",
+    "title": "Bài 10",
+    "section": "6. Filter dữ liệu bằng filter()",
+    "text": "6. Filter dữ liệu bằng filter()\n\nLọc ra dữ liệu những người có cột n >16 và <80\n\n\nfilter(titanic, n >16 & n < 80)\n\n# A tibble: 6 × 5\n  Class gioitinh Age   Survived     n\n  <dbl> <chr>    <chr>    <dbl> <dbl>\n1     3 male     Child        0    35\n2     3 female   Child        0    17\n3     1 male     Adult        1    57\n4     3 male     Adult        1    75\n5     3 female   Adult        1    76\n6     4 female   Adult        1    20\n\n\nHoặc\nfilter(titanic, n >16 , n < 80)\nHoặc\ntitanic %>% filter(n >16 , n < 80)"
+  },
+  {
+    "objectID": "bài 10.html#filter-dữ-liệu-bằng-filter-1",
+    "href": "bài 10.html#filter-dữ-liệu-bằng-filter-1",
+    "title": "Bài 10",
+    "section": "6. Filter dữ liệu bằng filter()",
+    "text": "6. Filter dữ liệu bằng filter()\n\nHoặc lọc ra chỉ những người sống sót\n\n\nfilter(titanic, Survived == \"1\")\n\n# A tibble: 16 × 5\n   Class gioitinh Age   Survived     n\n   <dbl> <chr>    <chr>    <dbl> <dbl>\n 1     1 male     Child        1     5\n 2     2 male     Child        1    11\n 3     3 male     Child        1    13\n 4     4 male     Child        1     0\n 5     1 female   Child        1     1\n 6     2 female   Child        1    13\n 7     3 female   Child        1    14\n 8     4 female   Child        1     0\n 9     1 male     Adult        1    57\n10     2 male     Adult        1    14\n11     3 male     Adult        1    75\n12     4 male     Adult        1   192\n13     1 female   Adult        1   140\n14     2 female   Adult        1    80\n15     3 female   Adult        1    76\n16     4 female   Adult        1    20\n\n\nHoặc\ntitanic %>% filter(Survived == \"1\")"
+  },
+  {
+    "objectID": "bài 10.html#tạo-biến-với-mutate",
+    "href": "bài 10.html#tạo-biến-với-mutate",
+    "title": "Bài 10",
+    "section": "7. Tạo biến với mutate()",
+    "text": "7. Tạo biến với mutate()\n\nHàm mutate() rất hữu ích và được sử dụng rất nhiều, cho phép tạo ra các biến mới hoặc chỉnh sửa biến cùng lúc. Hàm mutate() thường dùng để:\n\nHoán chuyển dữ liệu hiện có\nTạo ra biến mới hoàn toàn\n\nCác hàm biến đổi dữ liệu có thể kết hợp với nhiều cách khác nhau"
+  },
+  {
+    "objectID": "bài 10.html#tạo-biến-với-mutate-1",
+    "href": "bài 10.html#tạo-biến-với-mutate-1",
+    "title": "Bài 10",
+    "section": "7. Tạo biến với mutate()",
+    "text": "7. Tạo biến với mutate()\nGiả sử những người ở class 1 và 2 sẽ ở tầng 2 và class 3 và 4 ở tầng 1\n\ntitanic <- mutate(titanic, Floor = ifelse(Class <= \"2\", \"2nd\", \"1st\"))\nhead(titanic)\n\n# A tibble: 6 × 6\n  Class gioitinh Age   Survived     n Floor\n  <dbl> <chr>    <chr>    <dbl> <dbl> <chr>\n1     1 male     Child        0     0 2nd  \n2     2 male     Child        0     0 2nd  \n3     3 male     Child        0    35 1st  \n4     4 male     Child        0     0 1st  \n5     1 female   Child        0     0 2nd  \n6     2 female   Child        0     0 2nd  \n\n\nHoặc\ntitanic %<>% mutate(Floor = ifelse(Class <= \"2\", \"2nd\", \"1st\"))"
+  },
+  {
+    "objectID": "bài 10.html#tạo-biến-với-mutate-2",
+    "href": "bài 10.html#tạo-biến-với-mutate-2",
+    "title": "Bài 10",
+    "section": "7. Tạo biến với mutate()",
+    "text": "7. Tạo biến với mutate()\n\nThêm biến Adult “Yes/No” dựa theo Age\n\n\nmutate(titanic, Adult = ifelse(Age == \"Adult\", \"Yes\", \"No\"))\n\n# A tibble: 32 × 7\n   Class gioitinh Age   Survived     n Floor Adult\n   <dbl> <chr>    <chr>    <dbl> <dbl> <chr> <chr>\n 1     1 male     Child        0     0 2nd   No   \n 2     2 male     Child        0     0 2nd   No   \n 3     3 male     Child        0    35 1st   No   \n 4     4 male     Child        0     0 1st   No   \n 5     1 female   Child        0     0 2nd   No   \n 6     2 female   Child        0     0 2nd   No   \n 7     3 female   Child        0    17 1st   No   \n 8     4 female   Child        0     0 1st   No   \n 9     1 male     Child        1     5 2nd   No   \n10     2 male     Child        1    11 2nd   No   \n# ℹ 22 more rows\n\n\nHoặc\ntitanic %>% mutate(Adult = ifelse(Age == \"Adult\", \"Yes\", \"No\"))"
+  },
+  {
+    "objectID": "bài 10.html#tóm-tắt-dữ-liệu-với-group_by-kết-hợp-với-summarise",
+    "href": "bài 10.html#tóm-tắt-dữ-liệu-với-group_by-kết-hợp-với-summarise",
+    "title": "Bài 10",
+    "section": "Tóm tắt dữ liệu với group_by() kết hợp với summarise()",
+    "text": "Tóm tắt dữ liệu với group_by() kết hợp với summarise()\n\nHàm summarise() có chức năng tóm tắt dữ liệu theo ý muốn, khi kết hợp với group_by() sẽ tạo ra bảng thống kê theo từng phân nhóm\nGiả sử muốn đếm số lượng người theo giới\n\n\ntitanic %>% \n    group_by(gioitinh) %>% \n    summarise(Freq = n(), mean_n = mean(n))\n\n# A tibble: 2 × 3\n  gioitinh  Freq mean_n\n  <chr>    <int>  <dbl>\n1 female      16   29.4\n2 male        16  108."
+  },
+  {
+    "objectID": "bài 10.html#tóm-tắt-dữ-liệu-với-group_by-kết-hợp-với-summarise-1",
+    "href": "bài 10.html#tóm-tắt-dữ-liệu-với-group_by-kết-hợp-với-summarise-1",
+    "title": "Bài 10",
+    "section": "Tóm tắt dữ liệu với group_by() kết hợp với summarise()",
+    "text": "Tóm tắt dữ liệu với group_by() kết hợp với summarise()\n\nĐếm số lượng người theo hạng Class, Giới tính và tình trạng sống sót Survived\n\n\ntitanic %>% \n    group_by(Class, gioitinh, Survived) %>% \n    summarise(Freq = n())\n\n`summarise()` has grouped output by 'Class', 'gioitinh'. You can override using\nthe `.groups` argument.\n\n\n# A tibble: 16 × 4\n# Groups:   Class, gioitinh [8]\n   Class gioitinh Survived  Freq\n   <dbl> <chr>       <dbl> <int>\n 1     1 female          0     2\n 2     1 female          1     2\n 3     1 male            0     2\n 4     1 male            1     2\n 5     2 female          0     2\n 6     2 female          1     2\n 7     2 male            0     2\n 8     2 male            1     2\n 9     3 female          0     2\n10     3 female          1     2\n11     3 male            0     2\n12     3 male            1     2\n13     4 female          0     2\n14     4 female          1     2\n15     4 male            0     2\n16     4 male            1     2"
+  },
+  {
+    "objectID": "bài 10.html#chuyển-đổi-dạng-dữ-liệu-với-pivot_longer",
+    "href": "bài 10.html#chuyển-đổi-dạng-dữ-liệu-với-pivot_longer",
+    "title": "Bài 10",
+    "section": "9. Chuyển đổi dạng dữ liệu với pivot_longer()",
+    "text": "9. Chuyển đổi dạng dữ liệu với pivot_longer()\n\nHàm pivot_longer() cho phép chuyển đổi dạng dữ liệu từ dạng wide sang long.\nData ví dụ trong trường hợp này là data iso:\n\nNghiên cứu đánh giá tác động của isoproterenol, một chất chủ vận β2-adrenergic, đến lưu lượng máu cẳng tay trên 22 người đàn ông khỏe mạnh. Trong đó có 9 người da đen và 13 người da trắng. Lưu lượng máu cẳng tay (ml/min/dl) của mỗi người được đo lường tại thời điểm ban đầu và tại những thời điểm tăng liều isoproterenol (các liều 10, 20, 60, 150, 300 và 400 (ng/min))"
+  },
+  {
+    "objectID": "bài 10.html#chuyển-đổi-dạng-dữ-liệu-với-pivot_longer-1",
+    "href": "bài 10.html#chuyển-đổi-dạng-dữ-liệu-với-pivot_longer-1",
+    "title": "Bài 10",
+    "section": "9. Chuyển đổi dạng dữ liệu với pivot_longer()",
+    "text": "9. Chuyển đổi dạng dữ liệu với pivot_longer()\n\niso <- read_csv(\"Isoproterenol.csv\")\n\nRows: 22 Columns: 9\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (9): id, race, fbf0, fbf10, fbf20, fbf60, fbf150, fbf300, fbf400\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n# doi lai bien race \niso$race <- case_match(iso$race, 1 ~ \"White\", 2 ~ \"Black\") \nhead(iso)\n\n# A tibble: 6 × 9\n     id race   fbf0 fbf10 fbf20 fbf60 fbf150 fbf300 fbf400\n  <dbl> <chr> <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>\n1     1 White  1     1.40  6.40 19.1   25      24.6   28  \n2     2 White  2.10  2.80  8.30 15.7   21.9    21.7   30.1\n3     3 White  1.10  2.20  5.70  8.20   9.30   12.5   21.6\n4     4 White  2.44  2.90  4.60 13.2   17.3    17.6   19.4\n5     5 White  2.90  3.5   5.70 11.5   14.9    19.7   19.3\n6     6 White  4.10  3.70  5.80 19.8   17.7    20.8   30.3"
+  },
+  {
+    "objectID": "bài 10.html#chuyển-đổi-dạng-dữ-liệu-với-pivot_longer-2",
+    "href": "bài 10.html#chuyển-đổi-dạng-dữ-liệu-với-pivot_longer-2",
+    "title": "Bài 10",
+    "section": "9. Chuyển đổi dạng dữ liệu với pivot_longer()",
+    "text": "9. Chuyển đổi dạng dữ liệu với pivot_longer()\n\nDữ liệu đang ở dạng wide, cần chuyển sang dạng long với tên biến là dose và giá trị là fbf, gán vào object đặt tên là iso_long\n\n\niso_long <- pivot_longer(\n    iso, -c(id, race), \n    names_to = \"Dose\", values_to = \"fbf\"\n)\nhead(iso_long)\n\n# A tibble: 6 × 4\n     id race  Dose     fbf\n  <dbl> <chr> <chr>  <dbl>\n1     1 White fbf0    1   \n2     1 White fbf10   1.40\n3     1 White fbf20   6.40\n4     1 White fbf60  19.1 \n5     1 White fbf150 25   \n6     1 White fbf300 24.6"
+  },
+  {
+    "objectID": "bài 11.html#ggplot2",
+    "href": "bài 11.html#ggplot2",
+    "title": "Bài 11",
+    "section": "ggplot2",
+    "text": "ggplot2\n\nggplot2 là package đồ họa của R\nViết bởi Hadley Wickham (bắt đầu năm 2005)\nDựa vào nguyên lý “Grammar of Graphics” của Leland Wilkinson\nNằm trong hệ thống “Tidyverse” (có thể cài đặt trực tiếp từ install.packages(“ggplot2”), hoặc install.packages(“tidyverse”))\nWebsite: https://ggplot2.tidyverse.org"
+  },
+  {
+    "objectID": "bài 11.html#grammar-of-ggplot2",
+    "href": "bài 11.html#grammar-of-ggplot2",
+    "title": "Bài 11",
+    "section": "Grammar of ggplot2",
+    "text": "Grammar of ggplot2\n\nCấu trúc ggplot2 bao gồm tất cả các thành phần của biểu đồ (tương tự “subject”, “verb”, “noun”, “adj”… Cho đồ họa).\nHoạt động theo lớp (layers) (tương tự cơ chế của photoshop) => linh hoạt, có thể kết hợp nhiều loại biểu đồ (trên cùng một hay nhiều bộ data) cùng lúc"
+  },
+  {
+    "objectID": "bài 11.html#hinh",
+    "href": "bài 11.html#hinh",
+    "title": "Bài 11",
+    "section": "HINH",
+    "text": "HINH"
+  },
+  {
+    "objectID": "bài 11.html#grammar-of-ggplot2-1",
+    "href": "bài 11.html#grammar-of-ggplot2-1",
+    "title": "Bài 11",
+    "section": "Grammar of ggplot2",
+    "text": "Grammar of ggplot2\n\n“In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system”\n                        -- Ggplot2 - Elegant Graphics for Data Analysis --"
+  },
+  {
+    "objectID": "bài 11.html#lưu-ý",
+    "href": "bài 11.html#lưu-ý",
+    "title": "Bài 11",
+    "section": "Lưu ý",
+    "text": "Lưu ý\nTrước khi thực hành viết R cho bài này, mình cần khai báo dữ liệu midwest bằng 2 dòng lệnh sau:\n\nlibrary(ggplot2)\ndata(midwest)"
+  },
+  {
+    "objectID": "bài 11.html#section",
+    "href": "bài 11.html#section",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(midwest, aes(x = area, y = poptotal)) + \n  geom_point(aes(col = state, size = popdensity), alpha = 0.7) + \n  geom_smooth(method = \"loess\", size = 1.2, fill = \"yellow\", col = \"red\") + \n  xlim(c(0, 0.1)) + \n  ylim(c(0, 500000)) + \n  labs(title = \"Area Vs Population\", y = \"Population\", x = \"Area\", \n         caption = \"Source: midwest\")+\n  theme_bw(15)"
+  },
+  {
+    "objectID": "bài 11.html#section-1",
+    "href": "bài 11.html#section-1",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(midwest, aes(x = area, y = poptotal)) + \n  geom_point(aes(col = state, size = popdensity), alpha = 0.7) + \n  geom_smooth(method = \"loess\", size = 1.2, fill = \"yellow\", col = \"red\") + \n  xlim(c(0, 0.1)) + \n  ylim(c(0, 500000)) + \n  labs(title = \"Area Vs Population\", y = \"Population\", x = \"Area\", \n         caption = \"Source: midwest\")+\n  theme_bw(15)"
+  },
+  {
+    "objectID": "bài 11.html#section-2",
+    "href": "bài 11.html#section-2",
+    "title": "Bài 11",
+    "section": "",
+    "text": "gg <- ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col=state, size=popdensity))\ngg"
+  },
+  {
+    "objectID": "bài 11.html#section-3",
+    "href": "bài 11.html#section-3",
+    "title": "Bài 11",
+    "section": "",
+    "text": "gg + geom_smooth(method=\"loess\", se=F)"
+  },
+  {
+    "objectID": "bài 11.html#components",
+    "href": "bài 11.html#components",
+    "title": "Bài 11",
+    "section": "Components",
+    "text": "Components\n\nData: bao gồm dataset và aesthetic mappings (bao gồm các trục x, y, color, shape, size…).\nGeometric objects: loại biểu đồ muốn vẽ (point, bar, lines…)\nStatistical transformations, stats (hàm thống kê)\nScale\nCoordinate system\nFaceting\nAnnotation"
+  },
+  {
+    "objectID": "bài 11.html#ví-dụ-với-scatter-plot",
+    "href": "bài 11.html#ví-dụ-với-scatter-plot",
+    "title": "Bài 11",
+    "section": "Ví dụ với scatter plot",
+    "text": "Ví dụ với scatter plot"
+  },
+  {
+    "objectID": "bài 11.html#mục-tiêu-ví-dụ",
+    "href": "bài 11.html#mục-tiêu-ví-dụ",
+    "title": "Bài 11",
+    "section": "Mục tiêu ví dụ",
+    "text": "Mục tiêu ví dụ\n\nHiểu câu lệnh làm việc với ggplot2\nTạo biểu đồ scatter plot đơn giản\nThay đổi giới hạn trục x, y\nThay đổi title và axis labels"
+  },
+  {
+    "objectID": "bài 11.html#data-midwest",
+    "href": "bài 11.html#data-midwest",
+    "title": "Bài 11",
+    "section": "Data – “midwest”",
+    "text": "Data – “midwest”\n\nData khảo sát dân số miền trung tây nước Mỹ\nBao gồm 28 vars và 437 obs\n\n#library\nlibrary(tidyverse)\n#----------------------------------\n# load data\ndata(midwest)\noptions(scipen=999)"
+  },
+  {
+    "objectID": "bài 11.html#data-midwest-1",
+    "href": "bài 11.html#data-midwest-1",
+    "title": "Bài 11",
+    "section": "Data – “midwest”",
+    "text": "Data – “midwest”\n\nlibrary(tidyverse)\nglimpse(midwest)\n\nRows: 437\nColumns: 28\n$ PID                  <int> 561, 562, 563, 564, 565, 566, 567, 568, 569, 570,…\n$ county               <chr> \"ADAMS\", \"ALEXANDER\", \"BOND\", \"BOONE\", \"BROWN\", \"…\n$ state                <chr> \"IL\", \"IL\", \"IL\", \"IL\", \"IL\", \"IL\", \"IL\", \"IL\", \"…\n$ area                 <dbl> 0.052, 0.014, 0.022, 0.017, 0.018, 0.050, 0.017, …\n$ poptotal             <int> 66090, 10626, 14991, 30806, 5836, 35688, 5322, 16…\n$ popdensity           <dbl> 1270.9615, 759.0000, 681.4091, 1812.1176, 324.222…\n$ popwhite             <int> 63917, 7054, 14477, 29344, 5264, 35157, 5298, 165…\n$ popblack             <int> 1702, 3496, 429, 127, 547, 50, 1, 111, 16, 16559,…\n$ popamerindian        <int> 98, 19, 35, 46, 14, 65, 8, 30, 8, 331, 51, 26, 17…\n$ popasian             <int> 249, 48, 16, 150, 5, 195, 15, 61, 23, 8033, 89, 3…\n$ popother             <int> 124, 9, 34, 1139, 6, 221, 0, 84, 6, 1596, 20, 7, …\n$ percwhite            <dbl> 96.71206, 66.38434, 96.57128, 95.25417, 90.19877,…\n$ percblack            <dbl> 2.57527614, 32.90043290, 2.86171703, 0.41225735, …\n$ percamerindan        <dbl> 0.14828264, 0.17880670, 0.23347342, 0.14932156, 0…\n$ percasian            <dbl> 0.37675897, 0.45172219, 0.10673071, 0.48691813, 0…\n$ percother            <dbl> 0.18762294, 0.08469791, 0.22680275, 3.69733169, 0…\n$ popadults            <int> 43298, 6724, 9669, 19272, 3979, 23444, 3583, 1132…\n$ perchsd              <dbl> 75.10740, 59.72635, 69.33499, 75.47219, 68.86152,…\n$ percollege           <dbl> 19.63139, 11.24331, 17.03382, 17.27895, 14.47600,…\n$ percprof             <dbl> 4.355859, 2.870315, 4.488572, 4.197800, 3.367680,…\n$ poppovertyknown      <int> 63628, 10529, 14235, 30337, 4815, 35107, 5241, 16…\n$ percpovertyknown     <dbl> 96.27478, 99.08714, 94.95697, 98.47757, 82.50514,…\n$ percbelowpoverty     <dbl> 13.151443, 32.244278, 12.068844, 7.209019, 13.520…\n$ percchildbelowpovert <dbl> 18.011717, 45.826514, 14.036061, 11.179536, 13.02…\n$ percadultpoverty     <dbl> 11.009776, 27.385647, 10.852090, 5.536013, 11.143…\n$ percelderlypoverty   <dbl> 12.443812, 25.228976, 12.697410, 6.217047, 19.200…\n$ inmetro              <int> 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0…\n$ category             <chr> \"AAR\", \"LHR\", \"AAR\", \"ALU\", \"AAR\", \"AAR\", \"LAR\", …"
+  },
+  {
+    "objectID": "bài 11.html#data-aesthetic-mappings",
+    "href": "bài 11.html#data-aesthetic-mappings",
+    "title": "Bài 11",
+    "section": "1. Data & aesthetic mappings",
+    "text": "1. Data & aesthetic mappings\n\nggplot2 chỉ nhận cấu trúc dữ liệu “data frame”, không nhận vector hay matrix\nTrong thực hành, có thể cần nhiều bước chuẩn bị để từ data gốc => data input cho ggplot2. Một số package hữu ích trong biên tập số liệu như “dplyr”, “tidyverse”, toán tử pipe %>%\naesthetic mappings bao gồm trục x, y, z muốn vẽ (tùy loại biểu đồ 1D, 2D, 3D…) shape, size, color\nData và aesthetic mappings có thể khai báo chung cho tất cả các layer hoặc từng layer"
+  },
+  {
+    "objectID": "bài 11.html#data-aesthetic-mappings-1",
+    "href": "bài 11.html#data-aesthetic-mappings-1",
+    "title": "Bài 11",
+    "section": "1. Data & aesthetic mappings",
+    "text": "1. Data & aesthetic mappings\n\nggplot(data = midwest, aes(x = area, y = poptotal))\n\n\n\nBiểu đồ trống vì chỉ mới khai báo Data (midwest) và aesthetic mappings (trục x là area, trục y là total population) => chưa biết vẽ loại biểu đồ gì\nCần thêm thành phần “Geometric”"
+  },
+  {
+    "objectID": "bài 11.html#data-aesthetic-mappings-2",
+    "href": "bài 11.html#data-aesthetic-mappings-2",
+    "title": "bài 11",
+    "section": "1. Data & aesthetic mappings",
+    "text": "1. Data & aesthetic mappings\n\nggplot(data = midwest, aes(x = area, y = poptotal))\n\n\n\nBiểu đồ trống vì chỉ mới khai báo Data (midwest) và aesthetic mappings (trục x là area, trục y là total population) => chưa biết vẽ loại biểu đồ gì\nCần thêm thành phần “Geometric”"
+  },
+  {
+    "objectID": "bài 11.html#geometric-objects",
+    "href": "bài 11.html#geometric-objects",
+    "title": "Bài 11",
+    "section": "2. Geometric objects",
+    "text": "2. Geometric objects\n\nLoại biểu đồ muốn vẽ\nSử dụng thông tin trong aesthetic mappings (ví dụ scatter phải cần 2 trục (x,y), bar chỉ cần trục x …)\nCâu lệnh:\n\ngeom_point: điểm\ngeom_line: đường\ngeom_histogram: histogram\n…. : tham khảo cheat sheet\n\nData + aesthetic + geometric object là 3 thành phần tối thiểu của một biểu đồ"
+  },
+  {
+    "objectID": "bài 11.html#section-4",
+    "href": "bài 11.html#section-4",
+    "title": "Bài 11",
+    "section": "",
+    "text": "gg + \n    geom_smooth(method=\"loess\", se=F) + \n    theme_bw()"
+  },
+  {
+    "objectID": "bài 11.html#section-5",
+    "href": "bài 11.html#section-5",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) +\n    geom_point()\n\n\nThêm geom_point() để vẽ dạng biểu đồ điểm\ngeom_point sử dụng thông tin trục x, y từ aes()"
+  },
+  {
+    "objectID": "bài 11.html#section-6",
+    "href": "bài 11.html#section-6",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) +\n    geom_line()\n\n\nHoặc geom_line() để vẽ dạng biểu đồ đường"
+  },
+  {
+    "objectID": "bài 11.html#chú-ý",
+    "href": "bài 11.html#chú-ý",
+    "title": "Bài 11",
+    "section": "Chú ý",
+    "text": "Chú ý\n\nData và aes() được khai báo ở “ggplot()” => toàn bộ các layer sau (geom_point(), geom_smooth()) đều sử dụng thông tin khai báo này\nNếu data và aes() được khai báo riêng lẻ ở từng layer =>thông tin này chỉ được áp dụng cho riêng từng layer đó (trường hợp này được sử dụng khi muốn vẽ nhiều layer từ nhiều data khác nhau)\nVí dụ"
+  },
+  {
+    "objectID": "bài 11.html#section-7",
+    "href": "bài 11.html#section-7",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point() +\n    geom_smooth(method = \"lm\")\n\n\nTừ biểu đồ điểm, thêm 1 layer smooth (linear model)"
+  },
+  {
+    "objectID": "bài 11.html#section-8",
+    "href": "bài 11.html#section-8",
+    "title": "Bài 11",
+    "section": "",
+    "text": "# Data và aes() được dùng chung cho các layers\nggplot(data = midwest, aes(x = area, y = poptotal)) +\n    geom_point() +\n    geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "bài 11.html#thay-đổi-giới-hạn-trục-x-y",
+    "href": "bài 11.html#thay-đổi-giới-hạn-trục-x-y",
+    "title": "Bài 11",
+    "section": "3. Thay đổi giới hạn trục x, y",
+    "text": "3. Thay đổi giới hạn trục x, y\n\nCó 2 cách giới hạn trục x và y\nCách 1:\n\nGiới hạn trục x và y đồng thời loại bỏ các giá trị nằm ngoài khoảng giới hạn\nSử dụng câu lệnh xlim() & ylim()\n\nCách 2:\n\n“zoom in” vào khoảng giới hạn 🡺 không loại bỏ các giá trị nằm ngoài giới hạn\nSử dụng câu lệnh coord_cartesian()"
+  },
+  {
+    "objectID": "bài 11.html#section-9",
+    "href": "bài 11.html#section-9",
+    "title": "Bài 11",
+    "section": "",
+    "text": "# Data và aes() chỉ áp dụng cho layer geom_point()\nggplot() +\n    geom_point(data = midwest, aes(x = area, y = poptotal)) +\n    geom_smooth(method = \"lm\")\n\n\nlayer geom_smooth() chưa có data & aes()"
+  },
+  {
+    "objectID": "bài 11.html#thay-đổi-title-và-axis-labels",
+    "href": "bài 11.html#thay-đổi-title-và-axis-labels",
+    "title": "Bài 11",
+    "section": "4. Thay đổi title và axis labels",
+    "text": "4. Thay đổi title và axis labels\n\nCó nhiều cách\nCách 1: dùng tất cả trong 1 câu lệnh\nlabs(title = ““, subtitle=”…“, y=”…“, x=”…“, caption=”…“)\nCách 2: từng thành phần riêng lẻ\nggtitle(“…”, subtitle= “…”) + xlab(“…”) + ylab(“…”)\nCách 3 : kết hợp một số “scale” (ít dùng hơn)"
+  },
+  {
+    "objectID": "bài 11.html#section-10",
+    "href": "bài 11.html#section-10",
+    "title": "Bài 11",
+    "section": "",
+    "text": "p <- ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point() +\n    geom_smooth(method = \"lm\")\n\n\n\n\np1 <- p + \n    xlim(c(0, 0.1)) + \n    ylim(c(0, 1000000))\n\np1\n\n\n\n\n\np2 <- p + \n    coord_cartesian(xlim=\n    c(0,0.1), \n    ylim=c(0, 1000000))\np2\n\n\n\n\n\n\n\n\n\nThay đổi xu hướng do loại bỏ các giá trị ngoài phạm vi 0 - 1000000\n\n\nGiữ nguyên xu hướng do chỉ “zoom in” vào phạm vi 0 - 1000000"
+  },
+  {
+    "objectID": "bài 11.html#full-syntax",
+    "href": "bài 11.html#full-syntax",
+    "title": "Bài 11",
+    "section": "full syntax",
+    "text": "full syntax\nSyntax cơ bản cho scatter plot\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point() +\n    geom_smooth(method = \"lm\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 11.html#tùy-chỉnh-color-shape-size-theme",
+    "href": "bài 11.html#tùy-chỉnh-color-shape-size-theme",
+    "title": "Bài 11",
+    "section": "Tùy chỉnh color, shape, size, theme",
+    "text": "Tùy chỉnh color, shape, size, theme"
+  },
+  {
+    "objectID": "bài 11.html#nội-dung",
+    "href": "bài 11.html#nội-dung",
+    "title": "Bài 11",
+    "section": "Nội dung",
+    "text": "Nội dung\n\nTùy chỉnh color, shape, size\nTheme"
+  },
+  {
+    "objectID": "bài 11.html#color",
+    "href": "bài 11.html#color",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(col = \"orange\") +    #Chỉ áp dụng cho layer này, \n                                    #tất cả các point thành màu “orange”\n    geom_smooth(method = \"lm\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 11.html#color-1",
+    "href": "bài 11.html#color-1",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color"
+  },
+  {
+    "objectID": "bài 11.html#color-2",
+    "href": "bài 11.html#color-2",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nCó thể gọi tên trực tiếp: “red”, “blue”… www.stat.columbia.edu/~tzheng/files/Rcolor.pdf\nHệ thống màu Hexadecimal code (search từ khóa “hex color” bằng google)\nHệ thống RGB"
+  },
+  {
+    "objectID": "bài 11.html#color-3",
+    "href": "bài 11.html#color-3",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nMột số package cung cấp phổ màu riêng\n“viridis” cung cấp 4 phổ màu liên tục\n“RColorBrewer” cung cấp các phổ màu liên tục và rời rạc"
+  },
+  {
+    "objectID": "bài 11.html#color-4",
+    "href": "bài 11.html#color-4",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\nhttp://colorbrewer2.org/#type=sequential&scheme=RdPu&n=9"
+  },
+  {
+    "objectID": "bài 11.html#package-viridis",
+    "href": "bài 11.html#package-viridis",
+    "title": "Bài 11",
+    "section": "Package viridis",
+    "text": "Package viridis"
+  },
+  {
+    "objectID": "bài 11.html#package-rcolorbrewer",
+    "href": "bài 11.html#package-rcolorbrewer",
+    "title": "Bài 11",
+    "section": "Package RColorBrewer",
+    "text": "Package RColorBrewer"
+  },
+  {
+    "objectID": "bài 11.html#color-5",
+    "href": "bài 11.html#color-5",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state)) +     # Màu khác nhau cho từng “state”\n    geom_smooth(method = \"lm\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 11.html#color-6",
+    "href": "bài 11.html#color-6",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color"
+  },
+  {
+    "objectID": "bài 11.html#color-7",
+    "href": "bài 11.html#color-7",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state)) +\n    geom_smooth(method = \"lm\",      # Thêm màu cho đường smooth\n                color = \"red\", \n                fill = \"orange\") + \n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 11.html#color-8",
+    "href": "bài 11.html#color-8",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color"
+  },
+  {
+    "objectID": "bài 11.html#section-11",
+    "href": "bài 11.html#section-11",
+    "title": "Bài 11",
+    "section": "",
+    "text": "p2 + labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 11.html#size-shape",
+    "href": "bài 11.html#size-shape",
+    "title": "Bài 11",
+    "section": "Size & shape",
+    "text": "Size & shape"
+  },
+  {
+    "objectID": "bài 11.html#section-13",
+    "href": "bài 11.html#section-13",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n     scale_colour_brewer(palette = \"Set1\")\n\n\nshape = 21"
+  },
+  {
+    "objectID": "bài 11.html#section-14",
+    "href": "bài 11.html#section-14",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n     scale_colour_brewer(palette = \"Set1\")\n\n\nshape = 21"
+  },
+  {
+    "objectID": "bài 11.html#section-15",
+    "href": "bài 11.html#section-15",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state, fill = state), size = 3, shape = 23, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n     scale_colour_brewer(palette = \"Set1\")\n\n\nshape = 23"
+  },
+  {
+    "objectID": "bài 11.html#section-16",
+    "href": "bài 11.html#section-16",
+    "title": "Bài 11",
+    "section": "",
+    "text": "hinh ở slide 43"
+  },
+  {
+    "objectID": "bài 11.html#section-17",
+    "href": "bài 11.html#section-17",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    theme_bw(15)\n\n\nTheme_bw()"
+  },
+  {
+    "objectID": "bài 11.html#section-18",
+    "href": "bài 11.html#section-18",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    theme_linedraw(15)\n\n\ntheme_linedraw()"
+  },
+  {
+    "objectID": "bài 11.html#section-19",
+    "href": "bài 11.html#section-19",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state, fill = state), shape = 21, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    theme_bw(15)"
+  },
+  {
+    "objectID": "bài 11.html#section-20",
+    "href": "bài 11.html#section-20",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal, size = popdensity, col = state, fill = state)) + \n    geom_point(shape = 21, alpha = 0.4) +\n    scale_size(range = c(1,30))+ \n    geom_smooth(aes(group = 1), se = F, color = \"red\", fill = \"orange\") +\n    guides(size = F) +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    theme_bw(15)"
+  },
+  {
+    "objectID": "bài 11.html#legend-text-labels-annotation",
+    "href": "bài 11.html#legend-text-labels-annotation",
+    "title": "Bài 11",
+    "section": "Legend, text, labels & Annotation",
+    "text": "Legend, text, labels & Annotation"
+  },
+  {
+    "objectID": "bài 11.html#section-22",
+    "href": "bài 11.html#section-22",
+    "title": "Bài 11",
+    "section": "",
+    "text": "chụp màn hình slide 51"
+  },
+  {
+    "objectID": "bài 11.html#thay-đổi-legend",
+    "href": "bài 11.html#thay-đổi-legend",
+    "title": "Bài 11",
+    "section": "Thay đổi Legend",
+    "text": "Thay đổi Legend\n\nThay đổi title cho legend\nThay đổi labels & color cho legend ứng với categories\nRemove hay thay đổi legend positions"
+  },
+  {
+    "objectID": "bài 11.html#thay-đổi-title-cho-legend",
+    "href": "bài 11.html#thay-đổi-title-cho-legend",
+    "title": "Bài 11",
+    "section": "Thay đổi title cho legend",
+    "text": "Thay đổi title cho legend\n\nCÓ 3 cách\nSử dụng labs()\n\nlabs(color =\"State\", fill =\"State\", size = \"Density\")\n\nSử dụng guides()\n\nguides(color = guide_legend(\"State\"), fill = guide_legend(\"State\"), size = guide_legend(\"Density\"))"
+  },
+  {
+    "objectID": "bài 11.html#thay-đổi-title-cho-legend-1",
+    "href": "bài 11.html#thay-đổi-title-cho-legend-1",
+    "title": "Bài 11",
+    "section": "Thay đổi title cho legend",
+    "text": "Thay đổi title cho legend\n\nCÓ 3 cách\nSử dụng scale_[…]\n\nTùy vào việc sử dụng loại “scale_”, cho phép thay đổi legend cho màu “scale” tương ứng (ví dụ trong trường hợp này)\nscale_color_discrete(name=\"State\") + \nscale_fill_discrete(name=\"State\") + \nscale_size_continuous(name = \"Density\", guide = FALSE)"
+  },
+  {
+    "objectID": "bài 11.html#thay-đổi-labels-color-cho-legend",
+    "href": "bài 11.html#thay-đổi-labels-color-cho-legend",
+    "title": "Bài 11",
+    "section": "Thay đổi labels & color cho legend",
+    "text": "Thay đổi labels & color cho legend\n\nCó thể sử dụng chức năng scale_[color/fill]_manual()\n\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_color_manual(name = \"State\", \n                       labels = c(\"Illinois\", \n                                  \"Indiana\", \n                                  \"Michigan\", \n                                  \"Ohio\", \n                                  \"Wisconsin\"), \n                       values = c(\"IL\"=\"blue\", \n                                  \"IN\"=\"red\", \n                                  \"MI\"=\"green\", \n                                  \"OH\"=\"purple\", \n                                  \"WI\"=\"orange\")) +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15)"
+  },
+  {
+    "objectID": "bài 11.html#thay-đổi-labels-color-cho-legend-1",
+    "href": "bài 11.html#thay-đổi-labels-color-cho-legend-1",
+    "title": "bài 11",
+    "section": "Thay đổi labels & color cho legend",
+    "text": "Thay đổi labels & color cho legend\n\nCó thể sử dụng chức năng scale_[color/fill]_manual()"
+  },
+  {
+    "objectID": "bài 11.html#remove-hay-thay-đổi-legend-positions",
+    "href": "bài 11.html#remove-hay-thay-đổi-legend-positions",
+    "title": "Bài 11",
+    "section": "Remove hay thay đổi legend positions",
+    "text": "Remove hay thay đổi legend positions\n\nSử dụng theme(legend.position = “…”)\n“left”, “right”, “top”, “bottom”\n\ntheme(legend.position = \"top\")\ntheme(legend.position = c(0.85,0.5))"
+  },
+  {
+    "objectID": "bài 11.html#section-25",
+    "href": "bài 11.html#section-25",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_color_manual(name = \"State\", \n                       labels = c(\"Illinois\", \n                                  \"Indiana\", \n                                  \"Michigan\", \n                                  \"Ohio\", \n                                  \"Wisconsin\"), \n                       values = c(\"IL\"=\"blue\", \n                                  \"IN\"=\"red\", \n                                  \"MI\"=\"green\", \n                                  \"OH\"=\"purple\", \n                                  \"WI\"=\"orange\")) +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) +\n    theme(legend.position = c(0.85, 0.6))+\n    theme_bw(15)"
+  },
+  {
+    "objectID": "bài 11.html#text-labels",
+    "href": "bài 11.html#text-labels",
+    "title": "Bài 11",
+    "section": "Text & labels",
+    "text": "Text & labels\n\nMục tiêu: hiện tên “country” của các nước có dân số >500,000\n\nB1: Lọc những nước có poptotal > 500,000 (đặt tên là large_country)\n\nlarge_country <- midwest %>% filter(poptotal > 500000)\n\nB2: sử dụng geom_text()"
+  },
+  {
+    "objectID": "bài 11.html#section-27",
+    "href": "bài 11.html#section-27",
+    "title": "Bài 11",
+    "section": "",
+    "text": "large_country <- midwest %>% filter(poptotal > 500000)\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n         subtitle=\"From midwest dataset\", \n         y=\"Population\", x=\"Area\", \n         caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15)+\n    geom_text(data = large_country, aes(label = county), size = 2)"
+  },
+  {
+    "objectID": "bài 11.html#section-28",
+    "href": "bài 11.html#section-28",
+    "title": "Bài 11",
+    "section": "",
+    "text": "large_country <- midwest %>% filter(poptotal > 500000)\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n         subtitle=\"From midwest dataset\", \n         y=\"Population\", x=\"Area\", \n         caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15)+\n    geom_text(data = large_country, aes(label = county), size = 2)"
+  },
+  {
+    "objectID": "bài 11.html#section-29",
+    "href": "bài 11.html#section-29",
+    "title": "Bài 11",
+    "section": "",
+    "text": "Text trùng với point => chỉnh vị trí text bằng package “ggrepel” => thay geom_text() = geom_text_repel()"
+  },
+  {
+    "objectID": "bài 11.html#section-31",
+    "href": "bài 11.html#section-31",
+    "title": "Bài 11",
+    "section": "",
+    "text": "large_country <- midwest %>% filter(poptotal > 500000)\nlibrary(ggrepel)\n\np <- ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_color_manual(name = \"State\", \n                       labels = c(\"Illinois\", \n                                  \"Indiana\", \n                                  \"Michigan\", \n                                  \"Ohio\", \n                                  \"Wisconsin\"), \n                       values = c(\"IL\"=\"blue\", \n                                  \"IN\"=\"red\", \n                                  \"MI\"=\"green\", \n                                  \"OH\"=\"purple\", \n                                  \"WI\"=\"orange\")) +\n    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) + \n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15) + \n    geom_text_repel(data = large_country, aes(label = county), size = 2) \np"
+  },
+  {
+    "objectID": "bài 11.html#advanced-theme-font",
+    "href": "bài 11.html#advanced-theme-font",
+    "title": "Bài 11",
+    "section": "Advanced theme & font",
+    "text": "Advanced theme & font"
+  },
+  {
+    "objectID": "bài 11.html#theme",
+    "href": "bài 11.html#theme",
+    "title": "bài 11",
+    "section": "Theme",
+    "text": "Theme\n\n?theme()\nelement_blank(): draws nothing, and assigns no space.\nelement_rect(): borders and backgrounds.\nelement_line(): lines.\nelement_text(): text.\nCài đặt thêm font\n\ninstall.packages(\"extrafont\")\nlibrary(extrafont)\nfont_import()\nloadfonts(device = \"win\")"
+  },
+  {
+    "objectID": "bài 11.html#section-33",
+    "href": "bài 11.html#section-33",
+    "title": "Bài 11",
+    "section": "",
+    "text": "?theme()\nelement_blank(): draws nothing, and assigns no space.\nelement_rect(): borders and backgrounds.\nelement_line(): lines.\nelement_text(): text.\nCài đặt thêm font\n\ninstall.packages(\"extrafont\")\nlibrary(extrafont)\nfont_import()\nloadfonts(device = \"win\")"
+  },
+  {
+    "objectID": "bài 11.html#section-34",
+    "href": "bài 11.html#section-34",
+    "title": "Bài 11",
+    "section": "",
+    "text": "?theme()\nelement_blank(): draws nothing, and assigns no space.\nelement_rect(): borders and backgrounds.\nelement_line(): lines.\nelement_text(): text.\nCài đặt thêm font\n\ninstall.packages(\"extrafont\")\nlibrary(extrafont)\nfont_import()\nloadfonts(device = \"win\")"
+  },
+  {
+    "objectID": "bài 11.html#facet",
+    "href": "bài 11.html#facet",
+    "title": "Bài 11",
+    "section": "Facet",
+    "text": "Facet"
+  },
+  {
+    "objectID": "bài 11.html#facet-1",
+    "href": "bài 11.html#facet-1",
+    "title": "Bài 11",
+    "section": "Facet",
+    "text": "Facet\n\nPhân chia theo 2 nhóm khu vực “inmetro”: Yes/No\n\np + facet_wrap(~inmetro, ncol = 2)"
+  },
+  {
+    "objectID": "bài 11.html#section-36",
+    "href": "bài 11.html#section-36",
+    "title": "Bài 11",
+    "section": "",
+    "text": "HÌnh slide 74"
+  },
+  {
+    "objectID": "bài 11.html#tìm-hiểu-thêm",
+    "href": "bài 11.html#tìm-hiểu-thêm",
+    "title": "Bài 11",
+    "section": "Tìm hiểu thêm",
+    "text": "Tìm hiểu thêm\n\ncoordinate\nGhép các ảnh riêng lẻ vào 1 qua package “gridExtra”"
+  },
+  {
+    "objectID": "bài 11.html#thực-hành",
+    "href": "bài 11.html#thực-hành",
+    "title": "Bài 11",
+    "section": "Thực hành",
+    "text": "Thực hành"
+  },
+  {
+    "objectID": "bài 11.html#hình-slide-77",
+    "href": "bài 11.html#hình-slide-77",
+    "title": "Bài 11",
+    "section": "Hình slide 77",
+    "text": "Hình slide 77"
+  },
+  {
+    "objectID": "bài 11.html#hình-slide-78",
+    "href": "bài 11.html#hình-slide-78",
+    "title": "Bài 11",
+    "section": "Hình slide 78",
+    "text": "Hình slide 78"
+  },
+  {
+    "objectID": "bài 6.html",
+    "href": "bài 6.html",
+    "title": "Bài 6",
+    "section": "",
+    "text": "Công dụng: rút ngắn các tác vụ thường sử dụng thành 1 câu lệnh duy nhất\nFunction trong R có dạng:\n\nfunction(các tùy chọn) {\n...\nreturn(kết quả)\n}\n\nCó thể không viết return(), R sẽ lấy hàng cuối cùng trong phần code để trả kết quả"
+  },
+  {
+    "objectID": "bài 12.html#ggplot2",
+    "href": "bài 12.html#ggplot2",
+    "title": "Bài 11",
+    "section": "ggplot2",
+    "text": "ggplot2\n\nggplot2 là package đồ họa của R\nViết bởi Hadley Wickham (bắt đầu năm 2005)\nDựa vào nguyên lý “Grammar of Graphics” của Leland Wilkinson\nNằm trong hệ thống “Tidyverse” (có thể cài đặt trực tiếp từ install.packages(“ggplot2”), hoặc install.packages(“tidyverse”))\nWebsite: https://ggplot2.tidyverse.org"
+  },
+  {
+    "objectID": "bài 12.html#grammar-of-ggplot2",
+    "href": "bài 12.html#grammar-of-ggplot2",
+    "title": "Bài 11",
+    "section": "Grammar of ggplot2",
+    "text": "Grammar of ggplot2\n\nCấu trúc ggplot2 bao gồm tất cả các thành phần của biểu đồ (tương tự “subject”, “verb”, “noun”, “adj”… Cho đồ họa).\nHoạt động theo lớp (layers) (tương tự cơ chế của photoshop) => linh hoạt, có thể kết hợp nhiều loại biểu đồ (trên cùng một hay nhiều bộ data) cùng lúc"
+  },
+  {
+    "objectID": "bài 12.html#hinh",
+    "href": "bài 12.html#hinh",
+    "title": "Bài 11",
+    "section": "HINH",
+    "text": "HINH"
+  },
+  {
+    "objectID": "bài 12.html#grammar-of-ggplot2-1",
+    "href": "bài 12.html#grammar-of-ggplot2-1",
+    "title": "Bài 11",
+    "section": "Grammar of ggplot2",
+    "text": "Grammar of ggplot2\n\n“In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (colour, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system”\n                          -- Ggplot2 - Elegant Graphics for Data Analysis --"
+  },
+  {
+    "objectID": "bài 12.html#lưu-ý",
+    "href": "bài 12.html#lưu-ý",
+    "title": "Bài 11",
+    "section": "Lưu ý",
+    "text": "Lưu ý\nTrước khi thực hành viết R cho bài này, mình cần khai báo dữ liệu midwest bằng 2 dòng lệnh sau:\n\nlibrary(ggplot2)\ndata(midwest)"
+  },
+  {
+    "objectID": "bài 12.html#section",
+    "href": "bài 12.html#section",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(midwest, aes(x = area, y = poptotal)) + \n  geom_point(aes(col = state, size = popdensity), alpha = 0.7) + \n  geom_smooth(method = \"loess\", size = 1.2, fill = \"yellow\", col = \"red\") + \n  xlim(c(0, 0.1)) + \n  ylim(c(0, 500000)) + \n  labs(title = \"Area Vs Population\", y = \"Population\", x = \"Area\", \n         caption = \"Source: midwest\")+\n  theme_bw(15)"
+  },
+  {
+    "objectID": "bài 12.html#section-1",
+    "href": "bài 12.html#section-1",
+    "title": "Bài 11",
+    "section": "",
+    "text": "gg <- ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col=state, size=popdensity))\ngg"
+  },
+  {
+    "objectID": "bài 12.html#section-2",
+    "href": "bài 12.html#section-2",
+    "title": "Bài 11",
+    "section": "",
+    "text": "gg + geom_smooth(method=\"loess\", se=F)"
+  },
+  {
+    "objectID": "bài 12.html#section-3",
+    "href": "bài 12.html#section-3",
+    "title": "Bài 11",
+    "section": "",
+    "text": "gg + \n    geom_smooth(method=\"loess\", se=F) + \n    theme_bw()"
+  },
+  {
+    "objectID": "bài 12.html#components",
+    "href": "bài 12.html#components",
+    "title": "Bài 11",
+    "section": "Components",
+    "text": "Components\n\nData: bao gồm dataset và aesthetic mappings (bao gồm các trục x, y, color, shape, size…).\nGeometric objects: loại biểu đồ muốn vẽ (point, bar, lines…)\nStatistical transformations, stats (hàm thống kê)\nScale\nCoordinate system\nFaceting\nAnnotation"
+  },
+  {
+    "objectID": "bài 12.html#ví-dụ-với-scatter-plot",
+    "href": "bài 12.html#ví-dụ-với-scatter-plot",
+    "title": "Bài 11",
+    "section": "Ví dụ với scatter plot",
+    "text": "Ví dụ với scatter plot"
+  },
+  {
+    "objectID": "bài 12.html#mục-tiêu-ví-dụ",
+    "href": "bài 12.html#mục-tiêu-ví-dụ",
+    "title": "Bài 11",
+    "section": "Mục tiêu ví dụ",
+    "text": "Mục tiêu ví dụ\n\nHiểu câu lệnh làm việc với ggplot2\nTạo biểu đồ scatter plot đơn giản\nThay đổi giới hạn trục x, y\nThay đổi title và axis labels"
+  },
+  {
+    "objectID": "bài 12.html#data-midwest",
+    "href": "bài 12.html#data-midwest",
+    "title": "Bài 11",
+    "section": "Data – “midwest”",
+    "text": "Data – “midwest”\n\nData khảo sát dân số miền trung tây nước Mỹ\nBao gồm 28 vars và 437 obs\n\n#library\nlibrary(tidyverse)\n#----------------------------------\n# load data\ndata(midwest)\noptions(scipen=999)"
+  },
+  {
+    "objectID": "bài 12.html#data-midwest-1",
+    "href": "bài 12.html#data-midwest-1",
+    "title": "Bài 11",
+    "section": "Data – “midwest”",
+    "text": "Data – “midwest”\n\nlibrary(tidyverse)\nglimpse(midwest)\n\nRows: 437\nColumns: 28\n$ PID                  <int> 561, 562, 563, 564, 565, 566, 567, 568, 569, 570,…\n$ county               <chr> \"ADAMS\", \"ALEXANDER\", \"BOND\", \"BOONE\", \"BROWN\", \"…\n$ state                <chr> \"IL\", \"IL\", \"IL\", \"IL\", \"IL\", \"IL\", \"IL\", \"IL\", \"…\n$ area                 <dbl> 0.052, 0.014, 0.022, 0.017, 0.018, 0.050, 0.017, …\n$ poptotal             <int> 66090, 10626, 14991, 30806, 5836, 35688, 5322, 16…\n$ popdensity           <dbl> 1270.9615, 759.0000, 681.4091, 1812.1176, 324.222…\n$ popwhite             <int> 63917, 7054, 14477, 29344, 5264, 35157, 5298, 165…\n$ popblack             <int> 1702, 3496, 429, 127, 547, 50, 1, 111, 16, 16559,…\n$ popamerindian        <int> 98, 19, 35, 46, 14, 65, 8, 30, 8, 331, 51, 26, 17…\n$ popasian             <int> 249, 48, 16, 150, 5, 195, 15, 61, 23, 8033, 89, 3…\n$ popother             <int> 124, 9, 34, 1139, 6, 221, 0, 84, 6, 1596, 20, 7, …\n$ percwhite            <dbl> 96.71206, 66.38434, 96.57128, 95.25417, 90.19877,…\n$ percblack            <dbl> 2.57527614, 32.90043290, 2.86171703, 0.41225735, …\n$ percamerindan        <dbl> 0.14828264, 0.17880670, 0.23347342, 0.14932156, 0…\n$ percasian            <dbl> 0.37675897, 0.45172219, 0.10673071, 0.48691813, 0…\n$ percother            <dbl> 0.18762294, 0.08469791, 0.22680275, 3.69733169, 0…\n$ popadults            <int> 43298, 6724, 9669, 19272, 3979, 23444, 3583, 1132…\n$ perchsd              <dbl> 75.10740, 59.72635, 69.33499, 75.47219, 68.86152,…\n$ percollege           <dbl> 19.63139, 11.24331, 17.03382, 17.27895, 14.47600,…\n$ percprof             <dbl> 4.355859, 2.870315, 4.488572, 4.197800, 3.367680,…\n$ poppovertyknown      <int> 63628, 10529, 14235, 30337, 4815, 35107, 5241, 16…\n$ percpovertyknown     <dbl> 96.27478, 99.08714, 94.95697, 98.47757, 82.50514,…\n$ percbelowpoverty     <dbl> 13.151443, 32.244278, 12.068844, 7.209019, 13.520…\n$ percchildbelowpovert <dbl> 18.011717, 45.826514, 14.036061, 11.179536, 13.02…\n$ percadultpoverty     <dbl> 11.009776, 27.385647, 10.852090, 5.536013, 11.143…\n$ percelderlypoverty   <dbl> 12.443812, 25.228976, 12.697410, 6.217047, 19.200…\n$ inmetro              <int> 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0…\n$ category             <chr> \"AAR\", \"LHR\", \"AAR\", \"ALU\", \"AAR\", \"AAR\", \"LAR\", …"
+  },
+  {
+    "objectID": "bài 12.html#data-aesthetic-mappings",
+    "href": "bài 12.html#data-aesthetic-mappings",
+    "title": "Bài 11",
+    "section": "1. Data & aesthetic mappings",
+    "text": "1. Data & aesthetic mappings\n\nggplot2 chỉ nhận cấu trúc dữ liệu “data frame”, không nhận vector hay matrix\nTrong thực hành, có thể cần nhiều bước chuẩn bị để từ data gốc => data input cho ggplot2. Một số package hữu ích trong biên tập số liệu như “dplyr”, “tidyverse”, toán tử pipe %>%\naesthetic mappings bao gồm trục x, y, z muốn vẽ (tùy loại biểu đồ 1D, 2D, 3D…) shape, size, color\nData và aesthetic mappings có thể khai báo chung cho tất cả các layer hoặc từng layer"
+  },
+  {
+    "objectID": "bài 12.html#data-aesthetic-mappings-1",
+    "href": "bài 12.html#data-aesthetic-mappings-1",
+    "title": "Bài 11",
+    "section": "1. Data & aesthetic mappings",
+    "text": "1. Data & aesthetic mappings\n\nggplot(data = midwest, aes(x = area, y = poptotal))\n\n\n\nBiểu đồ trống vì chỉ mới khai báo Data (midwest) và aesthetic mappings (trục x là area, trục y là total population) => chưa biết vẽ loại biểu đồ gì\nCần thêm thành phần “Geometric”"
+  },
+  {
+    "objectID": "bài 12.html#geometric-objects",
+    "href": "bài 12.html#geometric-objects",
+    "title": "Bài 11",
+    "section": "2. Geometric objects",
+    "text": "2. Geometric objects\n\nLoại biểu đồ muốn vẽ\nSử dụng thông tin trong aesthetic mappings (ví dụ scatter phải cần 2 trục (x,y), bar chỉ cần trục x …)\nCâu lệnh:\n\ngeom_point: điểm\ngeom_line: đường\ngeom_histogram: histogram\n…. : tham khảo cheat sheet\n\nData + aesthetic + geometric object là 3 thành phần tối thiểu của một biểu đồ"
+  },
+  {
+    "objectID": "bài 12.html#section-4",
+    "href": "bài 12.html#section-4",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) +\n    geom_point()\n\n\nThêm geom_point() để vẽ dạng biểu đồ điểm\ngeom_point sử dụng thông tin trục x, y từ aes()"
+  },
+  {
+    "objectID": "bài 12.html#section-5",
+    "href": "bài 12.html#section-5",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) +\n    geom_line()\n\n\nHoặc geom_line() để vẽ dạng biểu đồ đường"
+  },
+  {
+    "objectID": "bài 12.html#section-6",
+    "href": "bài 12.html#section-6",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point() +\n    geom_smooth(method = \"lm\")\n\n\nTừ biểu đồ điểm, thêm 1 layer smooth (linear model)"
+  },
+  {
+    "objectID": "bài 12.html#chú-ý",
+    "href": "bài 12.html#chú-ý",
+    "title": "Bài 11",
+    "section": "Chú ý",
+    "text": "Chú ý\n\nData và aes() được khai báo ở “ggplot()” => toàn bộ các layer sau (geom_point(), geom_smooth()) đều sử dụng thông tin khai báo này\nNếu data và aes() được khai báo riêng lẻ ở từng layer =>thông tin này chỉ được áp dụng cho riêng từng layer đó (trường hợp này được sử dụng khi muốn vẽ nhiều layer từ nhiều data khác nhau)\nVí dụ"
+  },
+  {
+    "objectID": "bài 12.html#section-7",
+    "href": "bài 12.html#section-7",
+    "title": "Bài 11",
+    "section": "",
+    "text": "# Data và aes() được dùng chung cho các layers\nggplot(data = midwest, aes(x = area, y = poptotal)) +\n    geom_point() +\n    geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "bài 12.html#section-8",
+    "href": "bài 12.html#section-8",
+    "title": "Bài 11",
+    "section": "",
+    "text": "# Data và aes() chỉ áp dụng cho layer geom_point()\nggplot() +\n    geom_point(data = midwest, aes(x = area, y = poptotal)) +\n    geom_smooth(method = \"lm\")\n\n\nlayer geom_smooth() chưa có data & aes()"
+  },
+  {
+    "objectID": "bài 12.html#thay-đổi-giới-hạn-trục-x-y",
+    "href": "bài 12.html#thay-đổi-giới-hạn-trục-x-y",
+    "title": "Bài 11",
+    "section": "3. Thay đổi giới hạn trục x, y",
+    "text": "3. Thay đổi giới hạn trục x, y\n\nCó 2 cách giới hạn trục x và y\nCách 1:\n\nGiới hạn trục x và y đồng thời loại bỏ các giá trị nằm ngoài khoảng giới hạn\nSử dụng câu lệnh xlim() & ylim()\n\nCách 2:\n\n“zoom in” vào khoảng giới hạn 🡺 không loại bỏ các giá trị nằm ngoài giới hạn\nSử dụng câu lệnh coord_cartesian()"
+  },
+  {
+    "objectID": "bài 12.html#section-9",
+    "href": "bài 12.html#section-9",
+    "title": "Bài 11",
+    "section": "",
+    "text": "p <- ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point() +\n    geom_smooth(method = \"lm\")\n\n\n\n\np1 <- p + \n    xlim(c(0, 0.1)) + \n    ylim(c(0, 1000000))\n\np1\n\n\n\n\n\np2 <- p + \n    coord_cartesian(xlim=\n    c(0,0.1), \n    ylim=c(0, 1000000))\np2\n\n\n\n\n\n\n\n\n\nThay đổi xu hướng do loại bỏ các giá trị ngoài phạm vi 0 - 1000000\n\n\nGiữ nguyên xu hướng do chỉ “zoom in” vào phạm vi 0 - 1000000"
+  },
+  {
+    "objectID": "bài 12.html#thay-đổi-title-và-axis-labels",
+    "href": "bài 12.html#thay-đổi-title-và-axis-labels",
+    "title": "Bài 11",
+    "section": "4. Thay đổi title và axis labels",
+    "text": "4. Thay đổi title và axis labels\n\nCó nhiều cách\nCách 1: dùng tất cả trong 1 câu lệnh\nlabs(title = ““, subtitle=”…“, y=”…“, x=”…“, caption=”…“)\nCách 2: từng thành phần riêng lẻ\nggtitle(“…”, subtitle= “…”) + xlab(“…”) + ylab(“…”)\nCách 3 : kết hợp một số “scale” (ít dùng hơn)"
+  },
+  {
+    "objectID": "bài 12.html#section-10",
+    "href": "bài 12.html#section-10",
+    "title": "Bài 11",
+    "section": "",
+    "text": "p2 + labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 12.html#full-syntax",
+    "href": "bài 12.html#full-syntax",
+    "title": "Bài 11",
+    "section": "full syntax",
+    "text": "full syntax\nSyntax cơ bản cho scatter plot\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point() +\n    geom_smooth(method = \"lm\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 12.html#tùy-chỉnh-color-shape-size-theme",
+    "href": "bài 12.html#tùy-chỉnh-color-shape-size-theme",
+    "title": "Bài 11",
+    "section": "Tùy chỉnh color, shape, size, theme",
+    "text": "Tùy chỉnh color, shape, size, theme"
+  },
+  {
+    "objectID": "bài 12.html#nội-dung",
+    "href": "bài 12.html#nội-dung",
+    "title": "Bài 11",
+    "section": "Nội dung",
+    "text": "Nội dung\n\nTùy chỉnh color, shape, size\nTheme"
+  },
+  {
+    "objectID": "bài 12.html#color",
+    "href": "bài 12.html#color",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(col = \"orange\") +    #Chỉ áp dụng cho layer này, \n                                    #tất cả các point thành màu “orange”\n    geom_smooth(method = \"lm\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 12.html#color-1",
+    "href": "bài 12.html#color-1",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color"
+  },
+  {
+    "objectID": "bài 12.html#color-2",
+    "href": "bài 12.html#color-2",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nCó thể gọi tên trực tiếp: “red”, “blue”… www.stat.columbia.edu/~tzheng/files/Rcolor.pdf\nHệ thống màu Hexadecimal code (search từ khóa “hex color” bằng google)\nHệ thống RGB\n\nCÒN HÌNH Ở SLIDE 31"
+  },
+  {
+    "objectID": "bài 12.html#color-3",
+    "href": "bài 12.html#color-3",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nMột số package cung cấp phổ màu riêng\n“viridis” cung cấp 4 phổ màu liên tục\n“RColorBrewer” cung cấp các phổ màu liên tục và rời rạc"
+  },
+  {
+    "objectID": "bài 12.html#color-4",
+    "href": "bài 12.html#color-4",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\nhttp://colorbrewer2.org/#type=sequential&scheme=RdPu&n=9\nCÒN HÌNH SLIDE 33"
+  },
+  {
+    "objectID": "bài 12.html#package-viridis",
+    "href": "bài 12.html#package-viridis",
+    "title": "Bài 11",
+    "section": "Package viridis",
+    "text": "Package viridis\nCÒN HÌNH Ở SLIDE 34"
+  },
+  {
+    "objectID": "bài 12.html#package-rcolorbrewer",
+    "href": "bài 12.html#package-rcolorbrewer",
+    "title": "Bài 11",
+    "section": "Package RColorBrewer",
+    "text": "Package RColorBrewer\nCÒN HÌNH Ở SLIDE 35"
+  },
+  {
+    "objectID": "bài 12.html#color-5",
+    "href": "bài 12.html#color-5",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state)) +     # Màu khác nhau cho từng “state”\n    geom_smooth(method = \"lm\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 12.html#color-6",
+    "href": "bài 12.html#color-6",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color"
+  },
+  {
+    "objectID": "bài 12.html#color-7",
+    "href": "bài 12.html#color-7",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state)) +\n    geom_smooth(method = \"lm\",      # Thêm màu cho đường smooth\n                color = \"red\", \n                fill = \"orange\") + \n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\")"
+  },
+  {
+    "objectID": "bài 12.html#color-8",
+    "href": "bài 12.html#color-8",
+    "title": "Bài 11",
+    "section": "Color",
+    "text": "Color"
+  },
+  {
+    "objectID": "bài 12.html#section-11",
+    "href": "bài 12.html#section-11",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state)) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n     scale_colour_brewer(palette = \"Set1\")"
+  },
+  {
+    "objectID": "bài 12.html#size-shape",
+    "href": "bài 12.html#size-shape",
+    "title": "Bài 11",
+    "section": "Size & shape",
+    "text": "Size & shape\nHÌNH SLIDE 39"
+  },
+  {
+    "objectID": "bài 12.html#section-13",
+    "href": "bài 12.html#section-13",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n     scale_colour_brewer(palette = \"Set1\")\n\n\nshape = 21"
+  },
+  {
+    "objectID": "bài 12.html#section-14",
+    "href": "bài 12.html#section-14",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state, fill = state), size = 3, shape = 23, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n     scale_colour_brewer(palette = \"Set1\")\n\n\nshape = 23"
+  },
+  {
+    "objectID": "bài 12.html#section-15",
+    "href": "bài 12.html#section-15",
+    "title": "Bài 11",
+    "section": "",
+    "text": "hinh ở slide 43"
+  },
+  {
+    "objectID": "bài 12.html#section-16",
+    "href": "bài 12.html#section-16",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    theme_bw(15)\n\n\nTheme_bw()"
+  },
+  {
+    "objectID": "bài 12.html#section-17",
+    "href": "bài 12.html#section-17",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state, fill = state), size = 3, shape = 21, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    theme_linedraw(15)\n\n\ntheme_linedraw()"
+  },
+  {
+    "objectID": "bài 12.html#section-18",
+    "href": "bài 12.html#section-18",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state, fill = state), shape = 21, alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    theme_bw(15)"
+  },
+  {
+    "objectID": "bài 12.html#section-19",
+    "href": "bài 12.html#section-19",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal, size = popdensity, col = state, fill = state)) + \n    geom_point(shape = 21, alpha = 0.4) +\n    scale_size(range = c(1,30))+ \n    geom_smooth(aes(group = 1), se = F, color = \"red\", fill = \"orange\") +\n    guides(size = F) +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    theme_bw(15)"
+  },
+  {
+    "objectID": "bài 12.html#legend-text-labels-annotation",
+    "href": "bài 12.html#legend-text-labels-annotation",
+    "title": "Bài 11",
+    "section": "Legend, text, labels & Annotation",
+    "text": "Legend, text, labels & Annotation"
+  },
+  {
+    "objectID": "bài 12.html#section-22",
+    "href": "bài 12.html#section-22",
+    "title": "Bài 11",
+    "section": "",
+    "text": "chụp màn hình slide 51"
+  },
+  {
+    "objectID": "bài 12.html#thay-đổi-legend",
+    "href": "bài 12.html#thay-đổi-legend",
+    "title": "Bài 11",
+    "section": "Thay đổi Legend",
+    "text": "Thay đổi Legend\n\nThay đổi title cho legend\nThay đổi labels & color cho legend ứng với categories\nRemove hay thay đổi legend positions"
+  },
+  {
+    "objectID": "bài 12.html#thay-đổi-title-cho-legend",
+    "href": "bài 12.html#thay-đổi-title-cho-legend",
+    "title": "Bài 11",
+    "section": "Thay đổi title cho legend",
+    "text": "Thay đổi title cho legend\n\nCÓ 3 cách\nSử dụng labs()\n\nlabs(color =\"State\", fill =\"State\", size = \"Density\")\n\nSử dụng guides()\n\nguides(color = guide_legend(\"State\"), fill = guide_legend(\"State\"), size = guide_legend(\"Density\"))"
+  },
+  {
+    "objectID": "bài 12.html#thay-đổi-title-cho-legend-1",
+    "href": "bài 12.html#thay-đổi-title-cho-legend-1",
+    "title": "Bài 11",
+    "section": "Thay đổi title cho legend",
+    "text": "Thay đổi title cho legend\n\nCÓ 3 cách\nSử dụng scale_[…]\n\nTùy vào việc sử dụng loại “scale_”, cho phép thay đổi legend cho màu “scale” tương ứng (ví dụ trong trường hợp này)\nscale_color_discrete(name=\"State\") + \nscale_fill_discrete(name=\"State\") + \nscale_size_continuous(name = \"Density\", guide = FALSE)"
+  },
+  {
+    "objectID": "bài 12.html#thay-đổi-labels-color-cho-legend",
+    "href": "bài 12.html#thay-đổi-labels-color-cho-legend",
+    "title": "Bài 11",
+    "section": "Thay đổi labels & color cho legend",
+    "text": "Thay đổi labels & color cho legend\n\nCó thể sử dụng chức năng scale_[color/fill]_manual()\n\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_color_manual(name = \"State\", \n                       labels = c(\"Illinois\", \n                                  \"Indiana\", \n                                  \"Michigan\", \n                                  \"Ohio\", \n                                  \"Wisconsin\"), \n                       values = c(\"IL\"=\"blue\", \n                                  \"IN\"=\"red\", \n                                  \"MI\"=\"green\", \n                                  \"OH\"=\"purple\", \n                                  \"WI\"=\"orange\")) +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15)"
+  },
+  {
+    "objectID": "bài 12.html#remove-hay-thay-đổi-legend-positions",
+    "href": "bài 12.html#remove-hay-thay-đổi-legend-positions",
+    "title": "Bài 11",
+    "section": "Remove hay thay đổi legend positions",
+    "text": "Remove hay thay đổi legend positions\n\nSử dụng theme(legend.position = “…”)\n“left”, “right”, “top”, “bottom”\n\ntheme(legend.position = \"top\")\ntheme(legend.position = c(0.85,0.5))"
+  },
+  {
+    "objectID": "bài 12.html#section-25",
+    "href": "bài 12.html#section-25",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_color_manual(name = \"State\", \n                       labels = c(\"Illinois\", \n                                  \"Indiana\", \n                                  \"Michigan\", \n                                  \"Ohio\", \n                                  \"Wisconsin\"), \n                       values = c(\"IL\"=\"blue\", \n                                  \"IN\"=\"red\", \n                                  \"MI\"=\"green\", \n                                  \"OH\"=\"purple\", \n                                  \"WI\"=\"orange\")) +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) +\n    theme(legend.position = c(0.85, 0.6))+\n    theme_bw(15)"
+  },
+  {
+    "objectID": "bài 12.html#text-labels",
+    "href": "bài 12.html#text-labels",
+    "title": "Bài 11",
+    "section": "Text & labels",
+    "text": "Text & labels\n\nMục tiêu: hiện tên “country” của các nước có dân số >500,000\n\nB1: Lọc những nước có poptotal > 500,000 (đặt tên là large_country)\n\nlarge_country <- midwest %>% filter(poptotal > 500000)\n\nB2: sử dụng geom_text()"
+  },
+  {
+    "objectID": "bài 12.html#section-27",
+    "href": "bài 12.html#section-27",
+    "title": "Bài 11",
+    "section": "",
+    "text": "large_country <- midwest %>% filter(poptotal > 500000)\n\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n         subtitle=\"From midwest dataset\", \n         y=\"Population\", x=\"Area\", \n         caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15)+\n    geom_text(data = large_country, aes(label = county), size = 2)"
+  },
+  {
+    "objectID": "bài 12.html#section-28",
+    "href": "bài 12.html#section-28",
+    "title": "Bài 11",
+    "section": "",
+    "text": "Text trùng với point => chỉnh vị trí text bằng package “ggrepel” => thay geom_text() = geom_text_repel()"
+  },
+  {
+    "objectID": "bài 12.html#section-29",
+    "href": "bài 12.html#section-29",
+    "title": "Bài 11",
+    "section": "",
+    "text": "large_country <- midwest %>% filter(poptotal > 500000)\nlibrary(ggrepel)\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n         subtitle=\"From midwest dataset\", \n         y=\"Population\", x=\"Area\", \n         caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15)+\n    geom_text_repel(data = large_country, aes(label = county), size = 2)"
+  },
+  {
+    "objectID": "bài 12.html#section-31",
+    "href": "bài 12.html#section-31",
+    "title": "Bài 11",
+    "section": "",
+    "text": "large_country <- midwest %>% filter(poptotal > 500000)\nlibrary(ggrepel)\n\np <- ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_color_manual(name = \"State\", \n                       labels = c(\"Illinois\", \n                                  \"Indiana\", \n                                  \"Michigan\", \n                                  \"Ohio\", \n                                  \"Wisconsin\"), \n                       values = c(\"IL\"=\"blue\", \n                                  \"IN\"=\"red\", \n                                  \"MI\"=\"green\", \n                                  \"OH\"=\"purple\", \n                                  \"WI\"=\"orange\")) +\n    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) + \n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15) + \n    geom_text_repel(data = large_country, aes(label = county), size = 2) \np"
+  },
+  {
+    "objectID": "bài 12.html#advanced-theme-font",
+    "href": "bài 12.html#advanced-theme-font",
+    "title": "Bài 11",
+    "section": "Advanced theme & font",
+    "text": "Advanced theme & font"
+  },
+  {
+    "objectID": "bài 12.html#section-33",
+    "href": "bài 12.html#section-33",
+    "title": "Bài 11",
+    "section": "",
+    "text": "?theme()\nelement_blank(): draws nothing, and assigns no space.\nelement_rect(): borders and backgrounds.\nelement_line(): lines.\nelement_text(): text.\nCài đặt thêm font\n\ninstall.packages(\"extrafont\")\nlibrary(extrafont)\nfont_import()\nloadfonts(device = \"win\")"
+  },
+  {
+    "objectID": "bài 12.html#section-34",
+    "href": "bài 12.html#section-34",
+    "title": "Bài 11",
+    "section": "",
+    "text": "p <- p + theme(\n        # Chọn font chữ \n        text = element_text(family = \"Georgia\"),\n        # Tùy chỉnh text cho title (cỡ chũ 18, bold)\n        plot.title = element_text(size = 18,color = \"grey10\",  face = \"bold\"),\n        # Tùy chỉnh cho subtitle\n        plot.subtitle = element_text(color = \"gray40\", size = 12),\n        # Tùy chỉnh cation\n        plot.caption = element_text(face = \"italic\", size = 12, color = \"red\"),\n        # Tùy chỉnh title cho trục x\n        axis.title.x = element_text(face = \"bold\", size = 11, color = \"grey20\"),\n        # Tùy chinh title cho trục y\n        axis.title.y = element_text(face = \"bold\", size = 11, color = \"grey20\"),\n        # Tùy chỉnh background, grid\n        panel.grid.major = element_line(color = \"#4d5566\"),\n        panel.grid.minor.y = element_blank(),\n        panel.grid.minor.x = element_blank(),\n        panel.background = element_rect(fill = \"#444B5A\"),\n        # Tùy chỉnh hiện thị đơn vị trục x, y\n        axis.text.x = element_text(size = 13, color = \"grey10\"),\n        axis.text.y = element_text(size = 13, color = \"grey10\"),\n        # Tùy chỉnh tick cho 2 trục\n        axis.ticks = element_line(size = 13)\n    ) \np"
+  },
+  {
+    "objectID": "bài 12.html#facet",
+    "href": "bài 12.html#facet",
+    "title": "Bài 11",
+    "section": "Facet",
+    "text": "Facet"
+  },
+  {
+    "objectID": "bài 12.html#facet-1",
+    "href": "bài 12.html#facet-1",
+    "title": "Bài 11",
+    "section": "Facet",
+    "text": "Facet\n\nPhân chia theo 2 nhóm khu vực “inmetro”: Yes/No\n\np + facet_wrap(~inmetro, ncol = 2)"
+  },
+  {
+    "objectID": "bài 12.html#section-36",
+    "href": "bài 12.html#section-36",
+    "title": "Bài 11",
+    "section": "",
+    "text": "HÌnh slide 74"
+  },
+  {
+    "objectID": "bài 12.html#tìm-hiểu-thêm",
+    "href": "bài 12.html#tìm-hiểu-thêm",
+    "title": "Bài 11",
+    "section": "Tìm hiểu thêm",
+    "text": "Tìm hiểu thêm\n\ncoordinate\nGhép các ảnh riêng lẻ vào 1 qua package “gridExtra”"
+  },
+  {
+    "objectID": "bài 12.html#thực-hành",
+    "href": "bài 12.html#thực-hành",
+    "title": "Bài 11",
+    "section": "Thực hành",
+    "text": "Thực hành"
+  },
+  {
+    "objectID": "bài 12.html#hình-slide-77",
+    "href": "bài 12.html#hình-slide-77",
+    "title": "Bài 11",
+    "section": "Hình slide 77",
+    "text": "Hình slide 77"
+  },
+  {
+    "objectID": "bài 12.html#hình-slide-78",
+    "href": "bài 12.html#hình-slide-78",
+    "title": "Bài 11",
+    "section": "Hình slide 78—",
+    "text": "Hình slide 78—\ntitle: “bài 12” format: revealjs"
+  },
+  {
+    "objectID": "bài 11.html#section-12",
+    "href": "bài 11.html#section-12",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(col = state)) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n     scale_colour_brewer(palette = \"Set1\")"
+  },
+  {
+    "objectID": "bài 11.html#section-23",
+    "href": "bài 11.html#section-23",
+    "title": "Bài 11",
+    "section": "",
+    "text": "chụp màn hình slide 51"
+  },
+  {
+    "objectID": "bài 11.html#section-26",
+    "href": "bài 11.html#section-26",
+    "title": "Bài 11",
+    "section": "",
+    "text": "ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_color_manual(name = \"State\", \n                       labels = c(\"Illinois\", \n                                  \"Indiana\", \n                                  \"Michigan\", \n                                  \"Ohio\", \n                                  \"Wisconsin\"), \n                       values = c(\"IL\"=\"blue\", \n                                  \"IN\"=\"red\", \n                                  \"MI\"=\"green\", \n                                  \"OH\"=\"purple\", \n                                  \"WI\"=\"orange\")) +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) +\n    theme(legend.position = c(0.85, 0.6))+\n    theme_bw(15)"
+  },
+  {
+    "objectID": "bài 11.html#section-30",
+    "href": "bài 11.html#section-30",
+    "title": "Bài 11",
+    "section": "",
+    "text": "large_country <- midwest %>% filter(poptotal > 500000)\nlibrary(ggrepel)\nggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n         subtitle=\"From midwest dataset\", \n         y=\"Population\", x=\"Area\", \n         caption=\"Midwest Demographics\") +\n    scale_colour_brewer(palette = \"Set1\") +\n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15)+\n    geom_text_repel(data = large_country, aes(label = county), size = 2)"
+  },
+  {
+    "objectID": "bài 11.html#section-32",
+    "href": "bài 11.html#section-32",
+    "title": "Bài 11",
+    "section": "",
+    "text": "large_country <- midwest %>% filter(poptotal > 500000)\nlibrary(ggrepel)\n\np <- ggplot(data = midwest, aes(x = area, y = poptotal)) + \n    geom_point(aes(size = popdensity, col = state), alpha = 0.5) +\n    geom_smooth(method = \"lm\", color = \"red\", fill = \"orange\") +\n    coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) + \n    labs(title=\"Area Vs Population\", \n          subtitle=\"From midwest dataset\", \n          y=\"Population\", x=\"Area\", \n          caption=\"Midwest Demographics\") +\n    scale_color_manual(name = \"State\", \n                       labels = c(\"Illinois\", \n                                  \"Indiana\", \n                                  \"Michigan\", \n                                  \"Ohio\", \n                                  \"Wisconsin\"), \n                       values = c(\"IL\"=\"blue\", \n                                  \"IN\"=\"red\", \n                                  \"MI\"=\"green\", \n                                  \"OH\"=\"purple\", \n                                  \"WI\"=\"orange\")) +\n    guides(color = guide_legend(override.aes = list(size=2, stroke = 2))) + \n    scale_size_continuous(name = \"Density\", guide = F)+\n    theme_bw(15) + \n    geom_text_repel(data = large_country, aes(label = county), size = 2) \np"
+  },
+  {
+    "objectID": "bài 11.html#section-35",
+    "href": "bài 11.html#section-35",
+    "title": "Bài 11",
+    "section": "",
+    "text": "p <- p + theme(\n        # Chọn font chữ \n        text = element_text(family = \"Georgia\"),\n        # Tùy chỉnh text cho title (cỡ chũ 18, bold)\n        plot.title = element_text(size = 18,color = \"grey10\",  face = \"bold\"),\n        # Tùy chỉnh cho subtitle\n        plot.subtitle = element_text(color = \"gray40\", size = 12),\n        # Tùy chỉnh cation\n        plot.caption = element_text(face = \"italic\", size = 12, color = \"red\"),\n        # Tùy chỉnh title cho trục x\n        axis.title.x = element_text(face = \"bold\", size = 11, color = \"grey20\"),\n        # Tùy chinh title cho trục y\n        axis.title.y = element_text(face = \"bold\", size = 11, color = \"grey20\"),\n        # Tùy chỉnh background, grid\n        panel.grid.major = element_line(color = \"#4d5566\"),\n        panel.grid.minor.y = element_blank(),\n        panel.grid.minor.x = element_blank(),\n        panel.background = element_rect(fill = \"#444B5A\"),\n        # Tùy chỉnh hiện thị đơn vị trục x, y\n        axis.text.x = element_text(size = 13, color = \"grey10\"),\n        axis.text.y = element_text(size = 13, color = \"grey10\"),\n        # Tùy chỉnh tick cho 2 trục\n        axis.ticks = element_line(size = 13)\n    ) \np"
+  },
+  {
+    "objectID": "bài 11.html#section-37",
+    "href": "bài 11.html#section-37",
+    "title": "Bài 11",
+    "section": "",
+    "text": "p + facet_wrap(~inmetro, ncol = 2)"
   }
 ]

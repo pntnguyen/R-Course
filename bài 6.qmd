@@ -1,0 +1,227 @@
+---
+title: "Bài 6"
+subtitle: "Function"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+echo: true 
+---
+
+## Functions
+
+-   Công dụng: rút ngắn các tác vụ thường sử dụng thành 1 câu lệnh duy nhất
+-   Function trong R có dạng:
+
+```         
+function(các tùy chọn) {
+...
+return(kết quả)
+}
+```
+
+-   Có thể không viết return(), R sẽ lấy hàng cuối cùng trong phần code để trả kết quả
+
+## ví dụ
+
+-   Viết 1 function không nhận vào gì cả, gọi function này thì nó hiện ra chữ "This is a function"
+
+```{r}
+f <- function(){
+  return("This is a function")
+}
+
+f() 
+```
+
+## Ví dụ
+
+-   Viết 1 function để tính giá trị trung bình giống như mean() trong R
+-   Cách 1: Viết dựa trên function sum() có sẵn
+
+```{r}
+mean_new <- function(x){
+  m <- sum(x)/length(x)
+  return(m)
+}
+a <- c(1,2,3)
+mean_new(a)
+```
+
+## Ví dụ
+
+-   Viết 1 function để tính giá trị trung bình giống như mean() trong R
+-   Cách 2: Viết "thủ công" hơn 1 chút
+
+```{r}
+mean_moreManual <- function(x){
+  s <-0
+  for(i in 1:length(x)){
+    s <- s + x[i]
+  }
+  m <-s/length(x)
+  return(m)
+}
+a <- c(1,2,9)
+mean_moreManual(a)
+```
+
+## Functions
+
+![](images3/image1.gif){width="1400" height="500"}
+
+## Functions
+
+-   Tận dụng các functions người khác đã viết
+
+```{r}
+library(tidyverse)
+```
+
+```         
+── Attaching core tidyverse packages ──────────────────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     ── Conflicts ────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package to force all conflicts to become errors
+```
+
+-   Tối ưu để phục vụ nhu cầu của mình
+
+## Các bước để viết 1 function
+
+-   B1: Thử với 1 ví dụ nhỏ
+-   B2: Tổng quát hóa các giá trị đầu vào
+-   B3: Đưa vào function(x){} và sử dụng thử
+-   B4: Tối ưu hóa
+
+## Ví dụ
+
+-   Viết 1 function để ghép tần số với tỉ lệ % thành dạng tần số (tỉ lệ %), với tỉ lệ % định dạng 1 chữ số thập phân
+-   B1: Thử với 1 ví dụ
+
+```{r}
+#| echo: false
+library(readr)
+tnt <- read_csv("tnt.csv")
+df <- tnt
+df$age40 <- ifelse( 2023 - df$year <40,"<40",">=40")
+```
+
+```{r}
+f <- table(df$age40)
+f
+```
+
+```{r}
+f <- data.frame(f)
+f
+```
+
+## Ví dụ
+
+```{r}
+#| echo: false
+library(readr)
+tnt <- read_csv("tnt.csv")
+df <- tnt
+df$age40 <- ifelse( 2023 - df$year <40,"<40",">=40")
+```
+
+```{r}
+f$Pct <- 100*f$Freq/sum(f$Freq)
+f
+f$Output <- paste0(f$Freq, "(", sprintf("%.1f",f$Pct),")")
+f
+fp <- data.frame(f[,c(1, 4)])
+fp
+```
+
+## Ví dụ
+
+-   B2: Tổng quát hóa giá trị đầu vào bằng cách thay 1 biến (ví dụ x) vào các lệnh trên
+
+```{r}
+x<- df$age40
+f <- table(x)
+f <- data.frame(f)
+f$Pct <- 100*f$Freq/sum(f$Freq)
+f$Output <- paste0(f$Freq, "(", sprintf("%.1f",f$Pct),")")
+fp <- data.frame(f[,c(1, 4)])
+fp
+```
+
+## Ví dụ
+
+-   B3: Đưa vào function(x){}
+
+```{r}
+freq_pct <- function(x){
+  f <- table(x)
+  f <- data.frame(f)
+  f$Pct <- 100*f$Freq/sum(f$Freq)
+  f$Output <- paste0(f$Freq, "(", sprintf("%.1f",f$Pct),")")
+  fp <- data.frame(f[,c(1, 4)])
+  fp
+}
+freq_pct(df$age40)
+```
+
+## Ví dụ
+
+-   B4: Tối ưu hóa, ví dụ thêm tùy chọn định dạng số thập phân, có thể chọn 2 số, 3 số...
+
+```{r}
+freq_pct <- function(x, dec = 1 ){
+ f <- table(x)
+ f <- data.frame(f)
+ f$Pct <- 100*f$Freq/sum(f$Freq)
+ f$Output <- paste0(f$Freq, "(", sprintf(paste0("%.", dec,"f"),f$Pct),")")
+ fp <- data.frame(f[,c(1, 4)])
+ fp
+}
+```
+
+## Ví dụ
+
+-   B4: Tối ưu hóa, ví dụ thêm tùy chọn định dạng số thập phân, có thể chọn 2 số, 3 số...
+
+```{r}
+freq_pct(df$age40)
+freq_pct(df$age40, dec = 2)
+freq_pct(df$age40, dec = 3)
+
+```
+
+## Bài tập
+
+-   Function để tính min, tính max
+-   Nhập đường huyết vô là xuất ra 1 câu "bình thường, rlđh đói, đtđ"...
+
+## Bài tập
+
+Để ước lượng cỡ mẫu, công thức ước lượng 1 tỉ lệ là:
+
+$$
+n = \dfrac{Z^2_{(1-\dfrac{\alpha}{2})}P(1-P)}{d^2}
+$$
+
+-   Trong đó:
+    -   n là cỡ mẫu tối thiểu
+    -   Z là giá trị từ phân bố chuẩn được tính dựa trên mức ý nghĩa thống kê (Z= 1.96 nếu mức y nghĩa thống kê = 5%)
+
+## Bài tập
+
+Để ước lượng cỡ mẫu, công thức ước lượng 1 tỉ lệ là:
+
+$$
+n = \dfrac{Z^2_{(1-\dfrac{\alpha}{2})}P(1-P)}{d^2}
+$$
+
+-   Trong đó:
+    -   P là tỷ lệ ước đoán (Lấy từ nghiên cứu trước đây hoặc nghiên cứu thử )
+    -   d là mức sai số tuyệt đối chấp nhận
+
+**Viết function để khi nhập vào các thông số trên sẽ thu được cỡ mẫu**

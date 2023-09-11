@@ -3,6 +3,7 @@ title: "Bài 5"
 subtitle: "Control structure"
 author: "Ong Phúc Thịnh, Khương Quỳnh Long"
 format: revealjs
+echo: true 
 ---
 
 ## if-else
@@ -33,17 +34,194 @@ if(điều kiện) {
 x <- 5
 x >= 7
 if(x >= 7){
-  print("x>=7")
+  print("x >= 7")
 } else {
-  print("x< 7")
+  print("x < 7")
 }
 ```
 
+- Vì kiểm tra x >= 7 cho kết quả là FALSE, if-else trả về hành động trong cụm else {} là in dòng “x < 7”
+
+
+## if-else
+```{r}
+#| echo: true
+#| eval: false
+x <- c(1:5)
+x >= 7
+if(x >= 7){
+  print("x >=7")
+} else {
+  print("x <7")
+}
+```
+```
+Error in `if (x >= 7) ...`:
+! the condition has length > 1
+```
+
+- Mặc định if-else chỉ chấp nhận kết quả của điều kiện nằm trong ngoặc () có length = 1 (TRUE hoặc FALSE), if-else sẽ không kiểm tra điều kiện lần lượt cho từng phần tử, nếu muốn làm vậy thì cần kết hợp với vòng lặp for
+
+- Có thể kết hợp so sánh nhiều điều kiện bằng dấu & (và) hay | (hoặc)
+
 ## if-else
 
+```{r}
+#| echo: true
+x <- c(5,10)
+if(x[1] >=7 & x[2] >=7) {
+  print("both items are >=7")
+} else if(x[1] <7 & x[2] <7){
+  print("both items are <7")
+} else {
+  print("one is <7 and one is >=7")
+}
+```
+- Ví dụ so sánh bằng điều kiện “và”
+- Lưu ý: kết quả của điều kiện nằm trong ngoặc () là 1 giá trị TRUE/FALSE, chứ không phải x chỉ kiểm tra được 1 giá trị, ví dụ này cho thấy x có thể kiểm tra nhiều giá trị nhưng cần kết hợp lại với nhau để kết quả của điều kiện sau khi kiểm tra là TRUE/FALSE
 
 
+## if-else
+- Viết lại ví dụ trên hiệu quả hơn với any() và all()
+  - all() = TRUE khi tất cả các phần tử nằm trong () đều là TRUE
+  - any() = TRUE khi có ít nhất một phần tử trong dấu () là TRUE
+```{r}
+#| echo: true
+x <- c(5,10)
+x >=7
+all(x>=7)
+any(x >=7)
+```
 
+## if-else
+```{r}
+#| echo: true
+if(all(x >=7)) {
+  print("both items are >=7")
+} else if(all(x<7)){
+  print("both items are <7")
+} else {
+  print("one is <7 and one is >=7")
+}
+```
+
+## for-loop
+- Vòng lặp quan trọng nhất trong R, hầu như tất cả các trường hợp cần dùng vòng lặp đều có thể dùng vòng lặp for
+
+````
+for(item in vector) {
+ <hành động>
+}
+````
+
+- Có thể đặt tên item là gì cũng được, thường đặt là i
+- for loop sẽ lấy lần lượt từng phần tử nằm trong vector ra và thực hiện hành động mình mong muốn lên phần tử đó
+
+## for-loop
+
+```{r}
+for(i in 1:1000) {
+  print(i)
+}
+```
+
+## for-loop
+```{r}
+#| echo: false
+library(readr)
+tnt <- read_csv("tnt.csv")
+df <- data.frame(tnt) 
+```
+
+```{r}
+head(df)
+```
+
+## for-loop
+
+```{r}
+cols <- c("MCV","MCH","MCHC")
+for( i in 1:length(cols)){
+  a <- cols[i]
+  t <- t.test(df[,a] ~ df$sex)
+  print(a)
+  print(t)
+}
+```
+
+## for-loop lồng vào nhau
+
+```{r}
+#| echo: false
+x <- matrix(1:6, nrow = 2, ncol = 3)
+```
+
+```{r}
+x
+for(i in 1:nrow(x)){
+  for(j in 1:ncol(x)){
+    print(paste0("i = ", i,", j= ",j))
+    print(x[i, j])
+  }
+}
+
+```
+
+## for-loop lồng vào nhau
+
+- Trong ví dụ này:
+   - i có các giá trị là 1, 2
+   - j có giá trị là 1, 2, 3
+   - Khi i = 1, R lần lượt đi qua các giá trị j = 1, j = 2 và j = 3
+   - Sau khi đi hết các giá trị của j, R đi tiếp với i = 2, và lại lần lượt đi qua các giá trị j = 1, j = 2 và j = 3
+
+## next
+- next dùng để bỏ qua 1 vòng của for loop
+- Thường dùng khi kết hợp for loop với if-else
+- Xem ví dụ: khi i == 4 thì bỏ qua, tiếp tục đi đến i == 5 và tiếp theo
+
+```{r}
+for(i in 1:17){
+  if(i <=3) {
+    print(i)
+  } else if(i==4) {
+    next
+  } else {
+    print(i)
+  }
+}
+```
+
+## break
+- Khi thấy break, for loop sẽ tự dừng hẳn, không cần biết tiếp theo có chuyện gì
+```{r}
+for(i in 1:17){
+  if(i <=3) {
+    print(i)
+  } else if(i==4) {
+    break
+  } else {
+    print(i)
+  }
+}
+```
+
+## Bài tập
+
+- If-else:
+  - Bài tập kéo búa bao
+  - Chia đường huyết, huyết áp
+- For-loop:
+  - In một dãy số từ 1 đến 100
+     - In từ 1 đến 100 trừ số 22
+
+## Bài tập
+
+  - Fizz buzz:
+     - In một dãy số từ 1 đến 100
+     - Nếu số chia hết cho 3 thì in “Fizz”, 
+     - nếu số chia hết cho 5 thì in “Buzz”, 
+     - nếu số chia hết cho cả 3 và 5 thì in “FizzBuzz”
 
 
 

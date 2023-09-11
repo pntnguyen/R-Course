@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Ong Phúc Thịnh, Khương Quỳnh Long">
-  <title>R programming - Bài 3</title>
+  <title>R Course - Bài 3</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -365,7 +365,7 @@ Ong Phúc Thịnh, Khương Quỳnh Long
 <li>read.table(file, header = FALSE, sep = ““, na.strings =”NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)
 <ul>
 <li>header = TRUE: lấy hàng đầu tiên làm tên cột, nếu chọn header = FALSE thì tên cột sẽ tự động tạo dạng V1, V2, V3…</li>
-<li>sep: giữa các cột ngăn cách nhau bằng gì, có thể là sep = “,“ (dấu , của dạng .csv), sep = “ (phím tab của dạng tsv)…</li>
+<li>sep: giữa các cột ngăn cách nhau bằng gì, có thể là sep = “,” (dấu , của dạng .csv), sep = “ (phím tab của dạng tsv)…</li>
 </ul></li>
 </ul>
 </section>
@@ -394,7 +394,9 @@ Ong Phúc Thịnh, Khương Quỳnh Long
 </section>
 <section id="lưu-ý-khi-đọc-dữ-liệu" class="slide level2">
 <h2>Lưu ý khi đọc dữ liệu</h2>
-<p>Ví dụ có file sau đây <img data-src="images3/1.png" data-left="200" width="1500" height="50"> Đọc thử vào R, dùng lệnh object_size() trong package pryr để xem object chiếm dung lượng bao nhiêu và so sánh với công thức ước lượng</p>
+<p>Ví dụ có file sau đây</p>
+
+<img data-src="images3/1.png" class="r-stretch quarto-figure-center"><p>Đọc thử vào R, dùng lệnh object_size() trong package pryr để xem object chiếm dung lượng bao nhiêu và so sánh với công thức ước lượng</p>
 <div class="cell">
 
 </div>
@@ -417,7 +419,7 @@ Ong Phúc Thịnh, Khương Quỳnh Long
 <h2>read.csv()</h2>
 <ul>
 <li>read.csv(file, header = TRUE, sep = “,”, na.strings = “NA”, colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)</li>
-<li>Tương tự như read.table(), trong đó header = TRUE và sep = “,“ đã được quy định làm default cho nhanh gọn, do đó thường chỉ cần gõ read.csv(file)</li>
+<li>Tương tự như read.table(), trong đó header = TRUE và sep = “,” đã được quy định làm default cho nhanh gọn, do đó thường chỉ cần gõ read.csv(file)</li>
 </ul>
 </section>
 <section id="fread" class="slide level2">

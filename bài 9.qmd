@@ -1,0 +1,101 @@
+---
+title: "Bài 9"
+subtitle: "Pipe"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+echo: true 
+---
+
+![](images3/image1a.jpg){fig-align="center"}
+
+## Package "magrittr"
+
+-   Các "pipe" trong package "magrittr" làm thay đổi cấu trúc lệnh R, giúp việc viết câu lệnh trở nên hiệu quả và mạch lạc hơn.
+-   Gồm 4 loại
+    -   **%\>%** (được tích hợp trong hệ tidyverse)
+    -   %T%
+    -   %\$%
+    -   **%\<\>%**
+
+## Forward pipe %\>%
+
+-   Đây là dạng pipe thông dụng nhất. Công dụng của nó là chuyển toàn bộ kết quả của hàm đi trước thành đầu vào cho hàm đi sau
+-   Có thể kết hợp nhiều %\>% để thành một "dòng chảy" dữ liệu, cứ dữ liệu phía trước dấu %\>% sẽ là đầu vào cho phía sau, kết quả xuất ra cuối cùng sẽ là hàm cuối cùng phía sau %\>% cuối cùng
+
+## Forward pipe %\>%
+
+```{r}
+# Ví dụ dữ liệu titanic
+library(magrittr) 
+# Xem 6 dòng đầu của dữ liệu
+# R base
+head(Titanic)
+```
+
+## Forward pipe %\>%
+
+```{r}
+# Forward Pipe
+Titanic %>% head()
+```
+
+## Ví dụ 1
+
+-   Trong trường hợp phức tạp hơn, ví dụ nếu muốn sắp xếp lại data titanic theo chiều từ nhỏ tới lớn theo biến Age, sau đó coi 6 dòng đầu
+
+    -   Cách 1: Viết theo chiều từ Phải --\> trái. Tức là cần nhiều () lồng vào nhau head(arrange(titanic, Age))
+    -   Cách 2: qua mỗi bước, lưu lại một data trung gian, rồi lấy data trung gian đển làm tiếp bước sau 🡪 tạo ra nhiều object trung gian
+    -   Cách 3: dùng pipe titanic %\>% arrange(Age) %\>% head()
+
+## Ví dụ 1
+
+```{r}
+head(arrange(Titanic, Age)) ~ Titanic %>% arrange(Age) %>% head()
+
+```
+
+## Ví dụ 2
+
+-   Yêu cầu
+    -   Chuyển đổi biến Survived với 0 = "No", 1 = "Yes".
+    -   Chỉ chọn các biến Survived + Pclass + Sex + Age.
+    -   Sắp xếp số liệu theo tứ tự tăng dần của Age
+    -   Tạo biến Adult với 2 giá trị "Yes" nếu \>= 18 và "No" nếu \< 18.
+    -   Tóm tắt số lượng mẫu theo biến Survived + Pclass + Adult **Cách làm?**
+
+## Ví dụ 2
+
+-   Với pipe
+
+```{r}
+#| echo: false
+library(tidyverse)
+```
+
+```         
+Titanic                                                   %>% 
+  mutate(Survived = ifelse(Survived == 1, " Yes", "No"))  %>%
+  select(-c(PassengerId, Name))                           %>%
+  arrange(Age)                                            %>%
+  mutate(Adult = ifelse(Age >= 18, "Yes", "No"))          %>%
+  group_by(Survived, Pclass, Adult)                       %>%
+  summarise(Freq = n())
+```
+
+## Backward pipe %\<\>%
+
+-   Khác với forward pipe, backward pipe sau khi lấy dữ liệu bên trái làm đầu vào, dữ liệu sẽ được xử lý bằng hàm bên phải và trả về kết quả là hàm bên trái.
+-   Chú ý: kết quả trả về và thay thế đầu vào bên trái, do đó cần phải rất thận trọng khi sử dụng backward pipe
+
+## Ví dụ 1
+
+-   Muốn loại bỏ biến PassengerId ra khỏi data set và lưu lại kết quả này
+-   Cách 1: Dùng forward pipe
+
+titanic \<- titanic %\>% select(-PassengerId)
+
+-   Cách 2: Dùng backward pipe
+
+titanic %\<\>% select(-PassengerId)
+
+-   Tuy nhiên dữ liệu titanic gốc đã bị thay thế bằng dữ liệu mới (mất biến PassengerId), do đó thận trọng khi sử dụng

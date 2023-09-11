@@ -1,0 +1,82 @@
+---
+title: "Bài 8"
+subtitle: "Giả lập (simulation)"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+echo: true 
+---
+
+## Tạo dãy số ngẫu nhiên
+- R cho phép tạo ra 1 dãy số (hay 1 số) ngẫu nhiên từ 1 phân phối quy định trước như phân phối chuẩn, Poisson hay binomial
+
+## Tạo dãy số ngẫu nhiên
+
+- Mỗi phân phối thống kê trong R base luôn có 4 functions với chức năng như sau:
+  - d (density): là hàm mật độ xác suất tại 1 điểm q của phân phối
+  - p (cumulative density): là tích phân từ -∞ đến q, hay diện tích dưới đường cong phân phối tính đến điểm q, ví dụ pnorm(q=1.96) là 0.975 
+  - q (quantile): là Z-score hay hàm nghịch đảo của p, ví dụ khi tính cỡ mẫu, ta lấy qnorm của 1-α/2 hoặc 1-β
+  - r (random number): hàm tạo ra 1 vector các số ngẫu nhiên từ phân phối này
+
+## set.seed
+
+- set.seed
+- Sử dụng cùng 1 seed để tái lập lại được dãy số ngẫu nhiên ở những lần tiếp theo
+
+```{r}
+set.seed(1)
+rnorm(5)
+rnorm(5)
+set.seed(1)
+rnorm(5)
+```
+
+## Giả lập mô hình hồi quy tuyến tính
+
+y = β0 + β1x + ε
+
+ε ~ N(0, 22), x ~ N(0, 12), β0 = 0.5 và β1 = 2
+
+```{r}
+set.seed(20)
+x <- rnorm(100)
+e <- rnorm(100, 0, 2)
+y <- 0.5 + 2 * x + e
+plot(x, y)
+
+```
+
+
+## Chọn mẫu ngẫu nhiên
+
+- Lệnh sample(vector mẫu, số mẫu muốn chọn)
+```{r}
+sample(1:10,4)
+```
+- **Lưu ý**: nhớ set.seed() nếu muốn tái lập lại kết quả
+
+## Chọn mẫu ngẫu nhiên
+- Chọn mẫu từ data frame bằng cách rút ngẫu nhiên 1 số hàng (cũng bằng lệnh sample())
+
+```{r}
+library(datasets)
+data(airquality)
+head(airquality)
+dim(airquality)
+```
+
+## Chọn mẫu ngẫu nhiên
+- Chọn mẫu từ data frame bằng cách rút ngẫu nhiên 1 số hàng (cũng bằng lệnh sample())
+
+```{r}
+idx <- 1:nrow(airquality)
+set.seed(20)
+samp <- sample(idx, 3)
+airquality[samp,]
+```
+
+
+
+
+
+
+

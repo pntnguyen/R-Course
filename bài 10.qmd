@@ -1,0 +1,308 @@
+---
+title: "Bài 10"
+subtitle: "Data manipulation với dplyr"
+author: "Ong Phúc Thịnh, Khương Quỳnh Long"
+format: revealjs
+echo: true 
+---
+
+## tidyverse
+
+![](images3/image12.png){fig-align="center" width="600" height="500"}
+
+## dplyr
+
+-   Package dplyr được nằm trong hệ tidyverse, do đó có thể sử dụng package "dplyr" hoặc package "tidyverse"
+
+```{r}
+library(tidyverse)
+```
+
+```         
+# library(dplyr)
+```
+
+## Nội dung
+
+-   Xem cấu trúc dữ liệu với [**glimpse()**]{style="color: red;"}
+-   Gán nhãn, chuyển biến factor với [**case_match()**]{style="color: red;"}
+-   Đổi tên biến bằng [**rename()**]{style="color: red;"}
+-   Sort bằng [**arrange()**]{style="color: red;"}
+-   Chọn biến số trong data frame bằng [**select()**]{style="color: red;"}
+-   Filter dữ liệu bằng [**filter()**]{style="color: red;"}
+-   Tạo biến với [**mutate()**]{style="color: red;"}
+-   Tóm tắt dữ liệu với [**group_by()**]{style="color: red;"} kết hợp với [**summarise()**]{style="color: red;"}
+-   Chuyển đổi dạng dữ liệu với [**pivot_longer()**]{style="color: red;"}
+
+## Lưu ý
+
+-   Trước khi thực hành viết R cho bài này, mình cần khai báo dữ liệu `titanic` bằng dòng lệnh sau:
+
+```{r}
+library(tidyverse)
+titanic <- as_tibble(Titanic)
+```
+
+## 1.Xem cấu trúc dữ liệu với [**glimpse()**]{style="color: red;"}
+
+-   Lệnh glimpse() có chức năng tương tự chức năng str() của base R
+
+```{r}
+#| echo: false
+library(tidyverse)
+```
+
+```{r}
+glimpse(titanic)
+```
+
+## 2.Gán nhãn, chuyển biến factor với [**case_match()**]{style="color: red;"}
+
+-   Gán nhãn cho:
+    -   Biến số "survived" với
+        -   "No" = 0
+        -   "Yes" = 1
+
+```{r}
+titanic$Survived <- case_match(titanic$Survived, "No" ~ 0, "Yes" ~ 1)
+```
+
+hoặc
+
+```         
+titanic$Survived %<>% case_match("No" ~ 0, "Yes" ~ 1 )
+```
+
+## 2.Gán nhãn, chuyển biến factor với [**case_match()**]{style="color: red;"}
+
+-   Biến số "Pclass" với
+    -   "1st" = 1
+    -   "2nd" = 2
+    -   "3rd" = 3
+
+```{r}
+titanic$Class <- case_match(titanic$Class, "1st" ~ 1, "2nd" ~ 2, "3rd" ~ 3, "Crew" ~ 4)
+```
+
+hoặc
+
+```         
+titanic$Pclass %<>% case_match(1 ~ "1st", 2 ~ "2nd", 3 ~ "3rd", "Crew" ~ "crew")
+```
+
+## 2.Gán nhãn, chuyển biến factor với [**case_match()**]{style="color: red;"}
+
+-   Biến số "Sex" đang có nhãn là "male" và "female" (chưa viết hoa) ==\> đổi nhãn sang viết hoa chữ đầu
+    -   "Female" = "female"
+    -   "Male" = "male
+
+```{r}
+titanic$Sex <- case_match(titanic$Sex, "Male" ~ "male", "Female" ~ "female") 
+```
+
+Hoặc
+
+```         
+titanic$Sex %<>% case_match("male" ~ "Male", "female" ~ "Female")`
+```
+
+## result
+
+```{r}
+head(as_tibble(Titanic))
+```
+
+```{r}
+head(titanic)
+```
+
+## 3. Đổi tên biến bằng [**rename()**]{style="color: red;"}
+
+-   Đổi tên biến Sex thành "gioitinh"
+
+```{r}
+titanic <- rename(titanic, gioitinh = Sex)
+```
+
+Hoặc
+
+```         
+titanic %<>% rename(gioitinh = Sex)
+```
+
+```{r}
+head(titanic)
+```
+
+## 4. Sort bằng [**arrange()**]{style="color: red;"}
+
+-   Sắp xếp lại dữ liệu từ **nhỏ** tới **lớn** theo biến **Age**
+
+```{r}
+titanic <- arrange(titanic, Age)
+head(titanic)
+```
+
+Hoặc
+
+```         
+titanic %<>% arrange(Age)
+```
+
+## 4. Sort bằng [**arrange()**]{style="color: red;"}
+
+-   Sắp xếp lại dữ liệu từ **lớn** tới **nhỏ** theo biến **Age**
+
+```{r}
+titanic <- arrange(titanic, desc(Age))
+head(titanic)
+```
+
+Hoặc
+
+```         
+titanic %<>% arrange(desc(Age))
+```
+
+## 5. Chọn biến số trong data frame bằng [**select()**]{style="color: red;"}
+
+-   Chọn 3 biến là Class, gioitinh và Age trong bộ dữ liệu
+
+```{r}
+titanic2 <- select(titanic, Class, gioitinh, Age)
+head(titanic2)
+```
+
+Hoặc
+
+```         
+titanic2 <- select(titanic, Name:Age)
+```
+
+## 5. Chọn biến số trong data frame bằng [**select()**]{style="color: red;"}
+
+-   Giả sử muốn chọn toàn bộ biến trong data trừ biến gioitinh
+
+```{r}
+titanic2 <- select(titanic, -gioitinh)
+head(titanic2)
+```
+
+## 6. Filter dữ liệu bằng [**filter()**]{style="color: red;"}
+
+-   Lọc ra dữ liệu những người có cột n \>16 và \<80
+
+```{r}
+filter(titanic, n >16 & n < 80)
+```
+
+Hoặc
+
+```         
+filter(titanic, n >16 , n < 80)
+```
+
+Hoặc
+
+```         
+titanic %>% filter(n >16 , n < 80)
+```
+
+## 6. Filter dữ liệu bằng [**filter()**]{style="color: red;"}
+
+-   Hoặc lọc ra chỉ những người sống sót
+
+```{r}
+filter(titanic, Survived == "1")
+```
+
+Hoặc
+
+```         
+titanic %>% filter(Survived == "1")
+```
+
+## 7. Tạo biến với [**mutate()**]{style="color: red;"}
+
+-   Hàm **mutate()** rất hữu ích và được sử dụng rất nhiều, cho phép tạo ra các biến mới hoặc chỉnh sửa biến cùng lúc. Hàm **mutate()** thường dùng để:
+    -   Hoán chuyển dữ liệu hiện có
+    -   Tạo ra biến mới hoàn toàn
+-   Các hàm biến đổi dữ liệu có thể kết hợp với nhiều cách khác nhau
+
+## 7. Tạo biến với [**mutate()**]{style="color: red;"}
+
+Giả sử những người ở class 1 và 2 sẽ ở tầng 2 và class 3 và 4 ở tầng 1
+
+```{r}
+titanic <- mutate(titanic, Floor = ifelse(Class <= "2", "2nd", "1st"))
+head(titanic)
+```
+
+Hoặc
+
+```         
+titanic %<>% mutate(Floor = ifelse(Class <= "2", "2nd", "1st"))
+```
+
+## 7. Tạo biến với [**mutate()**]{style="color: red;"}
+
+-   Thêm biến Adult "Yes/No" dựa theo Age
+
+```{r}
+mutate(titanic, Adult = ifelse(Age == "Adult", "Yes", "No"))
+```
+
+Hoặc
+
+```         
+titanic %>% mutate(Adult = ifelse(Age == "Adult", "Yes", "No"))
+```
+
+## Tóm tắt dữ liệu với [**group_by()**]{style="color: red;"} kết hợp với [**summarise()**]{style="color: red;"}
+
+-   Hàm **summarise()** có chức năng tóm tắt dữ liệu theo ý muốn, khi kết hợp với **group_by()** sẽ tạo ra bảng thống kê theo từng phân nhóm
+-   Giả sử muốn đếm số lượng người theo giới
+
+```{r}
+titanic %>% 
+    group_by(gioitinh) %>% 
+    summarise(Freq = n(), mean_n = mean(n))
+```
+
+## Tóm tắt dữ liệu với [**group_by()**]{style="color: red;"} kết hợp với [**summarise()**]{style="color: red;"}
+
+-   Đếm số lượng người theo hạng Class, Giới tính và tình trạng sống sót Survived
+
+```{r}
+titanic %>% 
+    group_by(Class, gioitinh, Survived) %>% 
+    summarise(Freq = n())
+```
+
+## 9. Chuyển đổi dạng dữ liệu với [**pivot_longer()**]{style="color: red;"}
+
+-   Hàm [**pivot_longer()**]{style="color: red;"} cho phép chuyển đổi dạng dữ liệu từ dạng **wide** sang **long**.
+-   Data ví dụ trong trường hợp này là data iso:
+
+Nghiên cứu đánh giá tác động của isoproterenol, một chất chủ vận β2-adrenergic, đến lưu lượng máu cẳng tay trên 22 người đàn ông khỏe mạnh. Trong đó có 9 người da đen và 13 người da trắng. Lưu lượng máu cẳng tay (ml/min/dl) của mỗi người được đo lường tại thời điểm ban đầu và tại những thời điểm tăng liều isoproterenol (các liều 10, 20, 60, 150, 300 và 400 (ng/min))
+
+## 9. Chuyển đổi dạng dữ liệu với [**pivot_longer()**]{style="color: red;"}
+
+```{r}
+iso <- read_csv("Isoproterenol.csv")
+# doi lai bien race 
+iso$race <- case_match(iso$race, 1 ~ "White", 2 ~ "Black") 
+head(iso)
+```
+
+## 9. Chuyển đổi dạng dữ liệu với [**pivot_longer()**]{style="color: red;"}
+
+-   Dữ liệu đang ở dạng wide, cần chuyển sang dạng long với tên biến là dose và giá trị là fbf, gán vào object đặt tên là iso_long
+
+```{r}
+iso_long <- pivot_longer(
+	iso, -c(id, race), 
+	names_to = "Dose", values_to = "fbf"
+)
+head(iso_long)
+```

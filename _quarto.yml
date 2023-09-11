@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "R programming"
+  title: "R Course"
   navbar:
     left:
       - href: index.qmd
@@ -13,6 +13,12 @@ website:
       - bài 3.qmd
       - Bài 4.qmd
       - bài 5.qmd
+      - bài 6.qmd
+      - bài 7.qmd
+      - bài 8.qmd
+      - bài 9.qmd
+      - bài 10.qmd
+      - bài 11.qmd
 
 format:
   html:

@@ -17,7 +17,9 @@ format: revealjs
 
 -   1991: R được phát triển bởi Ross Ihaka và Robert Gentleman ở Khoa Thống kê, Đại học Auckland
 -   1993: Phát hành R cho công chúng
--   1996: Phát hành bài báo về kinh nghiệm và quá trình phát triển R trên tập san Journal of Computational and Graphical Statistics ![](images/image1.png){.absolute bottom="50" left="100" width="800" height="200"}
+-   1996: Phát hành bài báo về kinh nghiệm và quá trình phát triển R trên tập san Journal of Computational and Graphical Statistics
+
+![](images/image1.png){fig-align="center"}
 
 ## Ưu, nhược điểm
 
@@ -95,15 +97,15 @@ Nhược điểm
 
 -   [https://posit.co/](https://posit.co/){preview-link="true" style="text-align: left"}
 
-![](images/d.png){.absolute bottom="0" left="0" width="1400" height="500"}
+![](images/d.png){fig-align="center"}
 
 ## RStudio
 
-![](images/2.png){.absolute bottom="100" left="0" width="1400" height="500"}
+![](images/2.png){fig-align="center"}
 
 ## RStudio
 
-![](images/1.png){.absolute bottom="100" left="0" width="1400" height="500"}
+![](images/1.png){fig-align="center"}
 
 ## RStudio
 
@@ -123,7 +125,7 @@ Nhược điểm
 
 ## RStudio
 
-![](images/c.png){.absolute bottom="100" left="100" width="800" height="500"}
+![](images/c.png){fig-align="center"}
 
 ## Mục tiêu phần lập trình R
 

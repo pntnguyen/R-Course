@@ -2,6 +2,10 @@
 title: "R programming course"
 ---
 
-Mục tiêu khóa học:
+::: {layout-ncol="2"}
+![](images4/oucru.jpg){width="800" height="800"}
+
+![](images4/hcdc.jpg){width="800" height="800"}
+:::
 
 

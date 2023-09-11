@@ -7,131 +7,134 @@ format: revealjs
 
 ## Đọc dữ liệu
 
-- Các lệnh thường dùng:
- - read.table(), read.csv(): data dạng bảng
- - fread() (trong package data.table): giống như read.table() nhưng tốc độ đọc nhanh hơn
- - readLines(): dạng văn bản (text)
- - source(): data R code (file.R)
- - load(): data R workspace (file.RData, file.rda)
- - readRDS(): data R object (file.rds)
- 
-## read.table()
-
-- read.table(file, header = FALSE, sep = "", na.strings = "NA", colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)
-  - Đọc file dạng bảng vào thành 1 data frame
-  - Lưu ý: lệnh chỉ đọc file dạng text như .csv, .tsv, .txt, không đọc được file excel vì excel như (.xls, .xlsx) là binary format
-  - file: đường dẫn tới file, để tránh lỗi nên đặt tên file, tất cả folder dẫn tới file này dưới dạng không dấu, không khoảng trắng
+-   Các lệnh thường dùng:
+-   read.table(), read.csv(): data dạng bảng
+-   fread() (trong package data.table): giống như read.table() nhưng tốc độ đọc nhanh hơn
+-   readLines(): dạng văn bản (text)
+-   source(): data R code (file.R)
+-   load(): data R workspace (file.RData, file.rda)
+-   readRDS(): data R object (file.rds)
 
 ## read.table()
 
-- read.table(file, header = FALSE, sep = "", na.strings = "NA", colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)
-  - header = TRUE: lấy hàng đầu tiên làm tên cột, nếu chọn header = FALSE thì tên cột sẽ tự động tạo dạng V1, V2, V3...
-  - sep: giữa các cột ngăn cách nhau bằng gì, có thể là sep = “,“ (dấu , của dạng .csv), sep = “\t“ (phím tab của dạng tsv)…
-  
+-   read.table(file, header = FALSE, sep = "", na.strings ="NA", colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)
+    -   Đọc file dạng bảng vào thành 1 data frame
+    -   Lưu ý: lệnh chỉ đọc file dạng text như .csv, .tsv, .txt, không đọc được file excel vì excel như (.xls, .xlsx) là binary format
+    -   file: đường dẫn tới file, để tránh lỗi nên đặt tên file, tất cả folder dẫn tới file này dưới dạng không dấu, không khoảng trắng
+
 ## read.table()
 
-- read.table(file, header = FALSE, sep = "", na.strings = "NA", check.names = TRUE, stringsAsFactors = TRUE)
-  - na.strings: missing value trong file được ký hiệu là gì
-  - check.names: nếu hàng đầu tiên được dùng làm tên cột (header = TRUE) và chọn check.names = TRUE, R sẽ kiểm tra xem tên cột này có đúng với quy định của R không, ví dụ tên cột không được là số, nếu là số thì sẽ tự động thêm chữ X vào; nếu chọn check.names = FALSE thì sẽ giữ nguyên
-  - stringsAsFactors: mặc định = TRUE, cột data loại ký tự sẽ được chuyển thành factor
-  
+-   read.table(file, header = FALSE, sep = "", na.strings ="NA", colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)
+    -   header = TRUE: lấy hàng đầu tiên làm tên cột, nếu chọn header = FALSE thì tên cột sẽ tự động tạo dạng V1, V2, V3...
+    -   sep: giữa các cột ngăn cách nhau bằng gì, có thể là sep = "," (dấu , của dạng .csv), sep = "\t“ (phím tab của dạng tsv)...
+
+## read.table()
+
+-   read.table(file, header = FALSE, sep = "", na.strings ="NA", check.names = TRUE, stringsAsFactors = TRUE)
+    -   na.strings: missing value trong file được ký hiệu là gì
+    -   check.names: nếu hàng đầu tiên được dùng làm tên cột (header = TRUE) và chọn check.names = TRUE, R sẽ kiểm tra xem tên cột này có đúng với quy định của R không, ví dụ tên cột không được là số, nếu là số thì sẽ tự động thêm chữ X vào; nếu chọn check.names = FALSE thì sẽ giữ nguyên
+    -   stringsAsFactors: mặc định = TRUE, cột data loại ký tự sẽ được chuyển thành factor
+
 ## Đọc dữ liệu
 
-- Khả năng quản lý bộ nhớ của R kém hơn các ngôn ngữ lập trình khác, khi đọc cùng 1 data thì R tốn nhiều dung lượng RAM hơn các ngôn ngữ khác nhiều
-- Với các dữ liệu nhỏ vài trăm MB thì bộ nhớ RAM không thành vấn đề, tuy nhiên với các dữ liệu lớn thì nên tính toán trước xem có đủ RAM để đọc dữ liệu này không để tránh treo máy 
-- Công thức ước lượng: memory = số cột x số hàng x 8 bytes x trọng số của loại data
-  - Numeric: 1
-  - Character: 1.1
-  
+-   Khả năng quản lý bộ nhớ của R kém hơn các ngôn ngữ lập trình khác, khi đọc cùng 1 data thì R tốn nhiều dung lượng RAM hơn các ngôn ngữ khác nhiều
+-   Với các dữ liệu nhỏ vài trăm MB thì bộ nhớ RAM không thành vấn đề, tuy nhiên với các dữ liệu lớn thì nên tính toán trước xem có đủ RAM để đọc dữ liệu này không để tránh treo máy
+-   Công thức ước lượng: memory = số cột x số hàng x 8 bytes x trọng số của loại data
+    -   Numeric: 1
+    -   Character: 1.1
+
 ## Lưu ý khi đọc dữ liệu
 
-Ví dụ có file sau đây
-![](images3/1.png){ left="200" width="1500" height="50"}
+Ví dụ có file sau đây 
+
+![](images3/1.png){fig-align="center"}
+
 Đọc thử vào R, dùng lệnh object_size() trong package pryr để xem object chiếm dung lượng bao nhiêu và so sánh với công thức ước lượng
+
 ```{r}
 library(pryr)
 fp <- "/home/thinh/Documents/tnt.csv/"
 
 ```
 
-## Lưu ý khi đọc dữ liệu 
+## Lưu ý khi đọc dữ liệu
 
-- Ví dụ 2:
-- File có 1 số dữ liệu missing data nên ước lượng công thức cao hơn thực tế, nhưng ước lượng dư vẫn đỡ hơn là thiếu
+-   Ví dụ 2:
+-   File có 1 số dữ liệu missing data nên ước lượng công thức cao hơn thực tế, nhưng ước lượng dư vẫn đỡ hơn là thiếu
 
-## Lưu ý khi đọc dữ liệu 
+## Lưu ý khi đọc dữ liệu
 
-- Các ví dụ cho thấy dung lượng bộ nhớ cần để đọc file luôn lớn hơn dung lượng thực thấy được trên phần mềm quản lý file
-- Dung lượng bộ nhớ cần để đọc file phụ thuộc vào số hàng, số cột và loại data
+-   Các ví dụ cho thấy dung lượng bộ nhớ cần để đọc file luôn lớn hơn dung lượng thực thấy được trên phần mềm quản lý file
+-   Dung lượng bộ nhớ cần để đọc file phụ thuộc vào số hàng, số cột và loại data
 
 ## read.csv()
 
-- read.csv(file, header = TRUE, sep = “,", na.strings = "NA", colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)
-- Tương tự như read.table(), trong đó header = TRUE và sep = “,“ đã được quy định làm default cho nhanh gọn, do đó thường chỉ cần gõ read.csv(file)
+-   read.csv(file, header = TRUE, sep = ",", na.strings = "NA", colClasses = NA, check.names = TRUE, stringsAsFactors = FALSE)
+-   Tương tự như read.table(), trong đó header = TRUE và sep = "," đã được quy định làm default cho nhanh gọn, do đó thường chỉ cần gõ read.csv(file)
 
 ## fread()
 
-- library(data.table)
-- fread(file)
-- Thường chỉ cần dùng fread(file), nếu cần yêu cầu cụ thể hơn tham khảo hướng dẫn bằng cách gõ ?fread trong Rstudio
-- Tốc độ đọc file nhanh hơn read.table(), ví dụ 1 file khoảng 1GB dùng read.table() mất khoảng 10 phút nhưng fread() chỉ mất khoảng 15 giây
+-   library(data.table)
+-   fread(file)
+-   Thường chỉ cần dùng fread(file), nếu cần yêu cầu cụ thể hơn tham khảo hướng dẫn bằng cách gõ ?fread trong Rstudio
+-   Tốc độ đọc file nhanh hơn read.table(), ví dụ 1 file khoảng 1GB dùng read.table() mất khoảng 10 phút nhưng fread() chỉ mất khoảng 15 giây
 
 ## Ghi dữ liệu
 
-- Ghi dữ liệu thành file để lưu trữ kết quả, tạo bảng báo cáo...
-- Các lệnh thường dùng (gần như tương ứng với các lệnh để đọc dữ liệu chỉ thay read bằng write):
-  - write.table(): ghi thành dạng bảng
-  - writeLines(): ghi thành file văn bản
-  - saveRDS(): ghi thành file.rds
-  - save(), save.image(): ghi thành file.RData
-  - pdf(): ghi file biểu đồ thành pdf (hướng dẫn cụ thể trong bài Visualization)
+-   Ghi dữ liệu thành file để lưu trữ kết quả, tạo bảng báo cáo...
+-   Các lệnh thường dùng (gần như tương ứng với các lệnh để đọc dữ liệu chỉ thay read bằng write):
+    -   write.table(): ghi thành dạng bảng
+    -   writeLines(): ghi thành file văn bản
+    -   saveRDS(): ghi thành file.rds
+    -   save(), save.image(): ghi thành file.RData
+    -   pdf(): ghi file biểu đồ thành pdf (hướng dẫn cụ thể trong bài Visualization)
 
 ## write.table()
 
-- write.table(x, file = "", sep = " ", row.names = TRUE, col.names = TRUE, quote = TRUE)
-  - x: data frame cần để ghi thành file
-  - file: đường dẫn tới nơi muốn ghi file và có luôn tên file, ví dụ: file = "D:/Dropbox/file.csv"
-  - sep: giống như trong lệnh read.table(), các cột ngăn cách nhau bằng gì
-  
+-   write.table(x, file = "", sep =" ", row.names = TRUE, col.names = TRUE, quote = TRUE)
+    -   x: data frame cần để ghi thành file
+    -   file: đường dẫn tới nơi muốn ghi file và có luôn tên file, ví dụ: file = "D:/Dropbox/file.csv"
+    -   sep: giống như trong lệnh read.table(), các cột ngăn cách nhau bằng gì
+
 ## write.table()
 
-- write.table(x, file = "", sep = " ", row.names = TRUE, col.names = TRUE, quote = TRUE)
-  - row.names = TRUE: có ghi tên hàng vào file không
-  - colnames = TRUE: có ghi tên cột vào file không
-  - quote = TRUE: các cột dạng ký tự sẽ được ghi trong dấu " ", thường nên cho quote = FALSE để file được đẹp
+-   write.table(x, file = "", sep =" ", row.names = TRUE, col.names = TRUE, quote = TRUE)
+    -   row.names = TRUE: có ghi tên hàng vào file không
+    -   colnames = TRUE: có ghi tên cột vào file không
+    -   quote = TRUE: các cột dạng ký tự sẽ được ghi trong dấu " ", thường nên cho quote = FALSE để file được đẹp
 
 ## saveRDS()
 
-- saveRDS(mtcars, "mtcars.rds")
-- Save 1 object duy nhất vào file
-- Khi đọc vào nên cho vào biến
-- my_data <- readRDS("mtcars.rds")
+-   saveRDS(mtcars, "mtcars.rds")
+-   Save 1 object duy nhất vào file
+-   Khi đọc vào nên cho vào biến
+-   my_data \<- readRDS("mtcars.rds")
 
 ## save(), save.image()
 
-- save(data1, data2, file = "data.RData")
-- Có thể ghi nhiều objects vào 1 file
-- Nếu muốn ghi toàn bộ các objects trong phiên làm việc hiện tại vào 1 file, dùng
-- save.image(file = "my_work_space.RData")
-- Do trong cùng 1 file chứa nhiều objects nên không thể đọc vào 1 biến như readRDS(), mà dùng lệnh load()
-- load("data.RData")
-- load("my_work_space.RData")
+-   save(data1, data2, file = "data.RData")
+-   Có thể ghi nhiều objects vào 1 file
+-   Nếu muốn ghi toàn bộ các objects trong phiên làm việc hiện tại vào 1 file, dùng
+-   save.image(file = "my_work_space.RData")
+-   Do trong cùng 1 file chứa nhiều objects nên không thể đọc vào 1 biến như readRDS(), mà dùng lệnh load()
+-   load("data.RData")
+-   load("my_work_space.RData")
 
 ## Excel
 
-- Đọc excel
-  - library(readxl)
-  - read_excel(“file_path”)
-- Ghi excel
-  - library(writexl)
-  - write_xlsx(dataframe, “file_path”, col_names=TRUE)
+-   Đọc excel
+    -   library(readxl)
+    -   read_excel("file_path")
+-   Ghi excel
+    -   library(writexl)
+    -   write_xlsx(dataframe, "file_path", col_names=TRUE)
 
 ## SPSS và Stata
 
-- library(haven)
-- Đọc file
-  - SPSS: read_sav(“file_path”)
-  - Stata: read_dta (“file_path”)
-- Ghi file
-  - SPSS: read_sav(dataframe, “file_path”)
-  - Stata: read_dta(dataframe, “file_path”)
+-   library(haven)
+-   Đọc file
+    -   SPSS: read_sav("file_path")
+    -   Stata: read_dta ("file_path")
+-   Ghi file
+    -   SPSS: read_sav(dataframe, "file_path")
+    -   Stata: read_dta(dataframe, "file_path")
